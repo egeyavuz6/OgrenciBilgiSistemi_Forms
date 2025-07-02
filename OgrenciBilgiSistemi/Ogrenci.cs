@@ -6,16 +6,22 @@ using System.Threading.Tasks;
 
 namespace OgrenciBilgiSistemi
 {
-    internal class Ogrenci : OBS
+    public class Ogrenci
     {
         public string isim { get; set; }
         public string soyisim { get; set; }
         public int ID { get; set; }
-            
-        public Ogrenci(String isim, String soyisim, int ID) {
-            this.isim = isim;
-            this.soyisim = soyisim;
-            this.ID = ID;
+        public List<int> notlar { get; set; } = new List<int>();
+
+        public void NotEkle(int notDegeri)
+        {
+            notlar.Add(notDegeri);
+        }
+
+        public double OrtalamaHesapla()
+        {
+            if (notlar.Count == 0) return 0;
+            return notlar.Average();
         }
     }
 }

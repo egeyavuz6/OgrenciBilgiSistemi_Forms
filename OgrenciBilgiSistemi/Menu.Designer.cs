@@ -35,8 +35,8 @@
             ogrencileriListeleToolStripMenuItem = new ToolStripMenuItem();
             notIslemleriToolStripMenuItem = new ToolStripMenuItem();
             notEkleToolStripMenuItem = new ToolStripMenuItem();
-            notSilToolStripMenuItem = new ToolStripMenuItem();
             notlarıListeleToolStripMenuItem = new ToolStripMenuItem();
+            notSilToolStripMenuItem = new ToolStripMenuItem();
             cikisToolStripMenuItem = new ToolStripMenuItem();
             adBox1 = new TextBox();
             soyadBox1 = new TextBox();
@@ -96,9 +96,16 @@
             // notEkleToolStripMenuItem
             // 
             notEkleToolStripMenuItem.Name = "notEkleToolStripMenuItem";
-            notEkleToolStripMenuItem.Size = new Size(180, 24);
+            notEkleToolStripMenuItem.Size = new Size(213, 24);
             notEkleToolStripMenuItem.Text = "Not Ekle";
             notEkleToolStripMenuItem.Click += notEkleToolStripMenuItem_Click;
+            // 
+            // notlarıListeleToolStripMenuItem
+            // 
+            notlarıListeleToolStripMenuItem.Name = "notlarıListeleToolStripMenuItem";
+            notlarıListeleToolStripMenuItem.Size = new Size(213, 24);
+            notlarıListeleToolStripMenuItem.Text = "Notları Listele";
+            notlarıListeleToolStripMenuItem.Click += notlarıListeleToolStripMenuItem_Click;
             // 
             // notSilToolStripMenuItem
             // 
@@ -106,13 +113,6 @@
             notSilToolStripMenuItem.Size = new Size(213, 24);
             notSilToolStripMenuItem.Text = "Notların Ortalaması";
             notSilToolStripMenuItem.Click += notSilToolStripMenuItem_Click;
-            // 
-            // notlarıListeleToolStripMenuItem
-            // 
-            notlarıListeleToolStripMenuItem.Name = "notlarıListeleToolStripMenuItem";
-            notlarıListeleToolStripMenuItem.Size = new Size(180, 24);
-            notlarıListeleToolStripMenuItem.Text = "Notları Listele";
-            notlarıListeleToolStripMenuItem.Click += notlarıListeleToolStripMenuItem_Click;
             // 
             // cikisToolStripMenuItem
             // 
@@ -128,6 +128,7 @@
             adBox1.Size = new Size(200, 23);
             adBox1.TabIndex = 1;
             adBox1.Visible = false;
+            adBox1.TextChanged += adBox1_TextChanged;
             // 
             // soyadBox1
             // 
@@ -154,6 +155,7 @@
             adLabel1.TabIndex = 4;
             adLabel1.Text = "Öğrenci Adı:";
             adLabel1.Visible = false;
+            adLabel1.Click += adLabel1_Click;
             // 
             // soyadLabel
             // 

@@ -12,6 +12,8 @@ namespace OgrenciBilgiSistemi
 {
     public partial class Menu : Form
     {
+        List<Ogrenci> ogrenciListesi = new List<Ogrenci>();
+
         public Menu()
         {
             InitializeComponent();
@@ -24,22 +26,17 @@ namespace OgrenciBilgiSistemi
 
         private void ogrenciEkleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            adLabel1.Visible = true;
-            adBox1.Visible = true;
-            soyadLabel.Visible = true;
-            soyadBox1.Visible = true;
-            noLabel.Visible = true;
-            noBox.Visible = true;
-            Button.Visible = true;
-            Button.Text = "Öğrenci Ekle";
+
+            OgrenciEkleForm ekleForm = new OgrenciEkleForm(ogrenciListesi);
+            ekleForm.Show();
+
+
         }
 
         private void ogrenciSilToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            noLabel.Visible = true;
-            noBox.Visible = true;
-            Button.Visible = true;
-            Button.Text = "Öğrenci Sil";
+            OgrenciSilForm silForm = new OgrenciSilForm(ogrenciListesi);
+            silForm.Show();
 
         }
 
@@ -50,27 +47,25 @@ namespace OgrenciBilgiSistemi
 
         private void notEkleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            noLabel.Visible = true;
-            noBox.Visible = true;
-            Button.Visible = true;
-            Button.Text = "Not Ekle";
+
+            NotEkleForm notForm = new NotEkleForm(ogrenciListesi);
+            notForm.Show();
+
         }
 
         private void notSilToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            noLabel.Visible = true;
-            noBox.Visible = true;
-            Button.Visible = true;
-            Button.Text = "Ortalama Al";
+            OrtalamaForm ortalamaForm = new OrtalamaForm(ogrenciListesi);
+            ortalamaForm.Show();
         }
+
 
         private void notlarıListeleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            noLabel.Visible = true;
-            noBox.Visible = true;
-            Button.Text = "Notları Listele";
-            Button.Visible = true;
+            NotListeleForm listeleForm = new NotListeleForm(ogrenciListesi);
+            listeleForm.Show();
         }
+
 
 
 
@@ -79,50 +74,24 @@ namespace OgrenciBilgiSistemi
 
         }
 
-        
+
+
 
         private void ekleButton_Click(object sender, EventArgs e)
         {
-            switch (Button.Text)
-            {
-                case "Öğrenci Ekle":
-                    adBox1.Visible = false;
-                    soyadBox1.Visible = false;
-                    noBox.Visible = false;
-                    adLabel1.Visible = false;
-                    soyadLabel.Visible = false;
-                    noLabel.Visible = false;
-                    Button.Visible = false;
 
-                    MessageBox.Show("Öğrenci eklendi: " + adBox1.Text + " " + soyadBox1.Text);
-                    break;
-                case "Öğrenci Sil":
-                    noBox.Visible = false;
-                    noLabel.Visible = false;
-                    Button.Visible = false;
 
-                    MessageBox.Show("Öğrenci silindi: " + noBox.Text);
-                    break;
-                case "Not Ekle":
-                    noBox.Visible = false;
-                    noLabel.Visible = false;
-                    Button.Visible = false;
 
-                    MessageBox.Show("Not eklendi: " + noBox.Text);
-                    break;
-                case "Ortalama Al":
-                    noBox.Visible = false;
-                    noLabel.Visible = false;
-                    Button.Visible = false;
-                    break;
-
-                case "Notları Listele":
-                    noBox.Visible = false;
-                    noLabel.Visible = false;
-                    Button.Visible = false;
-                    break;
-            }
         }
 
+        private void adLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void adBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
