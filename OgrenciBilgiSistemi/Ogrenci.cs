@@ -11,9 +11,9 @@ namespace OgrenciBilgiSistemi
         public string isim { get; set; }
         public string soyisim { get; set; }
         public int ID { get; set; }
-        public List<int> notlar { get; set; } = new List<int>();
+        public List<double> notlar { get; set; } = new List<double>();
 
-        public void NotEkle(int notDegeri)
+        public void NotEkle(double notDegeri)
         {
             notlar.Add(notDegeri);
         }

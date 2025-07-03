@@ -33,6 +33,7 @@
             passwordBox = new TextBox();
             username = new Label();
             password = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // enter
@@ -78,12 +79,25 @@
             password.TabIndex = 5;
             password.Text = "Şifre:";
             // 
+            // button1
+            // 
+            button1.Font = new Font("Calibri", 12F, FontStyle.Bold);
+            button1.Location = new Point(684, 395);
+            button1.Name = "button1";
+            button1.Size = new Size(104, 43);
+            button1.TabIndex = 6;
+            button1.Text = "Yönetici Ekle";
+            button1.UseVisualStyleBackColor = true;
+            button1.Visible = false;
+            button1.Click += button1_Click_1;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 255, 128);
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
             Controls.Add(password);
             Controls.Add(username);
             Controls.Add(passwordBox);
@@ -102,5 +116,6 @@
         private TextBox passwordBox;
         private Label username;
         private Label password;
+        private Button button1;
     }
 }

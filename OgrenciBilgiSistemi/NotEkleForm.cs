@@ -15,12 +15,25 @@ namespace OgrenciBilgiSistemi
             ogrenciListesi = ogrenciler;
         }
 
-        private void btnNotEkle_Click(object sender, EventArgs e)
+   
+
+        private void NotEkleForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNotEkle_Click_1(object sender, EventArgs e)
         {
             try
             {
                 int no = int.Parse(txtNo.Text);
-                int not = int.Parse(txtNot.Text);
+                double not = double.Parse(txtNot.Text);
+
+                if (not < 0 || not > 100)
+                {
+                    MessageBox.Show("Not 0 ile 100 arasında olmalıdır.");
+                    return;
+                }
 
                 var ogr = ogrenciListesi.FirstOrDefault(o => o.ID == no);
 

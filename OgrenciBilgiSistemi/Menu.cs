@@ -43,8 +43,17 @@ namespace OgrenciBilgiSistemi
         private void ogrencileriListeleToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+                if (ogrenciListesi.Count > 0)
+                {
+                    string liste = string.Join(Environment.NewLine, ogrenciListesi.Select(o => $"{o.ID} - {o.isim} {o.soyisim}"));
+                    MessageBox.Show("Öğrenci Listesi:\n" + liste);
+                }
+                else
+                {
+                    MessageBox.Show("Listeleyecek öğrenci yok.");
+                }
         }
-
+  
         private void notEkleToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -65,33 +74,10 @@ namespace OgrenciBilgiSistemi
             NotListeleForm listeleForm = new NotListeleForm(ogrenciListesi);
             listeleForm.Show();
         }
-
-
-
-
         private void Menu_Load(object sender, EventArgs e)
         {
 
         }
 
-
-
-
-        private void ekleButton_Click(object sender, EventArgs e)
-        {
-
-
-
-        }
-
-        private void adLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void adBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

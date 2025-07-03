@@ -15,7 +15,7 @@ namespace OgrenciBilgiSistemi
             ogrenciListesi = ogrenciler;
         }
 
-        private void btnListele_Click(object sender, EventArgs e)
+        private void btnListele_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -27,7 +27,7 @@ namespace OgrenciBilgiSistemi
                     if (ogr.notlar.Count > 0)
                     {
                         string notlar = string.Join(", ", ogr.notlar);
-                        MessageBox.Show("Öğrencinin Notları: " + notlar);
+                        MessageBox.Show("Öğrenci: " + ogr.isim + " " + ogr.soyisim+" \n\nÖğrencinin Notları: " + notlar);
                     }
                     else
                     {
@@ -44,6 +44,11 @@ namespace OgrenciBilgiSistemi
             {
                 MessageBox.Show("Geçersiz giriş yaptın, tekrar dene.");
             }
+        }
+
+        private void txtNo_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

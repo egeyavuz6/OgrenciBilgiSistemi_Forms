@@ -38,13 +38,6 @@
             notlarıListeleToolStripMenuItem = new ToolStripMenuItem();
             notSilToolStripMenuItem = new ToolStripMenuItem();
             cikisToolStripMenuItem = new ToolStripMenuItem();
-            adBox1 = new TextBox();
-            soyadBox1 = new TextBox();
-            noBox = new TextBox();
-            adLabel1 = new Label();
-            soyadLabel = new Label();
-            noLabel = new Label();
-            Button = new Button();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -121,86 +114,12 @@
             cikisToolStripMenuItem.Text = "Cikis";
             cikisToolStripMenuItem.Click += cikisToolStripMenuItem_Click;
             // 
-            // adBox1
-            // 
-            adBox1.Location = new Point(236, 114);
-            adBox1.Name = "adBox1";
-            adBox1.Size = new Size(200, 23);
-            adBox1.TabIndex = 1;
-            adBox1.Visible = false;
-            adBox1.TextChanged += adBox1_TextChanged;
-            // 
-            // soyadBox1
-            // 
-            soyadBox1.Location = new Point(236, 162);
-            soyadBox1.Name = "soyadBox1";
-            soyadBox1.Size = new Size(200, 23);
-            soyadBox1.TabIndex = 2;
-            soyadBox1.Visible = false;
-            // 
-            // noBox
-            // 
-            noBox.Location = new Point(236, 215);
-            noBox.Name = "noBox";
-            noBox.Size = new Size(200, 23);
-            noBox.TabIndex = 3;
-            noBox.Visible = false;
-            // 
-            // adLabel1
-            // 
-            adLabel1.Font = new Font("Segoe UI", 15F);
-            adLabel1.Location = new Point(70, 106);
-            adLabel1.Name = "adLabel1";
-            adLabel1.Size = new Size(160, 49);
-            adLabel1.TabIndex = 4;
-            adLabel1.Text = "Öğrenci Adı:";
-            adLabel1.Visible = false;
-            adLabel1.Click += adLabel1_Click;
-            // 
-            // soyadLabel
-            // 
-            soyadLabel.Font = new Font("Segoe UI", 15F);
-            soyadLabel.Location = new Point(70, 162);
-            soyadLabel.Name = "soyadLabel";
-            soyadLabel.Size = new Size(160, 49);
-            soyadLabel.TabIndex = 5;
-            soyadLabel.Text = "Öğrenci Soyadı:";
-            soyadLabel.Visible = false;
-            // 
-            // noLabel
-            // 
-            noLabel.Font = new Font("Segoe UI", 15F);
-            noLabel.Location = new Point(70, 215);
-            noLabel.Name = "noLabel";
-            noLabel.Size = new Size(160, 49);
-            noLabel.TabIndex = 6;
-            noLabel.Text = "Öğrenci No:";
-            noLabel.Visible = false;
-            // 
-            // Button
-            // 
-            Button.Font = new Font("Calibri", 13F, FontStyle.Bold);
-            Button.Location = new Point(236, 277);
-            Button.Name = "Button";
-            Button.Size = new Size(200, 66);
-            Button.TabIndex = 7;
-            Button.UseVisualStyleBackColor = true;
-            Button.Visible = false;
-            Button.Click += ekleButton_Click;
-            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 255, 128);
             ClientSize = new Size(799, 421);
-            Controls.Add(Button);
-            Controls.Add(noLabel);
-            Controls.Add(soyadLabel);
-            Controls.Add(adLabel1);
-            Controls.Add(noBox);
-            Controls.Add(soyadBox1);
-            Controls.Add(adBox1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "Menu";
@@ -224,12 +143,5 @@
         private ToolStripMenuItem notSilToolStripMenuItem;
         private ToolStripMenuItem notlarıListeleToolStripMenuItem;
         private ToolStripMenuItem cikisToolStripMenuItem;
-        private TextBox adBox1;
-        private TextBox soyadBox1;
-        private TextBox noBox;
-        private Label adLabel1;
-        private Label soyadLabel;
-        private Label noLabel;
-        private Button Button;
     }
 }

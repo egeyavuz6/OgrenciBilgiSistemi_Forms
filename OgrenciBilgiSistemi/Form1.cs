@@ -9,26 +9,35 @@ namespace OgrenciBilgiSistemi
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Admin admin = new Admin("admin", "1234");
 
         }
 
-        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(usernameBox.Text == "admin" && passwordBox.Text == "1234")
+            string kullaniciAdi = usernameBox.Text;
+            string sifre = passwordBox.Text;
+            Admin admin = new Admin(kullaniciAdi, sifre);
+            if (admin.GirisYap(kullaniciAdi, sifre))
             {
                 Menu menu = new Menu();
                 menu.Show();
-                this.Hide(); 
+                this.Hide();
             }
             else
             {
-                MessageBox.Show("Kullanýcý adý veya þifre yanlýþ!");
+                MessageBox.Show("Kullanýcý adý veya þifre yanlýþ.");
             }
+
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            MessageBox.Show("Var olan bir admin ile ekleme yapýlabilir. \n");
+
+
         }
     }
 }
