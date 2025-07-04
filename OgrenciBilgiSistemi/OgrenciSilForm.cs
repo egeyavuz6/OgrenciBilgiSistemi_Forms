@@ -17,26 +17,41 @@ namespace OgrenciBilgiSistemi
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            string ogrenciNo = textBox1.Text.Trim(); 
+
+
+            if (string.IsNullOrEmpty(ogrenciNo))
+            {
+                MessageBox.Show("Lütfen öğrenci numarasını girin.");
+                return;
+            }
+
             try
             {
-                int no = int.Parse(textBox1.Text);
-                var silinecek = ogrenciListesi.FirstOrDefault(o => o.ID == no);
+                using (var context = new OBSContext())
+                {
+                    var ogrenci = context.Ogrenciler.FirstOrDefault(o => o.OgrenciNo == ogrenciNo);
 
-                if (silinecek != null)
-                {
-                    ogrenciListesi.Remove(silinecek);
-                    MessageBox.Show("Öğrenci silindi: " + silinecek.isim + " " + silinecek.soyisim);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Öğrenci bulunamadı.");
+                    if (ogrenci != null)
+                    {
+                        context.Ogrenciler.Remove(ogrenci);
+                        context.SaveChanges();
+
+                        MessageBox.Show("Öğrenci başarıyla silindi.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Öğrenci bulunamadı.");
+                    }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Geçersiz giriş yaptın, tekrar dene.");
+                MessageBox.Show("Hata oluştu: " + ex.Message);
             }
         }
+
     }
 }
+

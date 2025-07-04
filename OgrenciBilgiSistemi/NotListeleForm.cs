@@ -20,14 +20,14 @@ namespace OgrenciBilgiSistemi
             try
             {
                 int no = int.Parse(txtNo.Text);
-                var ogr = ogrenciListesi.FirstOrDefault(o => o.ID == no);
+                var ogr = ogrenciListesi.FirstOrDefault(o => o.Id == no);
 
                 if (ogr != null)
                 {
-                    if (ogr.notlar.Count > 0)
+                    if (ogr.Notlar.Count > 0)
                     {
-                        string notlar = string.Join(", ", ogr.notlar);
-                        MessageBox.Show("Öğrenci: " + ogr.isim + " " + ogr.soyisim+" \n\nÖğrencinin Notları: " + notlar);
+                        string notlar = string.Join(", ", ogr.Notlar);
+                        MessageBox.Show("Öğrenci: " + ogr.Isim + " " + ogr.Soyisim+" \n\nÖğrencinin Notları: " + notlar);
                     }
                     else
                     {

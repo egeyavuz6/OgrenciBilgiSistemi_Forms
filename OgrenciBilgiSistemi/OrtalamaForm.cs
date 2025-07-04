@@ -20,7 +20,7 @@ namespace OgrenciBilgiSistemi
             try
             {
                 int no = int.Parse(textBox1.Text);
-                var ogr = ogrenciListesi.FirstOrDefault(o => o.ID == no);
+                var ogr = ogrenciListesi.FirstOrDefault(o => o.Id == no);
 
                 if (ogr != null)
                 {
@@ -38,5 +38,6 @@ namespace OgrenciBilgiSistemi
                 MessageBox.Show("Geçersiz giriş yaptın, tekrar dene.");
             }
         }
+
     }
 }

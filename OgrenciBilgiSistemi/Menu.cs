@@ -42,18 +42,11 @@ namespace OgrenciBilgiSistemi
 
         private void ogrencileriListeleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            OgrencileriListele listeleForm = new OgrencileriListele();
+            listeleForm.Show();
 
-                if (ogrenciListesi.Count > 0)
-                {
-                    string liste = string.Join(Environment.NewLine, ogrenciListesi.Select(o => $"{o.ID} - {o.isim} {o.soyisim}"));
-                    MessageBox.Show("Öğrenci Listesi:\n" + liste);
-                }
-                else
-                {
-                    MessageBox.Show("Listeleyecek öğrenci yok.");
-                }
         }
-  
+
         private void notEkleToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -79,5 +72,10 @@ namespace OgrenciBilgiSistemi
 
         }
 
+        private void adminEkleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddAdmin addAdmin = new AddAdmin();
+            addAdmin.Show();
+        }
     }
 }

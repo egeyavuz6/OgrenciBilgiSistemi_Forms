@@ -18,50 +18,40 @@ namespace OgrenciBilgiSistemi
         {
 
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void btnEkle_Click(object sender, EventArgs e)
         {
-            try
+            string ogrenciNo = txtNo.Text.Trim();
+            string isim = txtAd.Text.Trim();
+            string soyisim = txtSoyad.Text.Trim();
+
+            if (string.IsNullOrEmpty(ogrenciNo) || string.IsNullOrEmpty(isim) || string.IsNullOrEmpty(soyisim))
             {
-                if (string.IsNullOrWhiteSpace(txtAd.Text) || string.IsNullOrWhiteSpace(txtSoyad.Text) || string.IsNullOrWhiteSpace(txtNo.Text))
+                MessageBox.Show("Lütfen tüm alanları doldurunuz.");
+                return;
+            }
+
+            using (var db = new OBSContext())
+            {
+                if (db.Ogrenciler.Any(o => o.OgrenciNo == ogrenciNo))
                 {
-                    MessageBox.Show("Lütfen tüm alanları doldurun.");
+                    MessageBox.Show("Bu öğrenci numarası zaten kullanılıyor.");
                     return;
                 }
 
-                if (txtAd.Text.Any(char.IsDigit) || txtSoyad.Text.Any(char.IsDigit))
+                var yeniOgrenci = new Ogrenci
                 {
-                    MessageBox.Show("Ad ve soyad alanları sadece harf içermelidir.");
-                    return;
-                }
-
-                if (!int.TryParse(txtNo.Text, out int ogrenciNo) || ogrenciNo < 0)
-                {
-                    MessageBox.Show("Öğrenci numarası pozitif bir sayı olmalıdır.");
-                    return;
-                }
-                if (ogrenciListesi.Exists(o => o.ID == ogrenciNo))
-                {
-                    MessageBox.Show("Bu öğrenci numarası zaten mevcut.");
-                    return;
-
-                }
-
-                Ogrenci yeniOgrenci = new Ogrenci()
-                {
-                    isim = txtAd.Text,
-                    soyisim = txtSoyad.Text,
-                    ID = ogrenciNo
+                    OgrenciNo = ogrenciNo,
+                    Isim = isim,
+                    Soyisim = soyisim
                 };
 
-                ogrenciListesi.Add(yeniOgrenci);
-                MessageBox.Show("Öğrenci eklendi: " + yeniOgrenci.isim + " " + yeniOgrenci.soyisim);
+                db.Ogrenciler.Add(yeniOgrenci);
+                db.SaveChanges();
+                MessageBox.Show("Öğrenci başarıyla eklendi!");
                 this.Close();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Hatalı giriş yaptın, tekrar dene.");
             }
 
         }
+
     }
 }

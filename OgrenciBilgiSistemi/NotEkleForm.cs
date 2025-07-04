@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -35,17 +36,21 @@ namespace OgrenciBilgiSistemi
                     return;
                 }
 
-                var ogr = ogrenciListesi.FirstOrDefault(o => o.ID == no);
+                using (var db = new OBSContext())
+                {
+                    var ogr = db.Ogrenciler.Include(o => o.Notlar).FirstOrDefault(o => o.Id == no);
 
-                if (ogr != null)
-                {
-                    ogr.NotEkle(not);
-                    MessageBox.Show("Not eklendi.");
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Öğrenci bulunamadı.");
+                    if (ogr != null)
+                    {
+                        ogr.NotEkle(not);
+                        db.SaveChanges();
+                        MessageBox.Show("Not eklendi.");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Öğrenci bulunamadı.");
+                    }
                 }
             }
             catch (Exception)
@@ -53,5 +58,6 @@ namespace OgrenciBilgiSistemi
                 MessageBox.Show("Geçersiz giriş yaptın, tekrar dene.");
             }
         }
+
     }
 }

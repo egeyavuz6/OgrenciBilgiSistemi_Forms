@@ -38,13 +38,15 @@
             notlarıListeleToolStripMenuItem = new ToolStripMenuItem();
             notSilToolStripMenuItem = new ToolStripMenuItem();
             cikisToolStripMenuItem = new ToolStripMenuItem();
+            yönetimToolStripMenuItem = new ToolStripMenuItem();
+            adminEkleToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { ogrenciIslemleriToolStripMenuItem, notIslemleriToolStripMenuItem, cikisToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { ogrenciIslemleriToolStripMenuItem, notIslemleriToolStripMenuItem, cikisToolStripMenuItem, yönetimToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(799, 27);
@@ -114,6 +116,20 @@
             cikisToolStripMenuItem.Text = "Cikis";
             cikisToolStripMenuItem.Click += cikisToolStripMenuItem_Click;
             // 
+            // yönetimToolStripMenuItem
+            // 
+            yönetimToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { adminEkleToolStripMenuItem });
+            yönetimToolStripMenuItem.Name = "yönetimToolStripMenuItem";
+            yönetimToolStripMenuItem.Size = new Size(76, 23);
+            yönetimToolStripMenuItem.Text = "Yönetim";
+            // 
+            // adminEkleToolStripMenuItem
+            // 
+            adminEkleToolStripMenuItem.Name = "adminEkleToolStripMenuItem";
+            adminEkleToolStripMenuItem.Size = new Size(180, 24);
+            adminEkleToolStripMenuItem.Text = "Admin Ekle";
+            adminEkleToolStripMenuItem.Click += adminEkleToolStripMenuItem_Click;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -143,5 +159,7 @@
         private ToolStripMenuItem notSilToolStripMenuItem;
         private ToolStripMenuItem notlarıListeleToolStripMenuItem;
         private ToolStripMenuItem cikisToolStripMenuItem;
+        private ToolStripMenuItem yönetimToolStripMenuItem;
+        private ToolStripMenuItem adminEkleToolStripMenuItem;
     }
 }
