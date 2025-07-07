@@ -13,6 +13,7 @@ namespace OgrenciBilgiSistemi
     public partial class Menu : Form
     {
         List<Ogrenci> ogrenciListesi = new List<Ogrenci>();
+        OBSContext dbContext = new OBSContext();
 
         public Menu()
         {
@@ -27,7 +28,8 @@ namespace OgrenciBilgiSistemi
         private void ogrenciEkleToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            OgrenciEkleForm ekleForm = new OgrenciEkleForm(ogrenciListesi);
+            OgrenciEkleForm ekleForm = new OgrenciEkleForm(ogrenciListesi, dbContext);
+            //this.Hide();
             ekleForm.Show();
 
 
@@ -57,14 +59,14 @@ namespace OgrenciBilgiSistemi
 
         private void notSilToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OrtalamaForm ortalamaForm = new OrtalamaForm(ogrenciListesi);
+            OrtalamaForm ortalamaForm = new OrtalamaForm(dbContext);
             ortalamaForm.Show();
         }
 
 
         private void notlarıListeleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NotListeleForm listeleForm = new NotListeleForm(ogrenciListesi);
+            NotListeleForm listeleForm = new NotListeleForm(ogrenciListesi, dbContext);
             listeleForm.Show();
         }
         private void Menu_Load(object sender, EventArgs e)
@@ -76,6 +78,13 @@ namespace OgrenciBilgiSistemi
         {
             AddAdmin addAdmin = new AddAdmin();
             addAdmin.Show();
+        }
+
+        private void notSilToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            NotSilForm notSilForm = new NotSilForm(ogrenciListesi, dbContext);
+            notSilForm.Show();
+
         }
     }
 }

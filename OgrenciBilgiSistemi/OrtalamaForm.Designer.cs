@@ -53,10 +53,10 @@
             // 
             // label1
             // 
-            label1.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Bold);
-            label1.Location = new Point(193, 158);
+            label1.Font = new Font("Calibri", 15F, FontStyle.Bold);
+            label1.Location = new Point(247, 154);
             label1.Name = "label1";
-            label1.Size = new Size(146, 43);
+            label1.Size = new Size(112, 43);
             label1.TabIndex = 2;
             label1.Text = "Öğrenci No:";
             // 

@@ -41,6 +41,7 @@
             txtNo.Name = "txtNo";
             txtNo.Size = new Size(100, 23);
             txtNo.TabIndex = 0;
+            txtNo.TextChanged += txtNo_TextChanged;
             // 
             // txtNot
             // 
@@ -48,6 +49,7 @@
             txtNot.Name = "txtNot";
             txtNot.Size = new Size(100, 23);
             txtNot.TabIndex = 1;
+            txtNot.TextChanged += txtNot_TextChanged;
             // 
             // label1
             // 

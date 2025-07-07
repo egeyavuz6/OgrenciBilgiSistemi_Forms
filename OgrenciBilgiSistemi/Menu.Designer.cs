@@ -40,6 +40,7 @@
             cikisToolStripMenuItem = new ToolStripMenuItem();
             yönetimToolStripMenuItem = new ToolStripMenuItem();
             adminEkleToolStripMenuItem = new ToolStripMenuItem();
+            notSilToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -83,7 +84,7 @@
             // 
             // notIslemleriToolStripMenuItem
             // 
-            notIslemleriToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { notEkleToolStripMenuItem, notlarıListeleToolStripMenuItem, notSilToolStripMenuItem });
+            notIslemleriToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { notEkleToolStripMenuItem, notlarıListeleToolStripMenuItem, notSilToolStripMenuItem, notSilToolStripMenuItem1 });
             notIslemleriToolStripMenuItem.Name = "notIslemleriToolStripMenuItem";
             notIslemleriToolStripMenuItem.Size = new Size(108, 23);
             notIslemleriToolStripMenuItem.Text = "Not Islemleri";
@@ -126,9 +127,16 @@
             // adminEkleToolStripMenuItem
             // 
             adminEkleToolStripMenuItem.Name = "adminEkleToolStripMenuItem";
-            adminEkleToolStripMenuItem.Size = new Size(180, 24);
+            adminEkleToolStripMenuItem.Size = new Size(155, 24);
             adminEkleToolStripMenuItem.Text = "Admin Ekle";
             adminEkleToolStripMenuItem.Click += adminEkleToolStripMenuItem_Click;
+            // 
+            // notSilToolStripMenuItem1
+            // 
+            notSilToolStripMenuItem1.Name = "notSilToolStripMenuItem1";
+            notSilToolStripMenuItem1.Size = new Size(213, 24);
+            notSilToolStripMenuItem1.Text = "Not Sil";
+            notSilToolStripMenuItem1.Click += notSilToolStripMenuItem1_Click;
             // 
             // Menu
             // 
@@ -161,5 +169,6 @@
         private ToolStripMenuItem cikisToolStripMenuItem;
         private ToolStripMenuItem yönetimToolStripMenuItem;
         private ToolStripMenuItem adminEkleToolStripMenuItem;
+        private ToolStripMenuItem notSilToolStripMenuItem1;
     }
 }

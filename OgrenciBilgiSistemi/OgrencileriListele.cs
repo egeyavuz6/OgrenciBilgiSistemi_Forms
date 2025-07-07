@@ -16,7 +16,7 @@ namespace OgrenciBilgiSistemi
         {
             InitializeComponent();
 
-            this.Load += OgrencileriListele_Load;  // Burada load event'ini manuel bağlıyoruz
+            this.Load += OgrencileriListele_Load;  
         }
         private void OgrencileriListele_Load(object sender, EventArgs e)
         {

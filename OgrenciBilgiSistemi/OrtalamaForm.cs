@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -7,37 +7,40 @@ namespace OgrenciBilgiSistemi
 {
     public partial class OrtalamaForm : Form
     {
-        List<Ogrenci> ogrenciListesi;
+        private OBSContext db;
 
-        public OrtalamaForm(List<Ogrenci> ogrenciler)
+        public OrtalamaForm(OBSContext dbContext)
         {
             InitializeComponent();
-            ogrenciListesi = ogrenciler;
+            db = dbContext;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int no = int.Parse(textBox1.Text);
-                var ogr = ogrenciListesi.FirstOrDefault(o => o.Id == no);
+            string ogrenciNo = textBox1.Text.Trim();
 
-                if (ogr != null)
-                {
-                    double ortalama = ogr.OrtalamaHesapla();
-                    MessageBox.Show("Öğrencinin Ortalaması: " + ortalama);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Öğrenci bulunamadı.");
-                }
-            }
-            catch (Exception)
+            if (string.IsNullOrEmpty(ogrenciNo))
             {
-                MessageBox.Show("Geçersiz giriş yaptın, tekrar dene.");
+                MessageBox.Show("Lütfen öğrenci numarasını giriniz.");
+                return;
             }
+
+            var ogrenci = db.Ogrenciler.Include(o => o.Notlar).FirstOrDefault(o => o.OgrenciNo == ogrenciNo);
+
+            if (ogrenci == null)
+            {
+                MessageBox.Show("Öğrenci bulunamadı.");
+                return;
+            }
+
+            if (ogrenci.Notlar == null || ogrenci.Notlar.Count == 0)
+            {
+                MessageBox.Show("Bu öğrencinin notu bulunmamaktadır.");
+                return;
+            }
+
+            double ortalama = ogrenci.Notlar.Average(n => n.Deger);
+            MessageBox.Show($"Ortalama: {ortalama:F2}");  
         }
-
     }
 }

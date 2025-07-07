@@ -16,7 +16,7 @@ namespace OgrenciBilgiSistemi
             ogrenciListesi = ogrenciler;
         }
 
-   
+
 
         private void NotEkleForm_Load(object sender, EventArgs e)
         {
@@ -25,39 +25,47 @@ namespace OgrenciBilgiSistemi
 
         private void btnNotEkle_Click_1(object sender, EventArgs e)
         {
-            try
-            {
-                int no = int.Parse(txtNo.Text);
-                double not = double.Parse(txtNot.Text);
-
-                if (not < 0 || not > 100)
+            string ogrenciNo = txtNo.Text.Trim();
+            string grade = txtNot.Text.Trim();
+            if (string.IsNullOrEmpty(ogrenciNo) || string.IsNullOrEmpty(grade))
+                        {
+                            MessageBox.Show("Lütfen tüm alanları doldurunuz.");
+                            return;
+                        }
+            using (var db = new OBSContext())
+                {
+                var ogrenci = db.Ogrenciler.Include(o => o.Notlar).FirstOrDefault(o => o.OgrenciNo == ogrenciNo);
+                if (ogrenci == null)
+                {
+                    MessageBox.Show("Öğrenci bulunamadı.");
+                    return;
+                }
+                if (!double.TryParse(grade, out double notDegeri))
+                {
+                    MessageBox.Show("Lütfen geçerli bir not giriniz.");
+                    return;
+                }
+                if (notDegeri < 0 || notDegeri > 100)
                 {
                     MessageBox.Show("Not 0 ile 100 arasında olmalıdır.");
                     return;
                 }
-
-                using (var db = new OBSContext())
-                {
-                    var ogr = db.Ogrenciler.Include(o => o.Notlar).FirstOrDefault(o => o.Id == no);
-
-                    if (ogr != null)
-                    {
-                        ogr.NotEkle(not);
-                        db.SaveChanges();
-                        MessageBox.Show("Not eklendi.");
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Öğrenci bulunamadı.");
-                    }
-                }
+                ogrenci.NotEkle(notDegeri);
+                db.SaveChanges();
+                MessageBox.Show("Not başarıyla eklendi!");
+                txtNot.Clear();
             }
-            catch (Exception)
-            {
-                MessageBox.Show("Geçersiz giriş yaptın, tekrar dene.");
-            }
+
         }
 
+        private void txtNo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNot_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

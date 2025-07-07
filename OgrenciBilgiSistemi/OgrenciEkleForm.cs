@@ -7,11 +7,13 @@ namespace OgrenciBilgiSistemi
     public partial class OgrenciEkleForm : Form
     {
         List<Ogrenci> ogrenciListesi;
+        private OBSContext db;
 
-        public OgrenciEkleForm(List<Ogrenci> ogrenciler)
+        public OgrenciEkleForm(List<Ogrenci> ogrenciler, OBSContext dbContext)
         {
             InitializeComponent();
             ogrenciListesi = ogrenciler;
+            db = dbContext;
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)

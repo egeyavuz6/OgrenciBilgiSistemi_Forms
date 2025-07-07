@@ -37,7 +37,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            label1.Location = new Point(224, 136);
+            label1.Location = new Point(285, 176);
             label1.Name = "label1";
             label1.Size = new Size(90, 19);
             label1.TabIndex = 0;
@@ -45,7 +45,7 @@
             // 
             // txtNo
             // 
-            txtNo.Location = new Point(354, 132);
+            txtNo.Location = new Point(415, 172);
             txtNo.Name = "txtNo";
             txtNo.Size = new Size(124, 23);
             txtNo.TabIndex = 1;
@@ -54,7 +54,7 @@
             // btnListele
             // 
             btnListele.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            btnListele.Location = new Point(311, 262);
+            btnListele.Location = new Point(317, 252);
             btnListele.Name = "btnListele";
             btnListele.Size = new Size(167, 71);
             btnListele.TabIndex = 2;
