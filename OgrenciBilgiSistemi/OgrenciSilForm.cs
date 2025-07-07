@@ -36,9 +36,7 @@ namespace OgrenciBilgiSistemi
                 return;
             }
 
-            try
-            {
-                using (var context = new OBSContext())
+             using (var context = new OBSContext())
                 {
                     var ogrenci = context.Ogrenciler.FirstOrDefault(o => o.OgrenciNo == ogrenciNo);
 
@@ -70,19 +68,7 @@ namespace OgrenciBilgiSistemi
                         }.Show();
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                new Guna2MessageDialog
-                {
-                    Caption = "Error!",
-                    Text = "An Error Occured",
-                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
-
-                }.Show();
-            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

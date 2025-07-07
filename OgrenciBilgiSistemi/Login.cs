@@ -14,9 +14,6 @@ namespace OgrenciBilgiSistemi
 
         private void loginButton_Click_1(object sender, EventArgs e)
         {
-            
-            try
-            {
                 using (var db = new OBSContext())
                 {
                     string kullaniciAdi = usernameBox.Text.Trim();
@@ -57,17 +54,7 @@ namespace OgrenciBilgiSistemi
                             Icon = Guna.UI2.WinForms.MessageDialogIcon.Error
                         }.Show();
                     }
-                }
-            }
-            catch (Exception ex)
-            {
-                new Guna2MessageDialog
-                {
-                    Caption = "An Error Occured",
-                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light,
-                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error
-                }.Show();
+                
             }
         }
     }

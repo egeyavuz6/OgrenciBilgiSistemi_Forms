@@ -158,7 +158,6 @@
             // guna2AnimateWindow1
             // 
             guna2AnimateWindow1.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_BLEND;
-            guna2AnimateWindow1.Interval = 2000;
             guna2AnimateWindow1.TargetForm = this;
             // 
             // Menu

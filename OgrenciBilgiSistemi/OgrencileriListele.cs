@@ -16,8 +16,7 @@ namespace OgrenciBilgiSistemi
 
         private void OgrencileriListele_Load(object sender, EventArgs e)
         {
-            try
-            {
+            
                 using (var context = new OBSContext())
                 {
                     dataGridView1.AutoGenerateColumns = true;
@@ -37,19 +36,7 @@ namespace OgrenciBilgiSistemi
 
                     dataGridView1.DataSource = ogrenciler;
                 }
-            }
-            catch (Exception ex)
-            {
-                new Guna2MessageDialog
-                {
-                    Text = "An Error Occured",
-                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
-
-                }.Show();
-            }
-        }
+            }        
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
