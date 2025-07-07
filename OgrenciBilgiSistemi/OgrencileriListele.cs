@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using Guna.UI2.WinForms;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OgrenciBilgiSistemi
@@ -15,9 +11,9 @@ namespace OgrenciBilgiSistemi
         public OgrencileriListele()
         {
             InitializeComponent();
-
-            this.Load += OgrencileriListele_Load;  
+            this.Load += OgrencileriListele_Load;
         }
+
         private void OgrencileriListele_Load(object sender, EventArgs e)
         {
             try
@@ -26,23 +22,45 @@ namespace OgrenciBilgiSistemi
                 {
                     dataGridView1.AutoGenerateColumns = true;
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
- 
-                    var ogrenciler = context.Ogrenciler.ToList();
+
+                    var ogrenciler = context.Ogrenciler
+                        .Include(o => o.Notlar)
+                        .Select(o => new
+                        {
+                            o.Id,
+                            o.OgrenciNo,
+                            o.Isim,
+                            o.Soyisim,
+                            Notlar = string.Join(", ", o.Notlar.Select(n => n.Deger.ToString()))
+                        })
+                        .ToList();
+
                     dataGridView1.DataSource = ogrenciler;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Bağlantı hatası: " + ex.Message);
+                new Guna2MessageDialog
+                {
+                    Text = "An Error Occured",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                }.Show();
             }
-
-
         }
-
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Menu menu = new Menu();
+            menu.Show();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Guna.UI2.WinForms;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,49 +24,86 @@ namespace OgrenciBilgiSistemi
 
         }
 
-        private void btnNotEkle_Click_1(object sender, EventArgs e)
+        private void exitBtn_Click(object sender, EventArgs e)
         {
+            this.Close();
+            Menu menu = new Menu();
+            menu.Show();
+        }
+
+        private void btnNotEkle_Click(object sender, EventArgs e)
+        {
+
             string ogrenciNo = txtNo.Text.Trim();
             string grade = txtNot.Text.Trim();
             if (string.IsNullOrEmpty(ogrenciNo) || string.IsNullOrEmpty(grade))
-                        {
-                            MessageBox.Show("Lütfen tüm alanları doldurunuz.");
-                            return;
-                        }
-            using (var db = new OBSContext())
+            {
+                new Guna2MessageDialog
                 {
+                    Caption = "Error!",
+                    Text = "Please Fill The Blanks",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                }.Show();
+                return;
+            }
+            using (var db = new OBSContext())
+            {
                 var ogrenci = db.Ogrenciler.Include(o => o.Notlar).FirstOrDefault(o => o.OgrenciNo == ogrenciNo);
                 if (ogrenci == null)
                 {
-                    MessageBox.Show("Öğrenci bulunamadı.");
+                    new Guna2MessageDialog
+                    {
+                        Caption = "Error!",
+                        Text = "Student Doesn't Exist",
+                        Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                    }.Show();
                     return;
                 }
                 if (!double.TryParse(grade, out double notDegeri))
                 {
-                    MessageBox.Show("Lütfen geçerli bir not giriniz.");
+                    new Guna2MessageDialog
+                    {
+                        Caption = "Error!",
+                        Text = "Please Enter an Integer between 0 and 100",
+                        Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                    }.Show();
                     return;
                 }
                 if (notDegeri < 0 || notDegeri > 100)
                 {
-                    MessageBox.Show("Not 0 ile 100 arasında olmalıdır.");
+                    new Guna2MessageDialog
+                    {
+                        Caption = "Error!",
+                        Text = "Grade must be an Integer in a range between 0 and 100",
+                        Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                    }.Show();
                     return;
                 }
                 ogrenci.NotEkle(notDegeri);
                 db.SaveChanges();
-                MessageBox.Show("Not başarıyla eklendi!");
+                new Guna2MessageDialog
+                {
+                    Caption = "Success!",
+                    Text = "Grade Successfully Added",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                }.Show();
                 txtNot.Clear();
             }
-
-        }
-
-        private void txtNo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNot_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

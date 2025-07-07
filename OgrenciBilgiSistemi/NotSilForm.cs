@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Guna.UI2.WinForms;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -15,20 +16,28 @@ namespace OgrenciBilgiSistemi
             db = dbContext;
         }
 
-        private void btnListele_Click(object sender, EventArgs e)
+        private void btnSil_Click_1(object sender, EventArgs e)
         {
-            
+
+
         }
 
 
-        private void btnSil_Click_1(object sender, EventArgs e)
+        private void btnListele_Click_1(object sender, EventArgs e)
         {
-            dataGridView1.Visible = true;
             string ogrenciNo = textBox1.Text.Trim();
 
             if (string.IsNullOrEmpty(ogrenciNo))
             {
-                MessageBox.Show("Lütfen öğrenci numarasını giriniz.");
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = "Please fill the Student Number!",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                }.Show();
                 return;
             }
 
@@ -36,13 +45,29 @@ namespace OgrenciBilgiSistemi
 
             if (ogrenci == null)
             {
-                MessageBox.Show("Öğrenci bulunamadı.");
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = "Student Not Found!",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                }.Show();
                 return;
             }
 
             if (ogrenci.Notlar == null || ogrenci.Notlar.Count == 0)
             {
-                MessageBox.Show("Bu öğrencinin notu bulunmamaktadır.");
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = "This Student Doesn't Have Any Grade!",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                }.Show();
                 return;
             }
 
@@ -51,14 +76,23 @@ namespace OgrenciBilgiSistemi
                 n.Id,
                 n.Deger
             }).ToList();
-
+            dataGridView1.Visible = true;
+            btnListele.Text = "Refresh List";
         }
 
-        private void btnSil_Click(object sender, EventArgs e)
+        private void btnSil_Click_2(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Lütfen silmek istediğiniz notu seçiniz.");
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = "You Need To Select A Grade First",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                }.Show();
                 return;
             }
 
@@ -67,15 +101,38 @@ namespace OgrenciBilgiSistemi
             var not = db.Notlar.FirstOrDefault(n => n.Id == notId);
             if (not == null)
             {
-                MessageBox.Show("Not bulunamadı.");
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = "No Grades Found!",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                }.Show();
                 return;
             }
 
             db.Notlar.Remove(not);
             db.SaveChanges();
-            MessageBox.Show("Not başarıyla silindi.");
+            new Guna2MessageDialog
+            {
+                Caption = "Success!",
+                Text = "Grade Successfully Deleted",
+                Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+            }.Show();
 
             btnSil_Click_1(null, null);
+        }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Menu menu = new Menu();
+            menu.Show();
         }
     }
 }

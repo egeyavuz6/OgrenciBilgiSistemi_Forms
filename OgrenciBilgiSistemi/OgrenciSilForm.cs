@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -15,15 +16,23 @@ namespace OgrenciBilgiSistemi
             ogrenciListesi = ogrenciler;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
 
-            string ogrenciNo = textBox1.Text.Trim(); 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            string ogrenciNo = textBox1.Text.Trim();
 
 
             if (string.IsNullOrEmpty(ogrenciNo))
             {
-                MessageBox.Show("Lütfen öğrenci numarasını girin.");
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = "Please Enter a Student Number!",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                }.Show();
                 return;
             }
 
@@ -38,20 +47,50 @@ namespace OgrenciBilgiSistemi
                         context.Ogrenciler.Remove(ogrenci);
                         context.SaveChanges();
 
-                        MessageBox.Show("Öğrenci başarıyla silindi.");
+                        new Guna2MessageDialog
+                        {
+                            Caption = "Successful",
+                            Text = "Student Deleted Successfully",
+                            Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                            Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                            Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                        }.Show();
                     }
                     else
                     {
-                        MessageBox.Show("Öğrenci bulunamadı.");
+                        new Guna2MessageDialog
+                        {
+                            Caption = "Error!",
+                            Text = "Cannot Found The Student!",
+                            Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                            Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                            Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                        }.Show();
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hata oluştu: " + ex.Message);
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = "An Error Occured",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                }.Show();
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Menu menu = new Menu();
+            menu.Show();
+        }
     }
 }
 

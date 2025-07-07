@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Guna.UI2.WinForms;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -15,13 +16,20 @@ namespace OgrenciBilgiSistemi
             db = dbContext;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             string ogrenciNo = textBox1.Text.Trim();
 
             if (string.IsNullOrEmpty(ogrenciNo))
             {
-                MessageBox.Show("Lütfen öğrenci numarasını giriniz.");
+                new Guna2MessageDialog
+                {
+                    Text = "Please fill the student number!",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                }.Show();
                 return;
             }
 
@@ -29,18 +37,49 @@ namespace OgrenciBilgiSistemi
 
             if (ogrenci == null)
             {
-                MessageBox.Show("Öğrenci bulunamadı.");
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = "Student Not Found!",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                }.Show();
                 return;
             }
 
             if (ogrenci.Notlar == null || ogrenci.Notlar.Count == 0)
             {
-                MessageBox.Show("Bu öğrencinin notu bulunmamaktadır.");
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = "This Student Doesn't Have Any Grade!",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                }.Show();
                 return;
             }
 
             double ortalama = ogrenci.Notlar.Average(n => n.Deger);
-            MessageBox.Show($"Ortalama: {ortalama:F2}");  
+            new Guna2MessageDialog
+            {
+                Text = $"Average: {ortalama:F2}",
+                Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+            }.Show();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Menu menu = new Menu();
+            menu.Show();
         }
     }
 }

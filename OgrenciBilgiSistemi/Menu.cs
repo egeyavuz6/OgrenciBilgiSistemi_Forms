@@ -27,9 +27,8 @@ namespace OgrenciBilgiSistemi
 
         private void ogrenciEkleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
             OgrenciEkleForm ekleForm = new OgrenciEkleForm(ogrenciListesi, dbContext);
-            //this.Hide();
             ekleForm.Show();
 
 
@@ -37,6 +36,7 @@ namespace OgrenciBilgiSistemi
 
         private void ogrenciSilToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Hide();
             OgrenciSilForm silForm = new OgrenciSilForm(ogrenciListesi);
             silForm.Show();
 
@@ -44,6 +44,7 @@ namespace OgrenciBilgiSistemi
 
         private void ogrencileriListeleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Hide();
             OgrencileriListele listeleForm = new OgrencileriListele();
             listeleForm.Show();
 
@@ -51,7 +52,7 @@ namespace OgrenciBilgiSistemi
 
         private void notEkleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
             NotEkleForm notForm = new NotEkleForm(ogrenciListesi);
             notForm.Show();
 
@@ -59,6 +60,7 @@ namespace OgrenciBilgiSistemi
 
         private void notSilToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Hide();
             OrtalamaForm ortalamaForm = new OrtalamaForm(dbContext);
             ortalamaForm.Show();
         }
@@ -66,6 +68,7 @@ namespace OgrenciBilgiSistemi
 
         private void notlarıListeleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Hide();
             NotListeleForm listeleForm = new NotListeleForm(ogrenciListesi, dbContext);
             listeleForm.Show();
         }
@@ -76,12 +79,14 @@ namespace OgrenciBilgiSistemi
 
         private void adminEkleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Hide();
             AddAdmin addAdmin = new AddAdmin();
             addAdmin.Show();
         }
 
         private void notSilToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            this.Hide();
             NotSilForm notSilForm = new NotSilForm(ogrenciListesi, dbContext);
             notSilForm.Show();
 

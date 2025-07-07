@@ -37,20 +37,22 @@
             notEkleToolStripMenuItem = new ToolStripMenuItem();
             notlarıListeleToolStripMenuItem = new ToolStripMenuItem();
             notSilToolStripMenuItem = new ToolStripMenuItem();
-            cikisToolStripMenuItem = new ToolStripMenuItem();
+            notSilToolStripMenuItem1 = new ToolStripMenuItem();
             yönetimToolStripMenuItem = new ToolStripMenuItem();
             adminEkleToolStripMenuItem = new ToolStripMenuItem();
-            notSilToolStripMenuItem1 = new ToolStripMenuItem();
+            cikisToolStripMenuItem = new ToolStripMenuItem();
+            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
+            menuStrip1.AutoSize = false;
             menuStrip1.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { ogrenciIslemleriToolStripMenuItem, notIslemleriToolStripMenuItem, cikisToolStripMenuItem, yönetimToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { ogrenciIslemleriToolStripMenuItem, notIslemleriToolStripMenuItem, yönetimToolStripMenuItem, cikisToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(799, 27);
+            menuStrip1.Size = new Size(900, 40);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -58,101 +60,116 @@
             // 
             ogrenciIslemleriToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ogrenciEkleToolStripMenuItem, ogrenciSilToolStripMenuItem, ogrencileriListeleToolStripMenuItem });
             ogrenciIslemleriToolStripMenuItem.Name = "ogrenciIslemleriToolStripMenuItem";
-            ogrenciIslemleriToolStripMenuItem.Size = new Size(135, 23);
-            ogrenciIslemleriToolStripMenuItem.Text = "Ogrenci Islemleri";
+            ogrenciIslemleriToolStripMenuItem.Size = new Size(76, 36);
+            ogrenciIslemleriToolStripMenuItem.Text = "Student";
             // 
             // ogrenciEkleToolStripMenuItem
             // 
             ogrenciEkleToolStripMenuItem.Name = "ogrenciEkleToolStripMenuItem";
-            ogrenciEkleToolStripMenuItem.Size = new Size(200, 24);
-            ogrenciEkleToolStripMenuItem.Text = "Ogrenci Ekle";
+            ogrenciEkleToolStripMenuItem.Size = new Size(181, 24);
+            ogrenciEkleToolStripMenuItem.Text = "Add Student";
             ogrenciEkleToolStripMenuItem.Click += ogrenciEkleToolStripMenuItem_Click;
             // 
             // ogrenciSilToolStripMenuItem
             // 
             ogrenciSilToolStripMenuItem.Name = "ogrenciSilToolStripMenuItem";
-            ogrenciSilToolStripMenuItem.Size = new Size(200, 24);
-            ogrenciSilToolStripMenuItem.Text = "Ogrenci Sil";
+            ogrenciSilToolStripMenuItem.Size = new Size(181, 24);
+            ogrenciSilToolStripMenuItem.Text = "Delete Student";
             ogrenciSilToolStripMenuItem.Click += ogrenciSilToolStripMenuItem_Click;
             // 
             // ogrencileriListeleToolStripMenuItem
             // 
             ogrencileriListeleToolStripMenuItem.Name = "ogrencileriListeleToolStripMenuItem";
-            ogrencileriListeleToolStripMenuItem.Size = new Size(200, 24);
-            ogrencileriListeleToolStripMenuItem.Text = "Ogrencileri Listele";
+            ogrencileriListeleToolStripMenuItem.Size = new Size(181, 24);
+            ogrencileriListeleToolStripMenuItem.Text = "List Students";
             ogrencileriListeleToolStripMenuItem.Click += ogrencileriListeleToolStripMenuItem_Click;
             // 
             // notIslemleriToolStripMenuItem
             // 
             notIslemleriToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { notEkleToolStripMenuItem, notlarıListeleToolStripMenuItem, notSilToolStripMenuItem, notSilToolStripMenuItem1 });
             notIslemleriToolStripMenuItem.Name = "notIslemleriToolStripMenuItem";
-            notIslemleriToolStripMenuItem.Size = new Size(108, 23);
-            notIslemleriToolStripMenuItem.Text = "Not Islemleri";
+            notIslemleriToolStripMenuItem.Size = new Size(62, 36);
+            notIslemleriToolStripMenuItem.Text = "Grade";
             // 
             // notEkleToolStripMenuItem
             // 
             notEkleToolStripMenuItem.Name = "notEkleToolStripMenuItem";
-            notEkleToolStripMenuItem.Size = new Size(213, 24);
-            notEkleToolStripMenuItem.Text = "Not Ekle";
+            notEkleToolStripMenuItem.Size = new Size(203, 24);
+            notEkleToolStripMenuItem.Text = "Add Grade";
             notEkleToolStripMenuItem.Click += notEkleToolStripMenuItem_Click;
             // 
             // notlarıListeleToolStripMenuItem
             // 
             notlarıListeleToolStripMenuItem.Name = "notlarıListeleToolStripMenuItem";
-            notlarıListeleToolStripMenuItem.Size = new Size(213, 24);
-            notlarıListeleToolStripMenuItem.Text = "Notları Listele";
+            notlarıListeleToolStripMenuItem.Size = new Size(203, 24);
+            notlarıListeleToolStripMenuItem.Text = "List Grades";
             notlarıListeleToolStripMenuItem.Click += notlarıListeleToolStripMenuItem_Click;
             // 
             // notSilToolStripMenuItem
             // 
             notSilToolStripMenuItem.Name = "notSilToolStripMenuItem";
-            notSilToolStripMenuItem.Size = new Size(213, 24);
-            notSilToolStripMenuItem.Text = "Notların Ortalaması";
+            notSilToolStripMenuItem.Size = new Size(203, 24);
+            notSilToolStripMenuItem.Text = "Average of Grades";
             notSilToolStripMenuItem.Click += notSilToolStripMenuItem_Click;
             // 
-            // cikisToolStripMenuItem
+            // notSilToolStripMenuItem1
             // 
-            cikisToolStripMenuItem.Name = "cikisToolStripMenuItem";
-            cikisToolStripMenuItem.Size = new Size(51, 23);
-            cikisToolStripMenuItem.Text = "Cikis";
-            cikisToolStripMenuItem.Click += cikisToolStripMenuItem_Click;
+            notSilToolStripMenuItem1.Name = "notSilToolStripMenuItem1";
+            notSilToolStripMenuItem1.Size = new Size(203, 24);
+            notSilToolStripMenuItem1.Text = "Delete Grade";
+            notSilToolStripMenuItem1.Click += notSilToolStripMenuItem1_Click;
             // 
             // yönetimToolStripMenuItem
             // 
             yönetimToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { adminEkleToolStripMenuItem });
             yönetimToolStripMenuItem.Name = "yönetimToolStripMenuItem";
-            yönetimToolStripMenuItem.Size = new Size(76, 23);
-            yönetimToolStripMenuItem.Text = "Yönetim";
+            yönetimToolStripMenuItem.Size = new Size(123, 36);
+            yönetimToolStripMenuItem.Text = "Administration";
             // 
             // adminEkleToolStripMenuItem
             // 
             adminEkleToolStripMenuItem.Name = "adminEkleToolStripMenuItem";
             adminEkleToolStripMenuItem.Size = new Size(155, 24);
-            adminEkleToolStripMenuItem.Text = "Admin Ekle";
+            adminEkleToolStripMenuItem.Text = "Add Admin";
             adminEkleToolStripMenuItem.Click += adminEkleToolStripMenuItem_Click;
             // 
-            // notSilToolStripMenuItem1
+            // cikisToolStripMenuItem
             // 
-            notSilToolStripMenuItem1.Name = "notSilToolStripMenuItem1";
-            notSilToolStripMenuItem1.Size = new Size(213, 24);
-            notSilToolStripMenuItem1.Text = "Not Sil";
-            notSilToolStripMenuItem1.Click += notSilToolStripMenuItem1_Click;
+            cikisToolStripMenuItem.Name = "cikisToolStripMenuItem";
+            cikisToolStripMenuItem.Size = new Size(46, 36);
+            cikisToolStripMenuItem.Text = "Exit";
+            cikisToolStripMenuItem.Click += cikisToolStripMenuItem_Click;
+            // 
+            // guna2HtmlLabel1
+            // 
+            guna2HtmlLabel1.AutoSize = false;
+            guna2HtmlLabel1.BackColor = Color.Transparent;
+            guna2HtmlLabel1.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            guna2HtmlLabel1.ForeColor = Color.White;
+            guna2HtmlLabel1.Location = new Point(0, 285);
+            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            guna2HtmlLabel1.Size = new Size(900, 97);
+            guna2HtmlLabel1.TabIndex = 1;
+            guna2HtmlLabel1.Text = "WELCOME TO THE STUDENT MANAGEMENT SYSTEM PLEASE SELECT THE OPERATION YOU WANT TO DO FROM THE MENU ON TOP";
+            guna2HtmlLabel1.TextAlignment = ContentAlignment.TopCenter;
             // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(255, 255, 128);
-            ClientSize = new Size(799, 421);
+            BackColor = Color.FromArgb(44, 47, 51);
+            ClientSize = new Size(900, 600);
+            Controls.Add(guna2HtmlLabel1);
             Controls.Add(menuStrip1);
+            FormBorderStyle = FormBorderStyle.None;
             MainMenuStrip = menuStrip1;
             Name = "Menu";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "OBS";
             Load += Menu_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -170,5 +187,6 @@
         private ToolStripMenuItem yönetimToolStripMenuItem;
         private ToolStripMenuItem adminEkleToolStripMenuItem;
         private ToolStripMenuItem notSilToolStripMenuItem1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
     }
 }
