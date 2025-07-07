@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             menuStrip1 = new MenuStrip();
             ogrenciIslemleriToolStripMenuItem = new ToolStripMenuItem();
             ogrenciEkleToolStripMenuItem = new ToolStripMenuItem();
@@ -42,6 +43,7 @@
             adminEkleToolStripMenuItem = new ToolStripMenuItem();
             cikisToolStripMenuItem = new ToolStripMenuItem();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -153,6 +155,12 @@
             guna2HtmlLabel1.Text = "WELCOME TO THE STUDENT MANAGEMENT SYSTEM PLEASE SELECT THE OPERATION YOU WANT TO DO FROM THE MENU ON TOP";
             guna2HtmlLabel1.TextAlignment = ContentAlignment.TopCenter;
             // 
+            // guna2AnimateWindow1
+            // 
+            guna2AnimateWindow1.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_BLEND;
+            guna2AnimateWindow1.Interval = 2000;
+            guna2AnimateWindow1.TargetForm = this;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -188,5 +196,6 @@
         private ToolStripMenuItem adminEkleToolStripMenuItem;
         private ToolStripMenuItem notSilToolStripMenuItem1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
     }
 }
