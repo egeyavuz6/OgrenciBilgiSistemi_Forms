@@ -7,6 +7,7 @@ namespace OgrenciBilgiSistemi
         public DbSet<Ogrenci> Ogrenciler { get; set; }
         public DbSet<Admin> Adminler { get; set; }
         public DbSet<Grade> Notlar { get; set; }
+        public DbSet<Course> Courses { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Ogrenci>().HasIndex(o => o.OgrenciNo).IsUnique();

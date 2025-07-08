@@ -79,6 +79,7 @@
             passwordBox.Location = new Point(411, 226);
             passwordBox.Margin = new Padding(7, 9, 7, 9);
             passwordBox.Name = "passwordBox";
+            passwordBox.PasswordChar = '*';
             passwordBox.PlaceholderText = "";
             passwordBox.SelectedText = "";
             passwordBox.ShadowDecoration.CustomizableEdges = customizableEdges4;
@@ -155,6 +156,7 @@
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
+            Load += Login_Load;
             ResumeLayout(false);
         }
 

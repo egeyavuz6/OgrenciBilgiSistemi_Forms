@@ -36,6 +36,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label1 = new Label();
             label2 = new Label();
             txtNo = new Guna.UI2.WinForms.Guna2TextBox();
@@ -43,13 +45,15 @@
             btnNotEkle = new Guna.UI2.WinForms.Guna2Button();
             exitBtn = new Guna.UI2.WinForms.Guna2Button();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            courseNameBox = new Guna.UI2.WinForms.Guna2TextBox();
+            label3 = new Label();
             SuspendLayout();
             // 
             // label1
             // 
             label1.Font = new Font("Calibri", 15F, FontStyle.Bold);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(284, 215);
+            label1.Location = new Point(284, 152);
             label1.Name = "label1";
             label1.Size = new Size(161, 23);
             label1.TabIndex = 2;
@@ -59,7 +63,7 @@
             // 
             label2.Font = new Font("Calibri", 15F, FontStyle.Bold);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(284, 265);
+            label2.Location = new Point(284, 211);
             label2.Name = "label2";
             label2.Size = new Size(152, 23);
             label2.TabIndex = 3;
@@ -77,7 +81,7 @@
             txtNo.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
             txtNo.ForeColor = Color.FromArgb(35, 39, 42);
             txtNo.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtNo.Location = new Point(446, 206);
+            txtNo.Location = new Point(446, 152);
             txtNo.Margin = new Padding(7, 9, 7, 9);
             txtNo.Name = "txtNo";
             txtNo.PlaceholderText = "";
@@ -98,7 +102,7 @@
             txtNot.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
             txtNot.ForeColor = Color.FromArgb(35, 39, 42);
             txtNot.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtNot.Location = new Point(446, 265);
+            txtNot.Location = new Point(446, 211);
             txtNot.Margin = new Padding(7, 9, 7, 9);
             txtNot.Name = "txtNot";
             txtNot.PlaceholderText = "";
@@ -146,11 +150,42 @@
             guna2HtmlLabel1.AutoSize = false;
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.ForeColor = Color.White;
-            guna2HtmlLabel1.Location = new Point(446, 299);
+            guna2HtmlLabel1.Location = new Point(446, 245);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(190, 17);
             guna2HtmlLabel1.TabIndex = 10;
             guna2HtmlLabel1.Text = "(Number Between 0 and 100)";
+            // 
+            // courseNameBox
+            // 
+            courseNameBox.CustomizableEdges = customizableEdges9;
+            courseNameBox.DefaultText = "";
+            courseNameBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            courseNameBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            courseNameBox.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            courseNameBox.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            courseNameBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            courseNameBox.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            courseNameBox.ForeColor = Color.FromArgb(35, 39, 42);
+            courseNameBox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            courseNameBox.Location = new Point(446, 274);
+            courseNameBox.Margin = new Padding(7, 9, 7, 9);
+            courseNameBox.Name = "courseNameBox";
+            courseNameBox.PlaceholderText = "";
+            courseNameBox.SelectedText = "";
+            courseNameBox.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            courseNameBox.Size = new Size(190, 32);
+            courseNameBox.TabIndex = 12;
+            // 
+            // label3
+            // 
+            label3.Font = new Font("Calibri", 15F, FontStyle.Bold);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(284, 274);
+            label3.Name = "label3";
+            label3.Size = new Size(152, 23);
+            label3.TabIndex = 11;
+            label3.Text = "Course Name:";
             // 
             // NotEkleForm
             // 
@@ -158,6 +193,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 47, 51);
             ClientSize = new Size(900, 600);
+            Controls.Add(courseNameBox);
+            Controls.Add(label3);
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(exitBtn);
             Controls.Add(btnNotEkle);
@@ -181,5 +218,7 @@
         private Guna.UI2.WinForms.Guna2Button btnNotEkle;
         private Guna.UI2.WinForms.Guna2Button exitBtn;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2TextBox courseNameBox;
+        private Label label3;
     }
 }

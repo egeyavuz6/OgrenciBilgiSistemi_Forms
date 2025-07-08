@@ -13,17 +13,13 @@ namespace OgrenciBilgiSistemi
         public string OgrenciNo { get; set; } 
         public string Isim { get; set; }
         public string Soyisim { get; set; }
+        public string password { get; set; } // Password for student logins
         public ICollection<Grade> Notlar { get; set; } = new List<Grade>();
-        public void NotEkle(double notDegeri)
+        public void NotEkle(double notDegeri, string courseId)
         {
-            Notlar.Add(new Grade { Deger = notDegeri, OgrenciId = this.Id });
+            Notlar.Add(new Grade { Grades = notDegeri, OgrenciId = this.Id, CourseId = courseId });
         }
 
-        public double OrtalamaHesapla()
-        {
-            if (Notlar == null || Notlar.Count == 0) return 0;
-            return Notlar.Average(n => n.Deger);
-        }
     }
 
 

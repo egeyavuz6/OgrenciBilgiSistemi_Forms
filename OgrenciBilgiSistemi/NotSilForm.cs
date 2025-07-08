@@ -21,68 +21,66 @@ namespace OgrenciBilgiSistemi
 
 
         }
-
-
         private void btnListele_Click_1(object sender, EventArgs e)
         {
             try
             {
 
-            string ogrenciNo = textBox1.Text.Trim();
+                string courseName = textBox1.Text.Trim();
 
-            if (string.IsNullOrEmpty(ogrenciNo))
-            {
-                new Guna2MessageDialog
+                if (string.IsNullOrEmpty(courseName))
                 {
-                    Caption = "Error!",
-                    Text = "Please fill the Student Number!",
-                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+                    new Guna2MessageDialog
+                    {
+                        Caption = "Error!",
+                        Text = "Please fill the Student Number!",
+                        Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
 
-                }.Show();
-                return;
-            }
+                    }.Show();
+                    return;
+                }
 
-            var ogrenci = db.Ogrenciler.Include(o => o.Notlar).FirstOrDefault(o => o.OgrenciNo == ogrenciNo);
+                var course = db.Courses.Include(o => o.Courses).FirstOrDefault(o => o.Id == courseName);
 
-            if (ogrenci == null)
-            {
-                new Guna2MessageDialog
+                if (course == null)
                 {
-                    Caption = "Error!",
-                    Text = "Student Not Found!",
-                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+                    new Guna2MessageDialog
+                    {
+                        Caption = "Error!",
+                        Text = "Student Not Found!",
+                        Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
 
-                }.Show();
-                return;
-            }
+                    }.Show();
+                    return;
+                }
 
-            if (ogrenci.Notlar == null || ogrenci.Notlar.Count == 0)
-            {
-                new Guna2MessageDialog
+                if (course.Notlar == null || course.Notlar.Count == 0)
                 {
-                    Caption = "Error!",
-                    Text = "This Student Doesn't Have Any Grade!",
-                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+                    new Guna2MessageDialog
+                    {
+                        Caption = "Error!",
+                        Text = "This Student Doesn't Have Any Grade!",
+                        Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
 
-                }.Show();
-                return;
-            }
+                    }.Show();
+                    return;
+                }
 
-            dataGridView1.DataSource = ogrenci.Notlar.Select(n => new
-            {
-                n.Id,
-                n.Deger
-            }).ToList();
-            dataGridView1.Visible = true;
-            btnListele.Text = "Refresh List";
+                dataGridView1.DataSource = course.Courses.Select(n => new
+                {
+                    n.Id,
+                    n.credit,
+                }).ToList();
+                dataGridView1.Visible = true;
+                btnListele.Text = "Refresh List";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 new Guna2MessageDialog
                 {
@@ -99,52 +97,52 @@ namespace OgrenciBilgiSistemi
             try
             {
 
-            if (dataGridView1.SelectedRows.Count == 0)
-            {
+                if (dataGridView1.SelectedRows.Count == 0)
+                {
+                    new Guna2MessageDialog
+                    {
+                        Caption = "Error!",
+                        Text = "You Need To Select A Grade First",
+                        Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                    }.Show();
+                    return;
+                }
+
+                int notId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Id"].Value);
+
+                var not = db.Notlar.FirstOrDefault(n => n.Id == notId);
+                if (not == null)
+                {
+                    new Guna2MessageDialog
+                    {
+                        Caption = "Error!",
+                        Text = "No Grades Found!",
+                        Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                    }.Show();
+                    return;
+                }
+
+                db.Notlar.Remove(not);
+                db.SaveChanges();
                 new Guna2MessageDialog
                 {
-                    Caption = "Error!",
-                    Text = "You Need To Select A Grade First",
+                    Caption = "Success!",
+                    Text = "Grade Successfully Deleted",
                     Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                     Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
                     Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
 
                 }.Show();
-                return;
+
+                btnSil_Click_1(null, null);
             }
-
-            int notId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Id"].Value);
-
-            var not = db.Notlar.FirstOrDefault(n => n.Id == notId);
-            if (not == null)
-            {
-                new Guna2MessageDialog
-                {
-                    Caption = "Error!",
-                    Text = "No Grades Found!",
-                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
-
-                }.Show();
-                return;
-            }
-
-            db.Notlar.Remove(not);
-            db.SaveChanges();
-            new Guna2MessageDialog
-            {
-                Caption = "Success!",
-                Text = "Grade Successfully Deleted",
-                Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
-
-            }.Show();
-
-            btnSil_Click_1(null, null);
-            }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 new Guna2MessageDialog
                 {
@@ -162,6 +160,11 @@ namespace OgrenciBilgiSistemi
             this.Close();
             Menu menu = new Menu();
             menu.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -68,6 +68,7 @@
             dataGridView1.Size = new Size(480, 400);
             dataGridView1.TabIndex = 3;
             dataGridView1.Visible = false;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // textBox1
             // 

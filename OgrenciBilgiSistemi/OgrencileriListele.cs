@@ -23,16 +23,15 @@ namespace OgrenciBilgiSistemi
                 {
                     dataGridView1.AutoGenerateColumns = true;
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dataGridView1.BackgroundColor = Color.FromArgb(44, 47, 51);
 
                     var ogrenciler = context.Ogrenciler
-                        .Include(o => o.Notlar)
                         .Select(o => new
                         {
-                            o.Id,
-                            o.OgrenciNo,
                             o.Isim,
                             o.Soyisim,
-                            Notlar = string.Join(", ", o.Notlar.Select(n => n.Deger.ToString()))
+                            o.OgrenciNo,
+                            
                         })
                         .ToList();
 

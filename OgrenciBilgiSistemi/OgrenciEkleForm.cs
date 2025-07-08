@@ -16,10 +16,6 @@ namespace OgrenciBilgiSistemi
             ogrenciListesi = ogrenciler;
             db = dbContext;
         }
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e) 
         {
@@ -29,6 +25,7 @@ namespace OgrenciBilgiSistemi
             string ogrenciNo = txtNo.Text.Trim();
             string isim = txtAd.Text.Trim();
             string soyisim = txtSoyad.Text.Trim();
+            string sifre = passwordBox.Text.Trim();
 
             if (string.IsNullOrEmpty(ogrenciNo) || string.IsNullOrEmpty(isim) || string.IsNullOrEmpty(soyisim))
             {
@@ -88,7 +85,8 @@ namespace OgrenciBilgiSistemi
                 {
                     OgrenciNo = ogrenciNo,
                     Isim = isim,
-                    Soyisim = soyisim
+                    Soyisim = soyisim,
+                    password = sifre
                 };
 
                 db.Ogrenciler.Add(yeniOgrenci);
@@ -116,6 +114,10 @@ namespace OgrenciBilgiSistemi
             }
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();

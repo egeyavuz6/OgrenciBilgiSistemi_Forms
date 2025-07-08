@@ -64,7 +64,7 @@ namespace OgrenciBilgiSistemi
                 return;
             }
 
-            double ortalama = ogrenci.Notlar.Average(n => n.Deger);
+            double ortalama = ogrenci.Notlar.Average(n => n.Grades);
             new Guna2MessageDialog
             {
                 Text = $"Average: {ortalama:F2}",

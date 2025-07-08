@@ -13,6 +13,7 @@ namespace OgrenciBilgiSistemi
     public partial class Menu : Form
     {
         List<Ogrenci> ogrenciListesi = new List<Ogrenci>();
+        List<Course> courseList = new List<Course>();
         OBSContext dbContext = new OBSContext();
 
         public Menu()
@@ -89,6 +90,30 @@ namespace OgrenciBilgiSistemi
             this.Hide();
             NotSilForm notSilForm = new NotSilForm(ogrenciListesi, dbContext);
             notSilForm.Show();
+
+        }
+
+        private void addCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AddCourses addCourses = new AddCourses(courseList, dbContext);
+            addCourses.Show();
+
+        }
+
+        private void removeCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RemoveCourse removeCourse = new RemoveCourse(courseList, dbContext);
+            removeCourse.Show();
+
+        }
+
+        private void listCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
+            //ListCourse listCourse = new ListCourse(courseList, dbContext);
+            //listCourse.Show();
 
         }
     }

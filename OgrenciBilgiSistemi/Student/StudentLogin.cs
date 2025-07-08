@@ -1,59 +1,58 @@
 ﻿using Guna.UI2.WinForms;
 using Microsoft.Data.SqlClient;
+using OgrenciBilgiSistemi.Student;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace OgrenciBilgiSistemi
 {
-    public partial class Login : Form
+    public partial class StudentLogin : Form
     {
-        private string connectionString = "@\"Server=DESKTOP-IBCCD9T\\SQLEXPRESS;Database=OgrenciBilgiSistemiDb;Trusted_Connection=True;TrustServerCertificate=True;\"";
-
-        public Login()
+        public StudentLogin()
         {
             InitializeComponent();
         }
-
-
-        private void loginButton_Click_1(object sender, EventArgs e)
+        private void loginButton_Click(object sender, EventArgs e)
         {
             try
             {
                 using (var db = new OBSContext())
                 {
-                    string kullaniciAdi = usernameBox.Text.Trim();
+                    string studentID = studentIDbox.Text.Trim();
                     string sifre = passwordBox.Text.Trim();
 
-                    if (string.IsNullOrWhiteSpace(kullaniciAdi) || string.IsNullOrWhiteSpace(sifre))
+                    if (string.IsNullOrWhiteSpace(studentID) || string.IsNullOrWhiteSpace(sifre))
                     {
                         new Guna2MessageDialog
                         {
                             Caption = "Error!",
-                            Text = "Username or password cannot be empty!",
+                            Text = "Student ID or password cannot be empty!",
                             Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                            Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                            Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
-
+                            Icon = Guna.UI2.WinForms.MessageDialogIcon.Error
                         }.Show();
                         return;
                     }
-
-                    var admin = db.Adminler
-                        .FirstOrDefault(a => a.KullaniciAdi == kullaniciAdi && a.Sifre == sifre);
-
-                    if (admin != null)
+                    Ogrenci ogrenci = db.Ogrenciler.FirstOrDefault(o => o.OgrenciNo == studentID && o.password == sifre);
+                    if (ogrenci != null)
                     {
-
+                        // Hide the current form and show the menu
                         this.Hide();
-                        Menu menu = new Menu();
+                        StudentMenu menu = new StudentMenu();
                         menu.Show();
-
                     }
                     else
                     {
                         new Guna2MessageDialog
                         {
-                            Text = "Username or password is incorrect",
+                            Text = "Student ID or password is incorrect",
                             Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                            Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light,
                             Icon = Guna.UI2.WinForms.MessageDialogIcon.Error
                         }.Show();
                     }
@@ -81,10 +80,17 @@ namespace OgrenciBilgiSistemi
             }
         }
 
-        private void Login_Load(object sender, EventArgs e)
+
+
+        private void guna2CircleButton1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login login = new Login();
+            login.Show();
+        }
+        private void studentIDbox_TextChanged(object sender, EventArgs e)
         {
 
         }
     }
 }
-

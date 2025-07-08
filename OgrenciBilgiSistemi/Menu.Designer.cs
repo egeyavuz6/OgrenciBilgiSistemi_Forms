@@ -39,6 +39,10 @@
             notlarıListeleToolStripMenuItem = new ToolStripMenuItem();
             notSilToolStripMenuItem = new ToolStripMenuItem();
             notSilToolStripMenuItem1 = new ToolStripMenuItem();
+            coursesToolStripMenuItem = new ToolStripMenuItem();
+            addCourseToolStripMenuItem = new ToolStripMenuItem();
+            removeCourseToolStripMenuItem = new ToolStripMenuItem();
+            listCourseToolStripMenuItem = new ToolStripMenuItem();
             yönetimToolStripMenuItem = new ToolStripMenuItem();
             adminEkleToolStripMenuItem = new ToolStripMenuItem();
             cikisToolStripMenuItem = new ToolStripMenuItem();
@@ -51,7 +55,7 @@
             // 
             menuStrip1.AutoSize = false;
             menuStrip1.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { ogrenciIslemleriToolStripMenuItem, notIslemleriToolStripMenuItem, yönetimToolStripMenuItem, cikisToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { ogrenciIslemleriToolStripMenuItem, notIslemleriToolStripMenuItem, coursesToolStripMenuItem, yönetimToolStripMenuItem, cikisToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(900, 40);
@@ -68,21 +72,21 @@
             // ogrenciEkleToolStripMenuItem
             // 
             ogrenciEkleToolStripMenuItem.Name = "ogrenciEkleToolStripMenuItem";
-            ogrenciEkleToolStripMenuItem.Size = new Size(181, 24);
+            ogrenciEkleToolStripMenuItem.Size = new Size(192, 24);
             ogrenciEkleToolStripMenuItem.Text = "Add Student";
             ogrenciEkleToolStripMenuItem.Click += ogrenciEkleToolStripMenuItem_Click;
             // 
             // ogrenciSilToolStripMenuItem
             // 
             ogrenciSilToolStripMenuItem.Name = "ogrenciSilToolStripMenuItem";
-            ogrenciSilToolStripMenuItem.Size = new Size(181, 24);
-            ogrenciSilToolStripMenuItem.Text = "Delete Student";
+            ogrenciSilToolStripMenuItem.Size = new Size(192, 24);
+            ogrenciSilToolStripMenuItem.Text = "Remove Student";
             ogrenciSilToolStripMenuItem.Click += ogrenciSilToolStripMenuItem_Click;
             // 
             // ogrencileriListeleToolStripMenuItem
             // 
             ogrencileriListeleToolStripMenuItem.Name = "ogrencileriListeleToolStripMenuItem";
-            ogrencileriListeleToolStripMenuItem.Size = new Size(181, 24);
+            ogrencileriListeleToolStripMenuItem.Size = new Size(192, 24);
             ogrencileriListeleToolStripMenuItem.Text = "List Students";
             ogrencileriListeleToolStripMenuItem.Click += ogrencileriListeleToolStripMenuItem_Click;
             // 
@@ -96,30 +100,58 @@
             // notEkleToolStripMenuItem
             // 
             notEkleToolStripMenuItem.Name = "notEkleToolStripMenuItem";
-            notEkleToolStripMenuItem.Size = new Size(203, 24);
+            notEkleToolStripMenuItem.Size = new Size(167, 24);
             notEkleToolStripMenuItem.Text = "Add Grade";
             notEkleToolStripMenuItem.Click += notEkleToolStripMenuItem_Click;
             // 
             // notlarıListeleToolStripMenuItem
             // 
             notlarıListeleToolStripMenuItem.Name = "notlarıListeleToolStripMenuItem";
-            notlarıListeleToolStripMenuItem.Size = new Size(203, 24);
+            notlarıListeleToolStripMenuItem.Size = new Size(167, 24);
             notlarıListeleToolStripMenuItem.Text = "List Grades";
             notlarıListeleToolStripMenuItem.Click += notlarıListeleToolStripMenuItem_Click;
             // 
             // notSilToolStripMenuItem
             // 
             notSilToolStripMenuItem.Name = "notSilToolStripMenuItem";
-            notSilToolStripMenuItem.Size = new Size(203, 24);
-            notSilToolStripMenuItem.Text = "Average of Grades";
+            notSilToolStripMenuItem.Size = new Size(167, 24);
+            notSilToolStripMenuItem.Text = "See GPA";
             notSilToolStripMenuItem.Click += notSilToolStripMenuItem_Click;
             // 
             // notSilToolStripMenuItem1
             // 
             notSilToolStripMenuItem1.Name = "notSilToolStripMenuItem1";
-            notSilToolStripMenuItem1.Size = new Size(203, 24);
+            notSilToolStripMenuItem1.Size = new Size(167, 24);
             notSilToolStripMenuItem1.Text = "Delete Grade";
             notSilToolStripMenuItem1.Click += notSilToolStripMenuItem1_Click;
+            // 
+            // coursesToolStripMenuItem
+            // 
+            coursesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { addCourseToolStripMenuItem, removeCourseToolStripMenuItem, listCourseToolStripMenuItem });
+            coursesToolStripMenuItem.Name = "coursesToolStripMenuItem";
+            coursesToolStripMenuItem.Size = new Size(73, 36);
+            coursesToolStripMenuItem.Text = "Courses";
+            // 
+            // addCourseToolStripMenuItem
+            // 
+            addCourseToolStripMenuItem.Name = "addCourseToolStripMenuItem";
+            addCourseToolStripMenuItem.Size = new Size(183, 24);
+            addCourseToolStripMenuItem.Text = "Add Course";
+            addCourseToolStripMenuItem.Click += addCourseToolStripMenuItem_Click;
+            // 
+            // removeCourseToolStripMenuItem
+            // 
+            removeCourseToolStripMenuItem.Name = "removeCourseToolStripMenuItem";
+            removeCourseToolStripMenuItem.Size = new Size(183, 24);
+            removeCourseToolStripMenuItem.Text = "Remove Course";
+            removeCourseToolStripMenuItem.Click += removeCourseToolStripMenuItem_Click;
+            // 
+            // listCourseToolStripMenuItem
+            // 
+            listCourseToolStripMenuItem.Name = "listCourseToolStripMenuItem";
+            listCourseToolStripMenuItem.Size = new Size(183, 24);
+            listCourseToolStripMenuItem.Text = "List Courses";
+            listCourseToolStripMenuItem.Click += listCourseToolStripMenuItem_Click;
             // 
             // yönetimToolStripMenuItem
             // 
@@ -196,5 +228,9 @@
         private ToolStripMenuItem notSilToolStripMenuItem1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
+        private ToolStripMenuItem coursesToolStripMenuItem;
+        private ToolStripMenuItem addCourseToolStripMenuItem;
+        private ToolStripMenuItem removeCourseToolStripMenuItem;
+        private ToolStripMenuItem listCourseToolStripMenuItem;
     }
 }

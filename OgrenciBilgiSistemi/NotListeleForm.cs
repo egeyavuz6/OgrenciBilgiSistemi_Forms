@@ -84,7 +84,8 @@ namespace OgrenciBilgiSistemi
                 dataGridView1.BackgroundColor = Color.FromArgb(44, 47, 51);
                 dataGridView1.DataSource = notlar.Select(n => new
                 {
-                    n.Deger,
+                    n.Grades,
+                    n.CourseId,
                     OgrenciNo = ogrenci.OgrenciNo,
                     OgrenciIsim = ogrenci.Isim,
                     OgrenciSoyisim = ogrenci.Soyisim
