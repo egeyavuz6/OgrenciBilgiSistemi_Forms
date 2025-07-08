@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OgrenciBilgiSistemi;
 
@@ -10,9 +11,11 @@ using OgrenciBilgiSistemi;
 namespace OgrenciBilgiSistemi.Migrations
 {
     [DbContext(typeof(OBSContext))]
-    partial class OBSContextModelSnapshot : ModelSnapshot
+    [Migration("20250708222849_V2_UpdateAfterGithub")]
+    partial class V2_UpdateAfterGithub
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

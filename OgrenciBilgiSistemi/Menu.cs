@@ -104,8 +104,9 @@ namespace OgrenciBilgiSistemi
         private void removeCourseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RemoveCourse removeCourse = new RemoveCourse(courseList, dbContext);
-            removeCourse.Show();
+            OBSContext context = new OBSContext(); 
+            RemoveCourse form = new RemoveCourse(null, context);
+            form.Show();
 
         }
 
