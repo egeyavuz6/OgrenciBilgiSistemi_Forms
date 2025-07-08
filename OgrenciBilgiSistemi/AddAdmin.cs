@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,21 +39,46 @@ namespace OgrenciBilgiSistemi
                 }.Show();
                 return;
             }
-            using (var db = new OBSContext())
+            try 
+            { 
+                using (var db = new OBSContext())
+                {
+                    var yeniAdmin = new Admin(kullaniciAdi, sifre);
+                    db.Adminler.Add(yeniAdmin);
+                    //int sonuc = db.SaveChanges(); debugger
+                    //MessageBox.Show($"{sonuc} kayıt eklendi."); debugger
+                    new Guna2MessageDialog
+                    {
+                        Text = $"Added New Admin",
+                        Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light,
+                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Error
+
+                    }.Show();
+                }
+            }
+            catch(SqlException ex)
             {
-                var yeniAdmin = new Admin(kullaniciAdi, sifre);
-                db.Adminler.Add(yeniAdmin);
-                //int sonuc = db.SaveChanges(); debugger
-                //MessageBox.Show($"{sonuc} kayıt eklendi."); debugger
                 new Guna2MessageDialog
                 {
-                    Text = $"Added New Admin",
+                    Caption = "Error",
+                    Text = $"Something wrong happened with Database{ex.Message}",
                     Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light,
                     Icon = Guna.UI2.WinForms.MessageDialogIcon.Error
+                }.Show();
 
+            }
+            catch (Exception ex)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error",
+                    Text = $"An error occurred while adding the admin: {ex.Message}",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error
                 }.Show();
             }
+
         }
 
         private void button2_Click_1(object sender, EventArgs e)

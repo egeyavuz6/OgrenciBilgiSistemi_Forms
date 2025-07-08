@@ -16,7 +16,6 @@ namespace OgrenciBilgiSistemi
             ogrenciListesi = ogrenciler;
             db = dbContext;
         }
-
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -24,6 +23,9 @@ namespace OgrenciBilgiSistemi
 
         private void button1_Click(object sender, EventArgs e) 
         {
+            try
+            {
+
             string ogrenciNo = txtNo.Text.Trim();
             string isim = txtAd.Text.Trim();
             string soyisim = txtSoyad.Text.Trim();
@@ -36,7 +38,6 @@ namespace OgrenciBilgiSistemi
                     Text = "Please Fill All of Them",
                     Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                     Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
 
                 }.Show();
                 return;
@@ -50,13 +51,25 @@ namespace OgrenciBilgiSistemi
                     Text = "You Cannot Enter an Integer to name or surname!",
                     Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                     Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
                     
                 }.Show();
                 return;
             }
+                //ogrenciNo sadece rakamlardan oluşmalı
+                if (!int.TryParse(ogrenciNo, out _))
+                {
+                    new Guna2MessageDialog
+                    {
+                        Caption = "Error!",
+                        Text = "Student Number Must Be Numeric!",
+                        Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                    }.Show();
+                    return;
+                }
 
-            using (var db = new OBSContext())
+
+                    using (var db = new OBSContext())
             {
                 if (db.Ogrenciler.Any(o => o.OgrenciNo == ogrenciNo))
                 {
@@ -66,8 +79,6 @@ namespace OgrenciBilgiSistemi
                         Text = "This Student Nubmer is Already in Use!",
                         Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                         Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
-
                     }.Show();
                     return;
                 }
@@ -89,9 +100,19 @@ namespace OgrenciBilgiSistemi
                     Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                     Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
                     Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
-
                 }.Show();
                 
+            }
+            }
+            catch(Exception ex)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = $"An error occurred: {ex.Message}",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error
+                }.Show();
             }
         }
 

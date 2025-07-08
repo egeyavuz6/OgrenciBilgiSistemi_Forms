@@ -18,6 +18,7 @@ namespace OgrenciBilgiSistemi
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            try { 
             string ogrenciNo = textBox1.Text.Trim();
 
             if (string.IsNullOrEmpty(ogrenciNo))
@@ -72,7 +73,18 @@ namespace OgrenciBilgiSistemi
                 Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
 
             }.Show();
+            }
+            catch(Exception ex)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = $"An error occurred: {ex.Message}",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error
+                }.Show();
 
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

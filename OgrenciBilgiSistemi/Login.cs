@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using Microsoft.Data.SqlClient;
 
 namespace OgrenciBilgiSistemi
 {
@@ -14,6 +15,8 @@ namespace OgrenciBilgiSistemi
 
         private void loginButton_Click_1(object sender, EventArgs e)
         {
+            try
+            {
                 using (var db = new OBSContext())
                 {
                     string kullaniciAdi = usernameBox.Text.Trim();
@@ -54,7 +57,27 @@ namespace OgrenciBilgiSistemi
                             Icon = Guna.UI2.WinForms.MessageDialogIcon.Error
                         }.Show();
                     }
-                
+                }
+            }
+            catch (SqlException ex)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Database Error!",
+                    Text = $"Something is wrong with the database: {ex.Message}",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error
+                }.Show();
+            }
+            catch (Exception ex)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = $"An error occurred: {ex.Message}",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                }.Show();
             }
         }
     }

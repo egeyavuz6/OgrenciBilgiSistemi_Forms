@@ -33,7 +33,7 @@ namespace OgrenciBilgiSistemi
 
         private void btnNotEkle_Click(object sender, EventArgs e)
         {
-
+            try { 
             string ogrenciNo = txtNo.Text.Trim();
             string grade = txtNot.Text.Trim();
             if (string.IsNullOrEmpty(ogrenciNo) || string.IsNullOrEmpty(grade))
@@ -103,6 +103,18 @@ namespace OgrenciBilgiSistemi
 
                 }.Show();
                 txtNot.Clear();
+            }
+            }
+            catch
+            {   
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = "An unexpected error occurred. Please try again.",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                }.Show();
+
             }
         }
     }

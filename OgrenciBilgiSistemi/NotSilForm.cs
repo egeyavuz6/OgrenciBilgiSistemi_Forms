@@ -25,6 +25,9 @@ namespace OgrenciBilgiSistemi
 
         private void btnListele_Click_1(object sender, EventArgs e)
         {
+            try
+            {
+
             string ogrenciNo = textBox1.Text.Trim();
 
             if (string.IsNullOrEmpty(ogrenciNo))
@@ -78,10 +81,24 @@ namespace OgrenciBilgiSistemi
             }).ToList();
             dataGridView1.Visible = true;
             btnListele.Text = "Refresh List";
+            }
+            catch(Exception ex)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = $"An error occurred: {ex.Message}",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error
+                }.Show();
+            }
         }
 
         private void btnSil_Click_2(object sender, EventArgs e)
         {
+            try
+            {
+
             if (dataGridView1.SelectedRows.Count == 0)
             {
                 new Guna2MessageDialog
@@ -126,6 +143,18 @@ namespace OgrenciBilgiSistemi
             }.Show();
 
             btnSil_Click_1(null, null);
+            }
+            catch(Exception ex)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = $"An error occurred: {ex.Message}",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+                }.Show();
+            }
         }
 
         private void exitBtn_Click(object sender, EventArgs e)

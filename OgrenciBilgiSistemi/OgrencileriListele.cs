@@ -16,6 +16,8 @@ namespace OgrenciBilgiSistemi
 
         private void OgrencileriListele_Load(object sender, EventArgs e)
         {
+            try 
+            { 
             
                 using (var context = new OBSContext())
                 {
@@ -36,7 +38,19 @@ namespace OgrenciBilgiSistemi
 
                     dataGridView1.DataSource = ogrenciler;
                 }
-            }        
+            }
+            catch (Exception ex)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = $"An error occurred: {ex.Message}",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error
+                }.Show();
+
+            }
+        }        
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
