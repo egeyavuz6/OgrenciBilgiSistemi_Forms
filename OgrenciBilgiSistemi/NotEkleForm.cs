@@ -48,6 +48,8 @@ namespace OgrenciBilgiSistemi
             {
                 string grade = txtNot.Text.Trim();
                 string courseId = guna2ComboBox1.SelectedItem.ToString();
+
+
                 string selectedStudent = studentNumberNameCombo.SelectedItem.ToString();
                 //selects the OgrenciNo from studentNumberNameCombo
                 string[] comboOgrenci = selectedStudent.Split(new[] { "-" }, StringSplitOptions.None);
@@ -60,7 +62,6 @@ namespace OgrenciBilgiSistemi
                         Text = "Please Select a Student",
                         Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                         Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
                     }.Show();
                     return;
                 }
@@ -73,7 +74,6 @@ namespace OgrenciBilgiSistemi
                         Text = "Please Select a Course",
                         Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                         Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
                     }.Show();
                     return;
                 }
@@ -86,7 +86,6 @@ namespace OgrenciBilgiSistemi
                         Text = "Please Fill Grade",
                         Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                         Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
 
                     }.Show();
                     return;
@@ -103,7 +102,6 @@ namespace OgrenciBilgiSistemi
                             Text = "Course Doesn't Exist",
                             Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                             Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                            Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
                         }.Show();
                         return;
                     }
@@ -116,7 +114,6 @@ namespace OgrenciBilgiSistemi
                             Text = "Student Doesn't Exist",
                             Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                             Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                            Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
 
                         }.Show();
                         return;

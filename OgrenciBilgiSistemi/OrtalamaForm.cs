@@ -36,7 +36,8 @@ namespace OgrenciBilgiSistemi
                 comboBox.DataSource = ogrenciler;
             }
             comboBox.SelectedIndex = 0;
-            
+           
+
 
         }
 

@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
@@ -16,88 +17,49 @@ namespace OgrenciBilgiSistemi
             db = dbContext;
         }
 
-        private void btnListele_Click_1(object sender, EventArgs e)
+        private void NotSilForm_Load(object sender, EventArgs e)
         {
             try
             {
+                dataGridView1.Visible = true;
 
-                if (dataGridView1.SelectedRows.Count == 0)
-                {
-                    new Guna2MessageDialog
-                    {
-                        Caption = "Error!",
-                        Text = "You Need To Select A Student First",
-                        Buttons = MessageDialogButtons.OK,
-                        Icon = MessageDialogIcon.Error,
-                    }.Show();
-                    return;
-                }
-                string ogrenciNo = Convert.ToString(dataGridView1.SelectedRows[0].Cells["OgrenciNo"].Value);
-                var ogrencix = db.Ogrenciler.FirstOrDefault(n => n.OgrenciNo == ogrenciNo);
-
-                if (ogrencix == null)
-                {
-                    new Guna2MessageDialog
-                    {
-                        Caption = "Error!",
-                        Text = "No Students Found!",
-                        Buttons = MessageDialogButtons.OK,
-                        Icon = MessageDialogIcon.Error,
-                    }.Show();
-                    return;
-                }
-
-                var ogrenci = db.Ogrenciler
+                var ogrenciNotlari = db.Ogrenciler
                     .Include(o => o.Notlar)
                     .ThenInclude(n => n.Course)
-                    .FirstOrDefault(o => o.OgrenciNo == ogrenciNo);
-
-                if (ogrenci == null)
-                {
-                    new Guna2MessageDialog
+                    .SelectMany(o => o.Notlar.Select(n => new
                     {
-                        Caption = "Error!",
-                        Text = "Student Not Found!",
-                        Buttons = MessageDialogButtons.OK,
-                        Icon = MessageDialogIcon.Error,
-                    }.Show();
-                    return;
-                }
+                        o.OgrenciNo,
+                        o.Isim,
+                        o.Soyisim,
+                        n.Id,
+                        n.Grades,
+                        CourseName = n.Course.Id,
+                        n.Course.Credit
+                    }))
+                    .ToList();
 
-                if (ogrenci.Notlar == null || !ogrenci.Notlar.Any())
+                dataGridView1.DataSource = ogrenciNotlari;
+            }
+            catch (SqlException ex)
+            {
+                new Guna2MessageDialog
                 {
-                    new Guna2MessageDialog
-                    {
-                        Caption = "Error!",
-                        Text = "This Student Doesn't Have Any Grade!",
-                        Buttons = MessageDialogButtons.OK,
-                        Icon = MessageDialogIcon.Error,
-                    }.Show();
-                    return;
-                }
-
-                dataGridView1.DataSource = ogrenci.Notlar.Select(n => new
-                {
-                    n.Ogrenci.Isim,
-                    n.Ogrenci.Soyisim,
-                    n.Id,
-                    n.Grades,
-                    CourseName = n.Course.Id,
-                    n.Course.Credit
-                }).ToList();
-
-                dataGridView1.Visible = true;
-                btnListele.Visible = false;
+                    Caption = "Error!",
+                    Text = "Error with database." + ex.Message,
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Error,
+                }.Show();
             }
             catch (Exception ex)
             {
                 new Guna2MessageDialog
                 {
                     Caption = "Error!",
-                    Text = $"An error occurred: {ex.Message}",
+                    Text = ex.Message,
                     Buttons = MessageDialogButtons.OK,
-                    Icon = MessageDialogIcon.Error
+                    Icon = MessageDialogIcon.Error,
                 }.Show();
+
             }
         }
 
@@ -142,24 +104,9 @@ namespace OgrenciBilgiSistemi
                     Buttons = MessageDialogButtons.OK,
                     Icon = MessageDialogIcon.Information,
                 }.Show();
-               //tabloyu yenile
-               dataGridView1.DataSource = db.Ogrenciler
-                    .Include(o => o.Notlar)
-                    .ThenInclude(n => n.Course)
-                    .Select(o => new
-                    {
-                        o.Isim,
-                        o.Soyisim,
-                        o.OgrenciNo,
-                        Notlar = o.Notlar.Select(n => new
-                        {
-                            n.Id,
-                            n.Grades,
-                            CourseName = n.Course.Id,
-                            n.Course.Credit
-                        }).ToList()
-                    }).ToList();
-                btnListele.Visible = true;
+
+                // Tabloyu yenile
+                NotSilForm_Load(null, null);
             }
             catch (Exception ex)
             {
@@ -183,27 +130,6 @@ namespace OgrenciBilgiSistemi
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
-        }
-
-        private void NotSilForm_Load(object sender, EventArgs e)
-        {
-            dataGridView1.Visible = true;
-            var ogrenci = db.Ogrenciler
-                    .Include(o => o.Notlar)
-                    .ThenInclude(n => n.Course);
-            dataGridView1.DataSource = ogrenci.Select(o => new
-            {
-                o.Isim,
-                o.Soyisim,
-                o.OgrenciNo,
-                Notlar = o.Notlar.Select(n => new
-                {
-                    n.Id,
-                    n.Grades,
-                    CourseName = n.CourseId,
-                    n.Course.Credit
-                }).ToList()
-            }).ToList();
         }
     }
 }

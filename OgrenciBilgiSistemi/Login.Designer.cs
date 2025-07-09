@@ -34,8 +34,9 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             usernameBox = new Guna.UI2.WinForms.Guna2TextBox();
             passwordBox = new Guna.UI2.WinForms.Guna2TextBox();
             label1 = new Label();
@@ -45,6 +46,7 @@
             guna2MessageDialog1 = new Guna.UI2.WinForms.Guna2MessageDialog();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             hideSwitch = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
             SuspendLayout();
             // 
             // usernameBox
@@ -161,10 +163,10 @@
             hideSwitch.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
             hideSwitch.CheckedState.InnerBorderColor = Color.White;
             hideSwitch.CheckedState.InnerColor = Color.White;
-            hideSwitch.CustomizableEdges = customizableEdges6;
+            hideSwitch.CustomizableEdges = customizableEdges7;
             hideSwitch.Location = new Point(616, 233);
             hideSwitch.Name = "hideSwitch";
-            hideSwitch.ShadowDecoration.CustomizableEdges = customizableEdges7;
+            hideSwitch.ShadowDecoration.CustomizableEdges = customizableEdges8;
             hideSwitch.Size = new Size(35, 20);
             hideSwitch.TabIndex = 14;
             hideSwitch.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
@@ -173,12 +175,35 @@
             hideSwitch.UncheckedState.InnerColor = Color.White;
             hideSwitch.CheckedChanged += hideSwitch_CheckedChanged;
             // 
+            // guna2CircleButton1
+            // 
+            guna2CircleButton1.BackColor = Color.Transparent;
+            guna2CircleButton1.DisabledState.BorderColor = Color.DarkGray;
+            guna2CircleButton1.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2CircleButton1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2CircleButton1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2CircleButton1.FillColor = Color.FromArgb(88, 101, 242);
+            guna2CircleButton1.Font = new Font("Calibri", 16F);
+            guna2CircleButton1.ForeColor = Color.White;
+            guna2CircleButton1.HoverState.BorderColor = Color.Black;
+            guna2CircleButton1.HoverState.CustomBorderColor = Color.Black;
+            guna2CircleButton1.HoverState.FillColor = Color.FromArgb(114, 137, 218);
+            guna2CircleButton1.Location = new Point(748, 439);
+            guna2CircleButton1.Name = "guna2CircleButton1";
+            guna2CircleButton1.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            guna2CircleButton1.Size = new Size(140, 140);
+            guna2CircleButton1.TabIndex = 16;
+            guna2CircleButton1.Text = "STUDENT LOGIN";
+            guna2CircleButton1.Click += guna2CircleButton1_Click;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 47, 51);
             ClientSize = new Size(900, 600);
+            Controls.Add(guna2CircleButton1);
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(hideSwitch);
             Controls.Add(loginButton);
@@ -206,5 +231,6 @@
         private Guna.UI2.WinForms.Guna2MessageDialog guna2MessageDialog1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2ToggleSwitch hideSwitch;
+        private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
     }
 }
