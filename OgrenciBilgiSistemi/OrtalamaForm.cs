@@ -64,10 +64,23 @@ namespace OgrenciBilgiSistemi
                 return;
             }
 
-            double ortalama = ogrenci.Notlar.Average(n => n.Grades);
-            new Guna2MessageDialog
+                double toplamAğırlıklıNot = 0.0;
+                int toplamKredi = 0;
+                foreach (var not in ogrenci.Notlar)
+                {
+                    var ders = db.Courses.FirstOrDefault(d => d.Id == not.CourseId);
+                    if (ders != null)
+                    {
+                        toplamAğırlıklıNot += not.WeightedGrade * ders.Credit;
+                        toplamKredi += ders.Credit;
+                    }
+                }
+
+                double GPA = toplamAğırlıklıNot / toplamKredi;
+
+                new Guna2MessageDialog
             {
-                Text = $"Average: {ortalama:F2}",
+                Text = $"Average: {GPA:F2}",
                 Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                 Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
                 Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light

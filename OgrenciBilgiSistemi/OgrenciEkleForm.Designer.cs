@@ -41,6 +41,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -52,6 +54,8 @@
             guna2NotificationPaint1 = new Guna.UI2.WinForms.Guna2NotificationPaint(components);
             passwordBox = new Guna.UI2.WinForms.Guna2TextBox();
             label4 = new Label();
+            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            hideSwitch = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             SuspendLayout();
             // 
             // label1
@@ -200,6 +204,7 @@
             passwordBox.Location = new Point(461, 272);
             passwordBox.Margin = new Padding(7, 9, 7, 9);
             passwordBox.Name = "passwordBox";
+            passwordBox.PasswordChar = '*';
             passwordBox.PlaceholderText = "";
             passwordBox.SelectedText = "";
             passwordBox.ShadowDecoration.CustomizableEdges = customizableEdges12;
@@ -217,12 +222,42 @@
             label4.TabIndex = 12;
             label4.Text = "Student Password:";
             // 
+            // guna2HtmlLabel1
+            // 
+            guna2HtmlLabel1.BackColor = Color.Transparent;
+            guna2HtmlLabel1.ForeColor = Color.White;
+            guna2HtmlLabel1.Location = new Point(715, 283);
+            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            guna2HtmlLabel1.Size = new Size(93, 17);
+            guna2HtmlLabel1.TabIndex = 15;
+            guna2HtmlLabel1.Text = "(Show password)";
+            // 
+            // hideSwitch
+            // 
+            hideSwitch.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            hideSwitch.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            hideSwitch.CheckedState.InnerBorderColor = Color.White;
+            hideSwitch.CheckedState.InnerColor = Color.White;
+            hideSwitch.CustomizableEdges = customizableEdges13;
+            hideSwitch.Location = new Point(666, 281);
+            hideSwitch.Name = "hideSwitch";
+            hideSwitch.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            hideSwitch.Size = new Size(35, 20);
+            hideSwitch.TabIndex = 14;
+            hideSwitch.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            hideSwitch.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            hideSwitch.UncheckedState.InnerBorderColor = Color.White;
+            hideSwitch.UncheckedState.InnerColor = Color.White;
+            hideSwitch.CheckedChanged += hideSwitch_CheckedChanged;
+            // 
             // OgrenciEkleForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 47, 51);
             ClientSize = new Size(900, 600);
+            Controls.Add(guna2HtmlLabel1);
+            Controls.Add(hideSwitch);
             Controls.Add(passwordBox);
             Controls.Add(label4);
             Controls.Add(button2);
@@ -253,5 +288,7 @@
         private Guna.UI2.WinForms.Guna2NotificationPaint guna2NotificationPaint1;
         private Guna.UI2.WinForms.Guna2TextBox passwordBox;
         private Label label4;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch hideSwitch;
     }
 }

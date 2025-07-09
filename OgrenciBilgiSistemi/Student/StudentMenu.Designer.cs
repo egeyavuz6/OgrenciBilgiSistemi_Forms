@@ -30,11 +30,11 @@
         {
             menuStrip1 = new MenuStrip();
             gradesToolStripMenuItem = new ToolStripMenuItem();
+            seeYourGradesToolStripMenuItem = new ToolStripMenuItem();
+            seeYourGPAToolStripMenuItem = new ToolStripMenuItem();
             lecturesToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem1 = new ToolStripMenuItem();
-            seeYourGradesToolStripMenuItem = new ToolStripMenuItem();
-            seeYourGPAToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -57,11 +57,26 @@
             gradesToolStripMenuItem.Size = new Size(68, 45);
             gradesToolStripMenuItem.Text = "Grades";
             // 
+            // seeYourGradesToolStripMenuItem
+            // 
+            seeYourGradesToolStripMenuItem.Name = "seeYourGradesToolStripMenuItem";
+            seeYourGradesToolStripMenuItem.Size = new Size(188, 24);
+            seeYourGradesToolStripMenuItem.Text = "See Your Grades";
+            seeYourGradesToolStripMenuItem.Click += seeYourGradesToolStripMenuItem_Click;
+            // 
+            // seeYourGPAToolStripMenuItem
+            // 
+            seeYourGPAToolStripMenuItem.Name = "seeYourGPAToolStripMenuItem";
+            seeYourGPAToolStripMenuItem.Size = new Size(188, 24);
+            seeYourGPAToolStripMenuItem.Text = "See Your GPA";
+            seeYourGPAToolStripMenuItem.Click += seeYourGPAToolStripMenuItem_Click;
+            // 
             // lecturesToolStripMenuItem
             // 
             lecturesToolStripMenuItem.Name = "lecturesToolStripMenuItem";
             lecturesToolStripMenuItem.Size = new Size(78, 45);
             lecturesToolStripMenuItem.Text = "Lectures";
+            lecturesToolStripMenuItem.Click += lecturesToolStripMenuItem_Click;
             // 
             // exitToolStripMenuItem
             // 
@@ -73,20 +88,8 @@
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(22, 20);
+            toolStripMenuItem1.Size = new Size(25, 45);
             toolStripMenuItem1.Text = " ";
-            // 
-            // seeYourGradesToolStripMenuItem
-            // 
-            seeYourGradesToolStripMenuItem.Name = "seeYourGradesToolStripMenuItem";
-            seeYourGradesToolStripMenuItem.Size = new Size(188, 24);
-            seeYourGradesToolStripMenuItem.Text = "See Your Grades";
-            // 
-            // seeYourGPAToolStripMenuItem
-            // 
-            seeYourGPAToolStripMenuItem.Name = "seeYourGPAToolStripMenuItem";
-            seeYourGPAToolStripMenuItem.Size = new Size(188, 24);
-            seeYourGPAToolStripMenuItem.Text = "See Your GPA";
             // 
             // StudentMenu
             // 

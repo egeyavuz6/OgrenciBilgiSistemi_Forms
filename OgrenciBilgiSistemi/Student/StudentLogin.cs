@@ -18,6 +18,7 @@ namespace OgrenciBilgiSistemi
         public StudentLogin()
         {
             InitializeComponent();
+
         }
         private void loginButton_Click(object sender, EventArgs e)
         {
@@ -27,6 +28,7 @@ namespace OgrenciBilgiSistemi
                 {
                     string studentID = studentIDbox.Text.Trim();
                     string sifre = passwordBox.Text.Trim();
+
 
                     if (string.IsNullOrWhiteSpace(studentID) || string.IsNullOrWhiteSpace(sifre))
                     {
@@ -42,6 +44,8 @@ namespace OgrenciBilgiSistemi
                     Ogrenci ogrenci = db.Ogrenciler.FirstOrDefault(o => o.OgrenciNo == studentID && o.password == sifre);
                     if (ogrenci != null)
                     {
+                        SessionManager.ogrenciId = ogrenci.Id;
+                        SessionManager.StudentID = ogrenci.OgrenciNo;
                         // Hide the current form and show the menu
                         this.Hide();
                         StudentMenu menu = new StudentMenu();
@@ -82,6 +86,7 @@ namespace OgrenciBilgiSistemi
 
 
 
+
         private void guna2CircleButton1_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -91,6 +96,11 @@ namespace OgrenciBilgiSistemi
         private void studentIDbox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void hideSwitch_CheckedChanged(object sender, EventArgs e)
+        {
+            passwordBox.PasswordChar = hideSwitch.Checked ? '\0' : '*';
         }
     }
 }

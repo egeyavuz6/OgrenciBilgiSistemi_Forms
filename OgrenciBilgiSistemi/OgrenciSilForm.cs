@@ -10,10 +10,12 @@ namespace OgrenciBilgiSistemi
     public partial class OgrenciSilForm : Form
     {
         List<Ogrenci> ogrenciListesi;
+        private OBSContext db = new OBSContext();
 
         public OgrenciSilForm(List<Ogrenci> ogrenciler)
         {
             InitializeComponent();
+            db = new OBSContext();
             ogrenciListesi = ogrenciler;
         }
 
@@ -22,83 +24,53 @@ namespace OgrenciBilgiSistemi
         {
             try
             {
-                string ogrenciNo = textBox1.Text.Trim();
-
-
-                if (string.IsNullOrEmpty(ogrenciNo))
+                if (studentTableView.SelectedRows.Count == 0)
                 {
                     new Guna2MessageDialog
                     {
                         Caption = "Error!",
-                        Text = "Please Enter a Student Number!",
-                        Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
-
+                        Text = "You Need To Select A Student First",
+                        Buttons = MessageDialogButtons.OK,
+                        Icon = MessageDialogIcon.Error,
                     }.Show();
                     return;
                 }
-                try
+
+                string ogrenciNo = Convert.ToString(studentTableView.SelectedRows[0].Cells["OgrenciNo"].Value);
+                var ogrenci = db.Ogrenciler.FirstOrDefault(n => n.OgrenciNo == ogrenciNo);
+
+                db.Ogrenciler.Remove(ogrenci);
+                db.SaveChanges();
+
+                new Guna2MessageDialog
                 {
-
-                    using (var context = new OBSContext())
-                    {
-                        var ogrenci = context.Ogrenciler.FirstOrDefault(o => o.OgrenciNo == ogrenciNo);
-
-                        if (ogrenci != null)
-                        {
-                            context.Ogrenciler.Remove(ogrenci);
-                            context.SaveChanges();
-
-                            new Guna2MessageDialog
-                            {
-                                Caption = "Successful",
-                                Text = "Student Deleted Successfully",
-                                Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                                Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                                Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
-
-                            }.Show();
-                        }
-                        else
-                        {
-                            new Guna2MessageDialog
-                            {
-                                Caption = "Error!",
-                                Text = "Cannot Found The Student!",
-                                Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                                Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                                Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
-
-                            }.Show();
-                        }
-                    }
-                }
-                catch (Exception ex)
+                    Caption = "Success!",
+                    Text = "Student Successfully Deleted",
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Information,
+                }.Show();
+                //listeyi yenile
+                studentTableView.DataSource = db.Ogrenciler.Select(o => new
                 {
-                    new Guna2MessageDialog
-                    {
-                        Caption = "Error!",
-                        Text = $"An error occurred: {ex.Message}",
-                        Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Error
-                    }.Show();
-                }
-
+                    o.Isim,
+                    o.Soyisim,
+                    o.OgrenciNo,
+                }).ToList();
 
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
                 new Guna2MessageDialog
                 {
-                    Caption = "Database Error",
-                    Text = $"An error occurred while accessing the database: {ex.Message}",
-                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+                    Caption = "Error!",
+                    Text = $"An error occurred: {ex.Message}",
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Error,
                 }.Show();
             }
         }
+
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -106,8 +78,48 @@ namespace OgrenciBilgiSistemi
             Menu menu = new Menu();
             menu.Show();
         }
-    
-    } 
+
+        private void OgrenciSilForm_Load(object sender, EventArgs e)
+        {
+            //açılınca listeyi doldur
+            try
+            {
+                studentTableView.DataSource = db.Ogrenciler.Select(o => new
+                {
+                    o.Isim,
+                    o.Soyisim,
+                    o.OgrenciNo,
+                }).ToList();
+                studentTableView.Visible = true;
+            }
+            catch (SqlException sqlEx)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Database Error!",
+                    Text = $"An error occurred while connecting to the database: {sqlEx.Message}",
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Error
+                }.Show();
+            }
+            catch (Exception ex)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = $"An unexpected error occurred: {ex.Message}",
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Error
+                }.Show();
+
+            }
+        }
+
+        private void studentTableView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+    }
 }
 
 

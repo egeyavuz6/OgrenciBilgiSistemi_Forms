@@ -13,6 +13,8 @@ namespace OgrenciBilgiSistemi
         public int OgrenciId { get; set; }
         public string CourseId { get; set; }
         public Ogrenci Ogrenci { get; set; }
+        
+        public double WeightedGrade {  get; set; }
 
         public Course Course { get; set; }
     }

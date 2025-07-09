@@ -12,6 +12,9 @@ namespace OgrenciBilgiSistemi.Student
 {
     public partial class StudentMenu : Form
     {
+        List<Ogrenci> ogrenciListesi = new List<Ogrenci>();
+        List<Course> courseList = new List<Course>();
+        OBSContext dbContext = new OBSContext();
         public StudentMenu()
         {
             InitializeComponent();
@@ -21,10 +24,29 @@ namespace OgrenciBilgiSistemi.Student
         {
 
         }
-
+        private void seeYourGradesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ListNotes_Student listNotes = new ListNotes_Student(ogrenciListesi, dbContext);
+            listNotes.Show();
+        }
+        private void seeYourGPAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SeeGPA seeGPA = new SeeGPA();
+            seeGPA.Show();
+        }
+        private void lecturesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ListCourses_Student listCourses = new ListCourses_Student();
+            listCourses.Show();
+        }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
         }
+
+
     }
 }

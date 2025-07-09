@@ -112,9 +112,9 @@ namespace OgrenciBilgiSistemi
 
         private void listCourseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            //ListCourse listCourse = new ListCourse(courseList, dbContext);
-            //listCourse.Show();
+            this.Hide();
+            ListCourse listCourse = new ListCourse();
+            listCourse.Show();
 
         }
     }

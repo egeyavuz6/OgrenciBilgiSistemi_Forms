@@ -1,6 +1,6 @@
-﻿namespace OgrenciBilgiSistemi
+﻿namespace OgrenciBilgiSistemi.Student
 {
-    partial class OgrencileriListele
+    partial class ListCourses_Student
     {
         /// <summary>
         /// Required designer variable.
@@ -30,34 +30,11 @@
         {
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            dataGridView1 = new DataGridView();
-            label1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             button2 = new Guna.UI2.WinForms.Guna2Button();
+            label1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.BackgroundColor = Color.FromArgb(44, 47, 51);
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(171, 136);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(549, 342);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // label1
-            // 
-            label1.AutoSize = false;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(171, 58);
-            label1.Name = "label1";
-            label1.Size = new Size(549, 58);
-            label1.TabIndex = 1;
-            label1.Text = "LIST OF STUDENTS";
-            label1.TextAlignment = ContentAlignment.MiddleCenter;
             // 
             // button2
             // 
@@ -68,15 +45,37 @@
             button2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             button2.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(728, 498);
+            button2.Location = new Point(738, 508);
             button2.Name = "button2";
             button2.ShadowDecoration.CustomizableEdges = customizableEdges2;
             button2.Size = new Size(160, 90);
-            button2.TabIndex = 8;
+            button2.TabIndex = 14;
             button2.Text = "Exit to Main Menu";
             button2.Click += button2_Click;
             // 
-            // OgrencileriListele
+            // label1
+            // 
+            label1.AutoSize = false;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(181, 68);
+            label1.Name = "label1";
+            label1.Size = new Size(549, 58);
+            label1.TabIndex = 13;
+            label1.Text = "LIST OF COURSES";
+            label1.TextAlignment = ContentAlignment.MiddleCenter;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.BackgroundColor = Color.FromArgb(44, 47, 51);
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(181, 146);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(549, 342);
+            dataGridView1.TabIndex = 12;
+            // 
+            // ListCourses_Student
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -86,18 +85,18 @@
             Controls.Add(label1);
             Controls.Add(dataGridView1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "OgrencileriListele";
+            Name = "ListCourses_Student";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "OgrencileriListele";
-            Load += OgrencileriListele_Load;
+            Text = "ListCourses_Student";
+            Load += ListCourses_Student_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel label1;
         private Guna.UI2.WinForms.Guna2Button button2;
+        private Guna.UI2.WinForms.Guna2HtmlLabel label1;
+        private DataGridView dataGridView1;
     }
 }

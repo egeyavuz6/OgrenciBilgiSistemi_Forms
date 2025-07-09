@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -36,12 +37,17 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label1 = new Label();
             label2 = new Label();
             button1 = new Guna.UI2.WinForms.Guna2Button();
             button2 = new Guna.UI2.WinForms.Guna2Button();
             textBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             textBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
+            hideSwitch = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             SuspendLayout();
             // 
             // label1
@@ -135,11 +141,40 @@
             textBox2.Location = new Point(409, 239);
             textBox2.Margin = new Padding(7, 9, 7, 9);
             textBox2.Name = "textBox2";
+            textBox2.PasswordChar = '*';
             textBox2.PlaceholderText = "";
             textBox2.SelectedText = "";
             textBox2.ShadowDecoration.CustomizableEdges = customizableEdges8;
             textBox2.Size = new Size(190, 32);
             textBox2.TabIndex = 9;
+            // 
+            // hideSwitch
+            // 
+            hideSwitch.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            hideSwitch.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            hideSwitch.CheckedState.InnerBorderColor = Color.White;
+            hideSwitch.CheckedState.InnerColor = Color.White;
+            hideSwitch.CustomizableEdges = customizableEdges9;
+            hideSwitch.Location = new Point(618, 246);
+            hideSwitch.Name = "hideSwitch";
+            hideSwitch.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            hideSwitch.Size = new Size(35, 20);
+            hideSwitch.TabIndex = 10;
+            hideSwitch.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            hideSwitch.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            hideSwitch.UncheckedState.InnerBorderColor = Color.White;
+            hideSwitch.UncheckedState.InnerColor = Color.White;
+            hideSwitch.CheckedChanged += hideSwitch_CheckedChanged;
+            // 
+            // guna2HtmlLabel1
+            // 
+            guna2HtmlLabel1.BackColor = Color.Transparent;
+            guna2HtmlLabel1.ForeColor = Color.White;
+            guna2HtmlLabel1.Location = new Point(667, 248);
+            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            guna2HtmlLabel1.Size = new Size(93, 17);
+            guna2HtmlLabel1.TabIndex = 11;
+            guna2HtmlLabel1.Text = "(Show password)";
             // 
             // AddAdmin
             // 
@@ -147,6 +182,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 47, 51);
             ClientSize = new Size(900, 600);
+            Controls.Add(guna2HtmlLabel1);
+            Controls.Add(hideSwitch);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(button2);
@@ -168,5 +205,8 @@
         private Guna.UI2.WinForms.Guna2Button button2;
         private Guna.UI2.WinForms.Guna2TextBox textBox1;
         private Guna.UI2.WinForms.Guna2TextBox textBox2;
+        private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch hideSwitch;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
     }
 }

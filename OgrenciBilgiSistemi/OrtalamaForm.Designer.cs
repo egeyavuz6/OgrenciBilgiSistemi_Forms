@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label1 = new Label();
             button1 = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             textBox1 = new Guna.UI2.WinForms.Guna2TextBox();
@@ -60,16 +60,16 @@
             button1.ForeColor = Color.Black;
             button1.Location = new Point(379, 296);
             button1.Name = "button1";
-            button1.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            button1.ShadowDecoration.CustomizableEdges = customizableEdges1;
             button1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             button1.Size = new Size(148, 148);
             button1.TabIndex = 3;
-            button1.Text = "Get the Average";
+            button1.Text = "Calculate GPA";
             button1.Click += button1_Click_1;
             // 
             // textBox1
             // 
-            textBox1.CustomizableEdges = customizableEdges7;
+            textBox1.CustomizableEdges = customizableEdges2;
             textBox1.DefaultText = "";
             textBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             textBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -84,13 +84,13 @@
             textBox1.Name = "textBox1";
             textBox1.PlaceholderText = "";
             textBox1.SelectedText = "";
-            textBox1.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            textBox1.ShadowDecoration.CustomizableEdges = customizableEdges3;
             textBox1.Size = new Size(190, 32);
             textBox1.TabIndex = 4;
             // 
             // button2
             // 
-            button2.CustomizableEdges = customizableEdges9;
+            button2.CustomizableEdges = customizableEdges4;
             button2.DisabledState.BorderColor = Color.DarkGray;
             button2.DisabledState.CustomBorderColor = Color.DarkGray;
             button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -99,7 +99,7 @@
             button2.ForeColor = Color.White;
             button2.Location = new Point(690, 460);
             button2.Name = "button2";
-            button2.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            button2.ShadowDecoration.CustomizableEdges = customizableEdges5;
             button2.Size = new Size(160, 90);
             button2.TabIndex = 8;
             button2.Text = "Exit to Main Menu";

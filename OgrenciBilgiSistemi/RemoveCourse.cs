@@ -77,19 +77,19 @@ namespace OgrenciBilgiSistemi
 
                 string courseId = dataGridView1.SelectedRows[0].Cells["Id"].Value.ToString();
 
-                // Silmeden önce bağlı not var mı kontrolü
-                bool kullaniliyor = db.Notlar.Any(n => n.CourseId == courseId);
-                if (kullaniliyor)
-                {
-                    new Guna2MessageDialog
-                    {
-                        Caption = "Cannot Delete",
-                        Text = "This course has associated grades. Please delete them first.",
-                        Buttons = MessageDialogButtons.OK,
-                        Icon = MessageDialogIcon.Warning,
-                    }.Show();
-                    return;
-                }
+                //Silmeden önce bağlı not var mı kontrolü
+                //bool kullaniliyor = db.Notlar.Any(n => n.CourseId == courseId);
+                //if (kullaniliyor)
+                //{
+                //    new Guna2MessageDialog
+                //    {
+                //        Caption = "Cannot Delete",
+                //        Text = "This course has associated grades. Please delete them first.",
+                //        Buttons = MessageDialogButtons.OK,
+                //        Icon = MessageDialogIcon.Warning,
+                //    }.Show();
+                //    return;
+                //}
 
                 var course = db.Courses.FirstOrDefault(c => c.Id == courseId);
                 if (course == null)
@@ -105,6 +105,7 @@ namespace OgrenciBilgiSistemi
                 }
 
                 db.Courses.Remove(course);
+                db.Notlar.RemoveRange(db.Notlar.Where(n => n.CourseId == courseId)); // İlgili notları da sil
                 db.SaveChanges();
 
                 new Guna2MessageDialog

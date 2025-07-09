@@ -15,9 +15,9 @@ namespace OgrenciBilgiSistemi
         public string Soyisim { get; set; }
         public string password { get; set; } // Password for student logins
         public ICollection<Grade> Notlar { get; set; } = new List<Grade>();
-        public void NotEkle(double notDegeri, string courseId)
+        public void NotEkle(double notDegeri, string courseId, double weightedGrade)
         {
-            Notlar.Add(new Grade { Grades = notDegeri, OgrenciId = this.Id, CourseId = courseId });
+            Notlar.Add(new Grade { Grades = notDegeri, OgrenciId = this.Id, CourseId = courseId, WeightedGrade = weightedGrade });
         }
 
     }

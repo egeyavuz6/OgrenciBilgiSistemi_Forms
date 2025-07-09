@@ -20,14 +20,27 @@ namespace OgrenciBilgiSistemi
         {
             try
             {
-                string ogrenciNo = textBox1.Text.Trim();
 
-                if (string.IsNullOrEmpty(ogrenciNo))
+                if (dataGridView1.SelectedRows.Count == 0)
                 {
                     new Guna2MessageDialog
                     {
                         Caption = "Error!",
-                        Text = "Please fill the Student Number!",
+                        Text = "You Need To Select A Student First",
+                        Buttons = MessageDialogButtons.OK,
+                        Icon = MessageDialogIcon.Error,
+                    }.Show();
+                    return;
+                }
+                string ogrenciNo = Convert.ToString(dataGridView1.SelectedRows[0].Cells["OgrenciNo"].Value);
+                var ogrencix = db.Ogrenciler.FirstOrDefault(n => n.OgrenciNo == ogrenciNo);
+
+                if (ogrencix == null)
+                {
+                    new Guna2MessageDialog
+                    {
+                        Caption = "Error!",
+                        Text = "No Students Found!",
                         Buttons = MessageDialogButtons.OK,
                         Icon = MessageDialogIcon.Error,
                     }.Show();
@@ -65,6 +78,8 @@ namespace OgrenciBilgiSistemi
 
                 dataGridView1.DataSource = ogrenci.Notlar.Select(n => new
                 {
+                    n.Ogrenci.Isim,
+                    n.Ogrenci.Soyisim,
                     n.Id,
                     n.Grades,
                     CourseName = n.Course.Id,
@@ -72,7 +87,7 @@ namespace OgrenciBilgiSistemi
                 }).ToList();
 
                 dataGridView1.Visible = true;
-                btnListele.Text = "Refresh List";
+                btnListele.Visible = false;
             }
             catch (Exception ex)
             {
@@ -127,9 +142,24 @@ namespace OgrenciBilgiSistemi
                     Buttons = MessageDialogButtons.OK,
                     Icon = MessageDialogIcon.Information,
                 }.Show();
-
-                // Otomatik listeyi yenile
-                btnListele_Click_1(null, null);
+               //tabloyu yenile
+               dataGridView1.DataSource = db.Ogrenciler
+                    .Include(o => o.Notlar)
+                    .ThenInclude(n => n.Course)
+                    .Select(o => new
+                    {
+                        o.Isim,
+                        o.Soyisim,
+                        o.OgrenciNo,
+                        Notlar = o.Notlar.Select(n => new
+                        {
+                            n.Id,
+                            n.Grades,
+                            CourseName = n.Course.Id,
+                            n.Course.Credit
+                        }).ToList()
+                    }).ToList();
+                btnListele.Visible = true;
             }
             catch (Exception ex)
             {
@@ -152,7 +182,28 @@ namespace OgrenciBilgiSistemi
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // opsiyonel
+            
+        }
+
+        private void NotSilForm_Load(object sender, EventArgs e)
+        {
+            dataGridView1.Visible = true;
+            var ogrenci = db.Ogrenciler
+                    .Include(o => o.Notlar)
+                    .ThenInclude(n => n.Course);
+            dataGridView1.DataSource = ogrenci.Select(o => new
+            {
+                o.Isim,
+                o.Soyisim,
+                o.OgrenciNo,
+                Notlar = o.Notlar.Select(n => new
+                {
+                    n.Id,
+                    n.Grades,
+                    CourseName = n.CourseId,
+                    n.Course.Credit
+                }).ToList()
+            }).ToList();
         }
     }
 }

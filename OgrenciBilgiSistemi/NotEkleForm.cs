@@ -21,22 +21,38 @@ namespace OgrenciBilgiSistemi
 
         private void NotEkleForm_Load(object sender, EventArgs e)
         {
-
+            //combobox's data source
+            guna2ComboBox1.DataSource = null;
+            using (var db = new OBSContext())
+            {
+                var courses = db.Courses.Select(c => c.Id).ToList();
+                guna2ComboBox1.DataSource = courses;
+            }
         }
 
-        private void exitBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Menu menu = new Menu();
-            menu.Show();
-        }
 
         private void btnNotEkle_Click(object sender, EventArgs e)
         {
-            try { 
+            try {
+
             string ogrenciNo = txtNo.Text.Trim();
             string grade = txtNot.Text.Trim();
-            string courseId = courseNameBox.Text.Trim();
+            string courseId = guna2ComboBox1.SelectedItem?.ToString();
+                if (guna2ComboBox1.SelectedItem == null)
+                {
+                    new Guna2MessageDialog
+                    {
+                        Caption = "Error!",
+                        Text = "Please Select a Course",
+                        Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+                    }.Show();
+                    return;
+                }
+
+
+
                 if (string.IsNullOrEmpty(ogrenciNo) || string.IsNullOrEmpty(grade) || string.IsNullOrEmpty(courseId))
             {
                 new Guna2MessageDialog
@@ -117,19 +133,36 @@ namespace OgrenciBilgiSistemi
                     }.Show();
                     return;
                 }
-                ogrenci.NotEkle(notDegeri, courseId);
-                db.SaveChanges();
-                new Guna2MessageDialog
-                {
-                    Caption = "Success!",
-                    Text = "Grade Successfully Added",
-                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
 
-                }.Show();
-                txtNot.Clear();
-            }
+                    double weightedGrade = 0.0;
+
+                    if      (notDegeri < 50) { weightedGrade = 0.0; }//FF
+                    else if (notDegeri < 60) { weightedGrade = 1.0; }//DD
+                    else if (notDegeri < 65) { weightedGrade = 1.5; }//DC
+                    else if (notDegeri < 70) { weightedGrade = 2.0; }//CC
+                    else if (notDegeri < 75) { weightedGrade = 2.5; }//CB
+                    else if (notDegeri < 80) { weightedGrade = 3.0; }//BB
+                    else if (notDegeri < 85) { weightedGrade = 3.5; }//BA
+                    else if (notDegeri < 100){ weightedGrade = 4.0; }//AA
+
+
+
+
+
+                            ogrenci.NotEkle(notDegeri, courseId, weightedGrade);
+                            db.SaveChanges();
+                            new Guna2MessageDialog
+                            {
+                                Caption = "Success!",
+                                Text = "Grade Successfully Added",
+                                Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                                Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                                Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                            }.Show();
+                            txtNot.Clear();
+                }
+                guna2ComboBox1.SelectedIndex = -1;
             }
             catch
             {   
@@ -142,6 +175,12 @@ namespace OgrenciBilgiSistemi
                 }.Show();
 
             }
+        }
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Menu menu = new Menu();
+            menu.Show();
         }
     }
 }

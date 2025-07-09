@@ -34,12 +34,16 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             loginButton = new Guna.UI2.WinForms.Guna2CircleButton();
             label2 = new Label();
             label1 = new Label();
             passwordBox = new Guna.UI2.WinForms.Guna2TextBox();
             studentIDbox = new Guna.UI2.WinForms.Guna2TextBox();
             guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
+            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            hideSwitch = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             SuspendLayout();
             // 
             // loginButton
@@ -150,12 +154,42 @@
             guna2CircleButton1.Text = "ADMIN LOGIN";
             guna2CircleButton1.Click += guna2CircleButton1_Click;
             // 
+            // guna2HtmlLabel1
+            // 
+            guna2HtmlLabel1.BackColor = Color.Transparent;
+            guna2HtmlLabel1.ForeColor = Color.White;
+            guna2HtmlLabel1.Location = new Point(671, 178);
+            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            guna2HtmlLabel1.Size = new Size(93, 17);
+            guna2HtmlLabel1.TabIndex = 13;
+            guna2HtmlLabel1.Text = "(Show password)";
+            // 
+            // hideSwitch
+            // 
+            hideSwitch.CheckedState.BorderColor = Color.FromArgb(94, 148, 255);
+            hideSwitch.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
+            hideSwitch.CheckedState.InnerBorderColor = Color.White;
+            hideSwitch.CheckedState.InnerColor = Color.White;
+            hideSwitch.CustomizableEdges = customizableEdges7;
+            hideSwitch.Location = new Point(622, 176);
+            hideSwitch.Name = "hideSwitch";
+            hideSwitch.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            hideSwitch.Size = new Size(35, 20);
+            hideSwitch.TabIndex = 12;
+            hideSwitch.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
+            hideSwitch.UncheckedState.FillColor = Color.FromArgb(125, 137, 149);
+            hideSwitch.UncheckedState.InnerBorderColor = Color.White;
+            hideSwitch.UncheckedState.InnerColor = Color.White;
+            hideSwitch.CheckedChanged += hideSwitch_CheckedChanged;
+            // 
             // StudentLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 47, 51);
             ClientSize = new Size(884, 561);
+            Controls.Add(guna2HtmlLabel1);
+            Controls.Add(hideSwitch);
             Controls.Add(guna2CircleButton1);
             Controls.Add(loginButton);
             Controls.Add(label2);
@@ -167,6 +201,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "StudentLogin";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -177,5 +212,7 @@
         private Guna.UI2.WinForms.Guna2TextBox passwordBox;
         private Guna.UI2.WinForms.Guna2TextBox studentIDbox;
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch hideSwitch;
     }
 }

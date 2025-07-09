@@ -9,17 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace OgrenciBilgiSistemi
+namespace OgrenciBilgiSistemi.Student
 {
-    public partial class ListCourse : Form
+    public partial class ListCourses_Student : Form
     {
-        public ListCourse()
+        public ListCourses_Student()
         {
             InitializeComponent();
-            this.Load += ListCourse_Load;
+            this.Load += ListCourses_Student_Load;
         }
 
-        private void ListCourse_Load(object sender, EventArgs e)
+        private void ListCourses_Student_Load(object sender, EventArgs e)
         {
             try
             {
@@ -30,12 +30,11 @@ namespace OgrenciBilgiSistemi
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     dataGridView1.BackgroundColor = Color.FromArgb(44, 47, 51);
 
-                    var courses = context.Courses
+                    //returns the list of courses that match with SessionManager.StudentID
+                    var courses = context.Notlar.Where(o => o.OgrenciId == SessionManager.ogrenciId)
                         .Select(o => new
                         {
-                            o.Id,
-                            o.Credit,
-                            
+                           o.CourseId
                         })
                         .ToList();
 
@@ -58,8 +57,8 @@ namespace OgrenciBilgiSistemi
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
-            Menu menu = new Menu();
-            menu.Show();
+            StudentMenu studentMenu = new StudentMenu();
+            studentMenu.Show();
         }
     }
 }
