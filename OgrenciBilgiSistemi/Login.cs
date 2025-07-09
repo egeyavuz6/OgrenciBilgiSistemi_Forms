@@ -85,6 +85,11 @@ namespace OgrenciBilgiSistemi
         {
 
         }
+
+        private void hideSwitch_CheckedChanged(object sender, EventArgs e)
+        {
+            passwordBox.PasswordChar = hideSwitch.Checked ? '\0' : '*';
+        }
     }
 }
 

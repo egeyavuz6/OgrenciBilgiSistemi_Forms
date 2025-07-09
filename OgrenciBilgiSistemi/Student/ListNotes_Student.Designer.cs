@@ -30,10 +30,7 @@
         {
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             button2 = new Guna.UI2.WinForms.Guna2Button();
-            btnListele = new Guna.UI2.WinForms.Guna2Button();
             SuspendLayout();
             // 
             // button2
@@ -53,23 +50,6 @@
             button2.Text = "Exit to Main Menu";
             button2.Click += button2_Click;
             // 
-            // btnListele
-            // 
-            btnListele.CustomizableEdges = customizableEdges3;
-            btnListele.DisabledState.BorderColor = Color.DarkGray;
-            btnListele.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnListele.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnListele.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnListele.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            btnListele.ForeColor = Color.White;
-            btnListele.Location = new Point(210, 460);
-            btnListele.Name = "btnListele";
-            btnListele.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnListele.Size = new Size(160, 90);
-            btnListele.TabIndex = 12;
-            btnListele.Text = "List Grades";
-            btnListele.Click += btnListele_Click;
-            // 
             // ListNotes_Student
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -77,17 +57,16 @@
             BackColor = Color.FromArgb(44, 47, 51);
             ClientSize = new Size(900, 600);
             Controls.Add(button2);
-            Controls.Add(btnListele);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ListNotes_Student";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ListNotes_Student";
+            Load += ListNotes_Student_Load;
             ResumeLayout(false);
         }
 
         #endregion
 
         private Guna.UI2.WinForms.Guna2Button button2;
-        private Guna.UI2.WinForms.Guna2Button btnListele;
     }
 }

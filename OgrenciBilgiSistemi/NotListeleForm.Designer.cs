@@ -34,10 +34,13 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label1 = new Label();
             txtNo = new Guna.UI2.WinForms.Guna2TextBox();
             btnListele = new Guna.UI2.WinForms.Guna2Button();
             button2 = new Guna.UI2.WinForms.Guna2Button();
+            guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -62,7 +65,7 @@
             txtNo.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
             txtNo.ForeColor = Color.FromArgb(35, 39, 42);
             txtNo.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtNo.Location = new Point(459, 247);
+            txtNo.Location = new Point(660, 334);
             txtNo.Margin = new Padding(7, 9, 7, 9);
             txtNo.Name = "txtNo";
             txtNo.PlaceholderText = "";
@@ -105,12 +108,30 @@
             button2.Text = "Exit to Main Menu";
             button2.Click += button2_Click;
             // 
+            // guna2ComboBox1
+            // 
+            guna2ComboBox1.BackColor = Color.Transparent;
+            guna2ComboBox1.CustomizableEdges = customizableEdges7;
+            guna2ComboBox1.DrawMode = DrawMode.OwnerDrawFixed;
+            guna2ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            guna2ComboBox1.FocusedColor = Color.FromArgb(94, 148, 255);
+            guna2ComboBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            guna2ComboBox1.Font = new Font("Segoe UI", 10F);
+            guna2ComboBox1.ForeColor = Color.FromArgb(68, 88, 112);
+            guna2ComboBox1.ItemHeight = 30;
+            guna2ComboBox1.Location = new Point(448, 237);
+            guna2ComboBox1.Name = "guna2ComboBox1";
+            guna2ComboBox1.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2ComboBox1.Size = new Size(190, 36);
+            guna2ComboBox1.TabIndex = 10;
+            // 
             // NotListeleForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 47, 51);
             ClientSize = new Size(900, 600);
+            Controls.Add(guna2ComboBox1);
             Controls.Add(button2);
             Controls.Add(btnListele);
             Controls.Add(txtNo);
@@ -128,5 +149,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtNo;
         private Guna.UI2.WinForms.Guna2Button btnListele;
         private Guna.UI2.WinForms.Guna2Button button2;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
     }
 }

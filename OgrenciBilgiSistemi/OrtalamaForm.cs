@@ -16,53 +16,83 @@ namespace OgrenciBilgiSistemi
             db = dbContext;
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+
+        private void button2_Click(object sender, EventArgs e)
         {
-            try { 
-            string ogrenciNo = textBox1.Text.Trim();
+            this.Close();
+            Menu menu = new Menu();
+            menu.Show();
+        }
 
-            if (string.IsNullOrEmpty(ogrenciNo))
+        private void OrtalamaForm_Load(object sender, EventArgs e)
+        {
+            using (var db = new OBSContext())
             {
-                new Guna2MessageDialog
-                {
-                    Text = "Please fill the student number!",
-                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
-
-                }.Show();
-                return;
+                var ogrenciler = db.Ogrenciler
+                    .Select(o => new { o.OgrenciNo, o.Isim, o.Soyisim })
+                    .ToList()
+                    .Select(o => $"{o.OgrenciNo} - {o.Isim} {o.Soyisim}")
+                    .ToList();
+                comboBox.DataSource = ogrenciler;
             }
+            comboBox.SelectedIndex = 0;
+            
 
-            var ogrenci = db.Ogrenciler.Include(o => o.Notlar).FirstOrDefault(o => o.OgrenciNo == ogrenciNo);
+        }
 
-            if (ogrenci == null)
+        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
             {
-                new Guna2MessageDialog
+
+                //student number and name combobox data source
+                string selectedStudent = comboBox.SelectedItem.ToString();
+                //selects the OgrenciNo from studentNumberNameCombo
+                string[] comboOgrenci = selectedStudent.Split(new[] { "-" }, StringSplitOptions.None);
+                string ogrenciNo = comboOgrenci[0];
+
+                if (string.IsNullOrEmpty(ogrenciNo))
                 {
-                    Caption = "Error!",
-                    Text = "Student Not Found!",
-                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+                    new Guna2MessageDialog
+                    {
+                        Text = "Please fill the student number!",
+                        Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
 
-                }.Show();
-                return;
-            }
+                    }.Show();
+                    return;
+                }
 
-            if (ogrenci.Notlar == null || ogrenci.Notlar.Count == 0)
-            {
-                new Guna2MessageDialog
+                var ogrenci = db.Ogrenciler.Include(o => o.Notlar).FirstOrDefault(o => o.OgrenciNo == ogrenciNo);
+
+                if (ogrenci == null)
                 {
-                    Caption = "Error!",
-                    Text = "This Student Doesn't Have Any Grade!",
-                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+                    new Guna2MessageDialog
+                    {
+                        Caption = "Error!",
+                        Text = "Student Not Found!",
+                        Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
 
-                }.Show();
-                return;
-            }
+                    }.Show();
+                    return;
+                }
+
+                if (ogrenci.Notlar == null || ogrenci.Notlar.Count == 0)
+                {
+                    new Guna2MessageDialog
+                    {
+                        Caption = "Error!",
+                        Text = "This Student Doesn't Have Any Grade!",
+                        Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                    }.Show();
+                    return;
+                }
 
                 double toplamAğırlıklıNot = 0.0;
                 int toplamKredi = 0;
@@ -77,17 +107,12 @@ namespace OgrenciBilgiSistemi
                 }
 
                 double GPA = toplamAğırlıklıNot / toplamKredi;
+                guna2HtmlLabel3.Text = $"{GPA}";
+                guna2HtmlLabel4.Text = comboOgrenci[1];
 
-                new Guna2MessageDialog
-            {
-                Text = $"Average: {GPA:F2}",
-                Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
-
-            }.Show();
+                
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 new Guna2MessageDialog
                 {
@@ -100,11 +125,9 @@ namespace OgrenciBilgiSistemi
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void guna2HtmlLabel4_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Menu menu = new Menu();
-            menu.Show();
+
         }
     }
 }

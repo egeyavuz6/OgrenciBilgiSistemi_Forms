@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace OgrenciBilgiSistemi.Student
 {
-    public partial class ListNotes_Student : Form 
+    public partial class ListNotes_Student : Form
     {
         private DataGridView dataGridView1;
         private List<Ogrenci> ogrenciListesi;
@@ -31,7 +31,15 @@ namespace OgrenciBilgiSistemi.Student
             Controls.Add(dataGridView1);
             dataGridView1.Visible = false;
         }
-        private void btnListele_Click(object sender, EventArgs e)
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            StudentMenu menu = new StudentMenu();
+            menu.Show();
+        }
+
+        private void ListNotes_Student_Load(object sender, EventArgs e)
         {
             try
             {
@@ -76,13 +84,6 @@ namespace OgrenciBilgiSistemi.Student
                     Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
                 }.Show();
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            StudentMenu menu = new StudentMenu();
-            menu.Show();
         }
     }
 }

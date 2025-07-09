@@ -50,7 +50,7 @@
             exitBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             exitBtn.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             exitBtn.ForeColor = SystemColors.Window;
-            exitBtn.Location = new Point(111, 336);
+            exitBtn.Location = new Point(132, 410);
             exitBtn.Name = "exitBtn";
             exitBtn.ShadowDecoration.CustomizableEdges = customizableEdges2;
             exitBtn.Size = new Size(160, 90);
@@ -67,7 +67,7 @@
             btnSil.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnSil.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             btnSil.ForeColor = Color.White;
-            btnSil.Location = new Point(195, 219);
+            btnSil.Location = new Point(132, 270);
             btnSil.Name = "btnSil";
             btnSil.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnSil.Size = new Size(160, 90);
@@ -84,7 +84,7 @@
             btnListele.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnListele.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             btnListele.ForeColor = Color.White;
-            btnListele.Location = new Point(23, 219);
+            btnListele.Location = new Point(395, 410);
             btnListele.Name = "btnListele";
             btnListele.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnListele.Size = new Size(160, 90);
@@ -114,12 +114,13 @@
             ClientSize = new Size(900, 600);
             Controls.Add(exitBtn);
             Controls.Add(btnSil);
-            Controls.Add(btnListele);
             Controls.Add(dataGridView1);
+            Controls.Add(btnListele);
             FormBorderStyle = FormBorderStyle.None;
             Name = "RemoveCourse";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RemoveCourse";
+            Load += RemoveCourse_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }

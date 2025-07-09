@@ -9,14 +9,14 @@ namespace OgrenciBilgiSistemi
     public partial class RemoveCourse : Form
     {
         private OBSContext db;
-        
+
         public RemoveCourse(List<Course> courses, OBSContext dbContext)
         {
-            
-                InitializeComponent();
-                db = dbContext;
-            
-            
+
+            InitializeComponent();
+            db = dbContext;
+
+
         }
 
         private void btnListele_Click(object sender, EventArgs e)
@@ -45,7 +45,7 @@ namespace OgrenciBilgiSistemi
                 }).ToList();
 
                 dataGridView1.Visible = true;
-                btnListele.Text = "Refresh List";
+                
             }
             catch (Exception ex)
             {
@@ -118,6 +118,7 @@ namespace OgrenciBilgiSistemi
 
                 // Listeyi yenile
                 btnListele_Click(null, null);
+
             }
             catch (Exception ex)
             {
@@ -136,6 +137,32 @@ namespace OgrenciBilgiSistemi
             this.Close();
             Menu menu = new Menu();
             menu.Show();
+        }
+
+        private void RemoveCourse_Load(object sender, EventArgs e)
+        {
+            btnListele.Text = "Refresh List";
+            btnListele.Visible = false;
+            dataGridView1.Visible = true;
+            var courses = db.Courses.ToList();
+
+            if (courses.Count == 0)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Info",
+                    Text = "No courses found.",
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Information,
+                }.Show();
+                return;
+            }
+
+            dataGridView1.DataSource = courses.Select(c => new
+            {
+                c.Id,
+                c.Credit
+            }).ToList();
         }
     }
 }

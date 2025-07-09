@@ -41,7 +41,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label1 = new Label();
             label2 = new Label();
-            txtNo = new Guna.UI2.WinForms.Guna2TextBox();
             txtNot = new Guna.UI2.WinForms.Guna2TextBox();
             btnNotEkle = new Guna.UI2.WinForms.Guna2Button();
             exitBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -49,7 +48,10 @@
             label3 = new Label();
             guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             courseBindingSource = new BindingSource(components);
+            studentNumberNameCombo = new Guna.UI2.WinForms.Guna2ComboBox();
+            ogrenciBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)courseBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ogrenciBindingSource).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -72,30 +74,9 @@
             label2.TabIndex = 3;
             label2.Text = "Student's Grade";
             // 
-            // txtNo
-            // 
-            txtNo.CustomizableEdges = customizableEdges1;
-            txtNo.DefaultText = "";
-            txtNo.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtNo.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtNo.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtNo.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtNo.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtNo.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            txtNo.ForeColor = Color.FromArgb(35, 39, 42);
-            txtNo.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtNo.Location = new Point(446, 148);
-            txtNo.Margin = new Padding(7, 9, 7, 9);
-            txtNo.Name = "txtNo";
-            txtNo.PlaceholderText = "";
-            txtNo.SelectedText = "";
-            txtNo.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtNo.Size = new Size(190, 36);
-            txtNo.TabIndex = 5;
-            // 
             // txtNot
             // 
-            txtNot.CustomizableEdges = customizableEdges3;
+            txtNot.CustomizableEdges = customizableEdges1;
             txtNot.DefaultText = "";
             txtNot.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtNot.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -110,13 +91,13 @@
             txtNot.Name = "txtNot";
             txtNot.PlaceholderText = "";
             txtNot.SelectedText = "";
-            txtNot.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            txtNot.ShadowDecoration.CustomizableEdges = customizableEdges2;
             txtNot.Size = new Size(190, 36);
             txtNot.TabIndex = 6;
             // 
             // btnNotEkle
             // 
-            btnNotEkle.CustomizableEdges = customizableEdges5;
+            btnNotEkle.CustomizableEdges = customizableEdges3;
             btnNotEkle.DisabledState.BorderColor = Color.DarkGray;
             btnNotEkle.DisabledState.CustomBorderColor = Color.DarkGray;
             btnNotEkle.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -125,7 +106,7 @@
             btnNotEkle.ForeColor = SystemColors.Window;
             btnNotEkle.Location = new Point(370, 350);
             btnNotEkle.Name = "btnNotEkle";
-            btnNotEkle.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            btnNotEkle.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnNotEkle.Size = new Size(160, 90);
             btnNotEkle.TabIndex = 7;
             btnNotEkle.Text = "Add Grade";
@@ -133,7 +114,7 @@
             // 
             // exitBtn
             // 
-            exitBtn.CustomizableEdges = customizableEdges7;
+            exitBtn.CustomizableEdges = customizableEdges5;
             exitBtn.DisabledState.BorderColor = Color.DarkGray;
             exitBtn.DisabledState.CustomBorderColor = Color.DarkGray;
             exitBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -142,7 +123,7 @@
             exitBtn.ForeColor = SystemColors.Window;
             exitBtn.Location = new Point(691, 469);
             exitBtn.Name = "exitBtn";
-            exitBtn.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            exitBtn.ShadowDecoration.CustomizableEdges = customizableEdges6;
             exitBtn.Size = new Size(160, 90);
             exitBtn.TabIndex = 8;
             exitBtn.Text = "Exit to Main Menu";
@@ -153,7 +134,7 @@
             guna2HtmlLabel1.AutoSize = false;
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.ForeColor = Color.White;
-            guna2HtmlLabel1.Location = new Point(446, 245);
+            guna2HtmlLabel1.Location = new Point(646, 217);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(190, 17);
             guna2HtmlLabel1.TabIndex = 10;
@@ -172,19 +153,19 @@
             // guna2ComboBox1
             // 
             guna2ComboBox1.BackColor = Color.Transparent;
-            guna2ComboBox1.CustomizableEdges = customizableEdges9;
+            guna2ComboBox1.CustomizableEdges = customizableEdges7;
             guna2ComboBox1.DataSource = courseBindingSource;
             guna2ComboBox1.DisplayMember = "Id";
             guna2ComboBox1.DrawMode = DrawMode.OwnerDrawFixed;
             guna2ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             guna2ComboBox1.FocusedColor = Color.FromArgb(94, 148, 255);
             guna2ComboBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2ComboBox1.Font = new Font("Segoe UI", 10F);
+            guna2ComboBox1.Font = new Font("Calibri", 14F, FontStyle.Bold);
             guna2ComboBox1.ForeColor = Color.FromArgb(68, 88, 112);
             guna2ComboBox1.ItemHeight = 30;
             guna2ComboBox1.Location = new Point(446, 268);
             guna2ComboBox1.Name = "guna2ComboBox1";
-            guna2ComboBox1.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            guna2ComboBox1.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2ComboBox1.Size = new Size(190, 36);
             guna2ComboBox1.TabIndex = 13;
             guna2ComboBox1.TextAlign = HorizontalAlignment.Center;
@@ -193,19 +174,42 @@
             // 
             courseBindingSource.DataSource = typeof(Course);
             // 
+            // studentNumberNameCombo
+            // 
+            studentNumberNameCombo.BackColor = Color.Transparent;
+            studentNumberNameCombo.CustomizableEdges = customizableEdges9;
+            studentNumberNameCombo.DataSource = ogrenciBindingSource;
+            studentNumberNameCombo.DrawMode = DrawMode.OwnerDrawFixed;
+            studentNumberNameCombo.DropDownStyle = ComboBoxStyle.DropDownList;
+            studentNumberNameCombo.FocusedColor = Color.FromArgb(94, 148, 255);
+            studentNumberNameCombo.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            studentNumberNameCombo.Font = new Font("Calibri", 14F, FontStyle.Bold);
+            studentNumberNameCombo.ForeColor = Color.FromArgb(68, 88, 112);
+            studentNumberNameCombo.ItemHeight = 30;
+            studentNumberNameCombo.Location = new Point(446, 152);
+            studentNumberNameCombo.Name = "studentNumberNameCombo";
+            studentNumberNameCombo.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            studentNumberNameCombo.Size = new Size(190, 36);
+            studentNumberNameCombo.TabIndex = 14;
+            studentNumberNameCombo.SelectedIndexChanged += studentNumberNameCombo_SelectedIndexChanged;
+            // 
+            // ogrenciBindingSource
+            // 
+            ogrenciBindingSource.DataSource = typeof(Ogrenci);
+            // 
             // NotEkleForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 47, 51);
             ClientSize = new Size(900, 600);
+            Controls.Add(studentNumberNameCombo);
             Controls.Add(guna2ComboBox1);
             Controls.Add(label3);
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(exitBtn);
             Controls.Add(btnNotEkle);
             Controls.Add(txtNot);
-            Controls.Add(txtNo);
             Controls.Add(label2);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
@@ -214,13 +218,13 @@
             Text = "OBS";
             Load += NotEkleForm_Load;
             ((System.ComponentModel.ISupportInitialize)courseBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ogrenciBindingSource).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
         private Label label1;
         private Label label2;
-        private Guna.UI2.WinForms.Guna2TextBox txtNo;
         private Guna.UI2.WinForms.Guna2TextBox txtNot;
         private Guna.UI2.WinForms.Guna2Button btnNotEkle;
         private Guna.UI2.WinForms.Guna2Button exitBtn;
@@ -228,5 +232,7 @@
         private Label label3;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private BindingSource courseBindingSource;
+        private Guna.UI2.WinForms.Guna2ComboBox studentNumberNameCombo;
+        private BindingSource ogrenciBindingSource;
     }
 }
