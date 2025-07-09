@@ -59,5 +59,15 @@ namespace OgrenciBilgiSistemi.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_10_Tem_2025_00_32_24 {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image 10 Tem 2025 00_32_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

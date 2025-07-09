@@ -46,7 +46,6 @@
             yönetimToolStripMenuItem = new ToolStripMenuItem();
             adminEkleToolStripMenuItem = new ToolStripMenuItem();
             cikisToolStripMenuItem = new ToolStripMenuItem();
-            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -174,19 +173,6 @@
             cikisToolStripMenuItem.Text = "Exit";
             cikisToolStripMenuItem.Click += cikisToolStripMenuItem_Click;
             // 
-            // guna2HtmlLabel1
-            // 
-            guna2HtmlLabel1.AutoSize = false;
-            guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            guna2HtmlLabel1.ForeColor = Color.White;
-            guna2HtmlLabel1.Location = new Point(0, 285);
-            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(900, 97);
-            guna2HtmlLabel1.TabIndex = 1;
-            guna2HtmlLabel1.Text = "WELCOME TO THE STUDENT MANAGEMENT SYSTEM PLEASE SELECT THE OPERATION YOU WANT TO DO FROM THE MENU ON TOP";
-            guna2HtmlLabel1.TextAlignment = ContentAlignment.TopCenter;
-            // 
             // guna2AnimateWindow1
             // 
             guna2AnimateWindow1.AnimationType = Guna.UI2.WinForms.Guna2AnimateWindow.AnimateWindowType.AW_BLEND;
@@ -197,8 +183,8 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 47, 51);
+            BackgroundImageLayout = ImageLayout.None;
             ClientSize = new Size(900, 600);
-            Controls.Add(guna2HtmlLabel1);
             Controls.Add(menuStrip1);
             FormBorderStyle = FormBorderStyle.None;
             MainMenuStrip = menuStrip1;
@@ -226,7 +212,6 @@
         private ToolStripMenuItem yönetimToolStripMenuItem;
         private ToolStripMenuItem adminEkleToolStripMenuItem;
         private ToolStripMenuItem notSilToolStripMenuItem1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
         private ToolStripMenuItem coursesToolStripMenuItem;
         private ToolStripMenuItem addCourseToolStripMenuItem;
