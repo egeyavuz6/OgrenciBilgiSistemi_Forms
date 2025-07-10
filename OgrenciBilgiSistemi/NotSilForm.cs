@@ -3,6 +3,7 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace OgrenciBilgiSistemi
@@ -140,17 +141,17 @@ namespace OgrenciBilgiSistemi
         }
         private void updateButton_Click(object sender, EventArgs e)
         {
-               if (dataGridView1.SelectedRows.Count == 0)
-               {
-                    new Guna2MessageDialog
-                    {
-                        Caption = "Error!",
-                        Text = "You Need To Select A Grade First",
-                        Buttons = MessageDialogButtons.OK,
-                        Icon = MessageDialogIcon.Error,
-                    }.Show();
-                    return;
-               }
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = "You Need To Select A Grade First",
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Error,
+                }.Show();
+                return;
+            }
             var msg = new Guna2MessageDialog
             {
                 Caption = "Information",
@@ -164,49 +165,49 @@ namespace OgrenciBilgiSistemi
 
             if (result == DialogResult.OK)
             {
-                TextBox textBox = new TextBox();
-                textBox.Show();
+                numericBox.Visible = true;
+                okButton.Visible = true;
             }
 
 
-                int notId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Id"].Value);
-                var not = db.Notlar.FirstOrDefault(n => n.Id == notId);
+            int notId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Id"].Value);
+            var not = db.Notlar.FirstOrDefault(n => n.Id == notId);
 
-                if (not == null)
-                {
-                    new Guna2MessageDialog
-                    {
-                        Caption = "Error!",
-                        Text = "No Grades Found!",
-                        Buttons = MessageDialogButtons.OK,
-                        Icon = MessageDialogIcon.Error,
-                    }.Show();
-                    return;
-                }
-
-                db.Notlar.Update(not);
-                db.SaveChanges();
-
-                new Guna2MessageDialog
-                {
-                    Caption = "Success!",
-                    Text = "Grade Successfully Updated",
-                    Buttons = MessageDialogButtons.OK,
-                    Icon = MessageDialogIcon.Information,
-                }.Show();
-
-                // Tabloyu yenile
-                NotSilForm_Load(null, null);
-            
-            
+            if (not == null)
+            {
                 new Guna2MessageDialog
                 {
                     Caption = "Error!",
-                    Text = $"An error occurred:",
+                    Text = "No Grades Found!",
                     Buttons = MessageDialogButtons.OK,
                     Icon = MessageDialogIcon.Error,
                 }.Show();
-            
+                return;
+            }
+
+            db.Notlar.Update(not);
+            db.SaveChanges();
+
+            new Guna2MessageDialog
+            {
+                Caption = "Success!",
+                Text = "Grade Successfully Updated",
+                Buttons = MessageDialogButtons.OK,
+                Icon = MessageDialogIcon.Information,
+            }.Show();
+
+            //Tabloyu yenile
+            NotSilForm_Load(null, null);
+
+
+            new Guna2MessageDialog
+            {
+                Caption = "Error!",
+                Text = $"An error occurred:",
+                Buttons = MessageDialogButtons.OK,
+                Icon = MessageDialogIcon.Error,
+            }.Show();
+
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
@@ -221,5 +222,31 @@ namespace OgrenciBilgiSistemi
 
         }
 
+        private void okButton_Click(object sender, EventArgs e)
+        {
+            numericBox.Visible = false;
+            okButton.Visible = false;
+            Regex regex = new Regex("^0-9\\d{0,4}$");
+            if (!regex.IsMatch(numericBox.Text))
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = "Please enter integer only.",
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Error,
+                }.Show();
+            }
+            if (numericBox.Value >100 || numericBox.Value < 0)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = "Please enter a value between 0 and 100.",
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Error,
+                }.Show();
+            }
+        }
     }
 }
