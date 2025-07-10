@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             gpaSonucBox = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -43,9 +43,9 @@
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Calibri", 17F);
             guna2HtmlLabel1.ForeColor = Color.White;
-            guna2HtmlLabel1.Location = new Point(130, 219);
+            guna2HtmlLabel1.Location = new Point(353, 202);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(193, 56);
+            guna2HtmlLabel1.Size = new Size(178, 56);
             guna2HtmlLabel1.TabIndex = 0;
             guna2HtmlLabel1.Text = "Current GPA:";
             // 
@@ -55,9 +55,9 @@
             guna2HtmlLabel2.BackColor = Color.Transparent;
             guna2HtmlLabel2.Font = new Font("Calibri", 17F);
             guna2HtmlLabel2.ForeColor = Color.White;
-            guna2HtmlLabel2.Location = new Point(130, 301);
+            guna2HtmlLabel2.Location = new Point(353, 284);
             guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(253, 56);
+            guna2HtmlLabel2.Size = new Size(238, 56);
             guna2HtmlLabel2.TabIndex = 1;
             guna2HtmlLabel2.Text = "Credits You Have Taken:";
             // 
@@ -67,7 +67,7 @@
             gpaSonucBox.BackColor = Color.Transparent;
             gpaSonucBox.Font = new Font("Calibri", 17F);
             gpaSonucBox.ForeColor = Color.White;
-            gpaSonucBox.Location = new Point(389, 219);
+            gpaSonucBox.Location = new Point(597, 202);
             gpaSonucBox.Name = "gpaSonucBox";
             gpaSonucBox.Size = new Size(253, 56);
             gpaSonucBox.TabIndex = 2;
@@ -80,7 +80,7 @@
             creditSonucBox.BackColor = Color.Transparent;
             creditSonucBox.Font = new Font("Calibri", 17F);
             creditSonucBox.ForeColor = Color.White;
-            creditSonucBox.Location = new Point(389, 301);
+            creditSonucBox.Location = new Point(597, 284);
             creditSonucBox.Name = "creditSonucBox";
             creditSonucBox.Size = new Size(253, 56);
             creditSonucBox.TabIndex = 3;
@@ -88,7 +88,7 @@
             // 
             // exitBtn
             // 
-            exitBtn.CustomizableEdges = customizableEdges7;
+            exitBtn.CustomizableEdges = customizableEdges3;
             exitBtn.DisabledState.BorderColor = Color.DarkGray;
             exitBtn.DisabledState.CustomBorderColor = Color.DarkGray;
             exitBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -97,7 +97,7 @@
             exitBtn.ForeColor = SystemColors.Window;
             exitBtn.Location = new Point(690, 460);
             exitBtn.Name = "exitBtn";
-            exitBtn.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            exitBtn.ShadowDecoration.CustomizableEdges = customizableEdges4;
             exitBtn.Size = new Size(160, 90);
             exitBtn.TabIndex = 12;
             exitBtn.Text = "Exit to Main Menu";
@@ -108,6 +108,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 47, 51);
+            BackgroundImage = Properties.Resources.studentBackground;
             ClientSize = new Size(900, 600);
             Controls.Add(exitBtn);
             Controls.Add(creditSonucBox);

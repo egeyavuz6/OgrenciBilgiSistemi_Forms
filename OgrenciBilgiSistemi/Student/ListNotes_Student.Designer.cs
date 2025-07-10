@@ -55,6 +55,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 47, 51);
+            BackgroundImage = Properties.Resources.studentBackground;
             ClientSize = new Size(900, 600);
             Controls.Add(button2);
             FormBorderStyle = FormBorderStyle.None;

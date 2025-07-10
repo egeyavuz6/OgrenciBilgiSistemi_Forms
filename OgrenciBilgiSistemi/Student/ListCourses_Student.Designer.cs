@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             button2 = new Guna.UI2.WinForms.Guna2Button();
             label1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             dataGridView1 = new DataGridView();
@@ -38,17 +38,17 @@
             // 
             // button2
             // 
-            button2.CustomizableEdges = customizableEdges1;
+            button2.CustomizableEdges = customizableEdges3;
             button2.DisabledState.BorderColor = Color.DarkGray;
             button2.DisabledState.CustomBorderColor = Color.DarkGray;
             button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             button2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            button2.FillColor = Color.Transparent;
+            button2.FillColor = Color.CadetBlue;
             button2.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(720, 490);
+            button2.Location = new Point(728, 472);
             button2.Name = "button2";
-            button2.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            button2.ShadowDecoration.CustomizableEdges = customizableEdges4;
             button2.Size = new Size(160, 90);
             button2.TabIndex = 14;
             button2.Text = "Exit to Main Menu";
@@ -82,7 +82,8 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 47, 51);
-            BackgroundImage = Properties.Resources.studentMenu;
+            BackgroundImage = Properties.Resources.studentBackground;
+            BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(900, 600);
             Controls.Add(button2);
             Controls.Add(label1);

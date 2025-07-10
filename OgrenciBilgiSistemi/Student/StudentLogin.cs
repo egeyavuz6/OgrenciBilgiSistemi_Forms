@@ -46,6 +46,7 @@ namespace OgrenciBilgiSistemi
                     {
                         SessionManager.ogrenciId = ogrenci.Id;
                         SessionManager.StudentID = ogrenci.OgrenciNo;
+                        SessionManager.StudentNameSurname = ogrenci.Isim +" " +ogrenci.Soyisim;
                         // Hide the current form and show the menu
                         this.Hide();
                         StudentMenu menu = new StudentMenu();

@@ -34,7 +34,7 @@
             seeYourGPAToolStripMenuItem = new ToolStripMenuItem();
             lecturesToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
-            toolStripMenuItem1 = new ToolStripMenuItem();
+            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -42,7 +42,7 @@
             // 
             menuStrip1.AutoSize = false;
             menuStrip1.Font = new Font("Calibri", 12F, FontStyle.Bold);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { gradesToolStripMenuItem, lecturesToolStripMenuItem, exitToolStripMenuItem, toolStripMenuItem1 });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { gradesToolStripMenuItem, lecturesToolStripMenuItem, exitToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(900, 49);
@@ -85,11 +85,17 @@
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
-            // toolStripMenuItem1
+            // guna2HtmlLabel1
             // 
-            toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(25, 45);
-            toolStripMenuItem1.Text = " ";
+            guna2HtmlLabel1.AutoSize = false;
+            guna2HtmlLabel1.BackColor = Color.Transparent;
+            guna2HtmlLabel1.Font = new Font("Calibri", 16F, FontStyle.Bold);
+            guna2HtmlLabel1.ForeColor = Color.White;
+            guna2HtmlLabel1.Location = new Point(30, 67);
+            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            guna2HtmlLabel1.Size = new Size(257, 54);
+            guna2HtmlLabel1.TabIndex = 1;
+            guna2HtmlLabel1.Text = null;
             // 
             // StudentMenu
             // 
@@ -98,12 +104,14 @@
             BackColor = Color.FromArgb(44, 47, 51);
             BackgroundImage = Properties.Resources.studentMenu;
             ClientSize = new Size(900, 600);
+            Controls.Add(guna2HtmlLabel1);
             Controls.Add(menuStrip1);
             FormBorderStyle = FormBorderStyle.None;
             MainMenuStrip = menuStrip1;
             Name = "StudentMenu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "StudentMenu";
+            Load += StudentMenu_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -115,8 +123,8 @@
         private ToolStripMenuItem gradesToolStripMenuItem;
         private ToolStripMenuItem lecturesToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
-        private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem seeYourGradesToolStripMenuItem;
         private ToolStripMenuItem seeYourGPAToolStripMenuItem;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
     }
 }

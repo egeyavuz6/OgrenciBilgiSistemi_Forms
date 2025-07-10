@@ -47,6 +47,9 @@ namespace OgrenciBilgiSistemi.Student
             Environment.Exit(0);
         }
 
-
+        private void StudentMenu_Load(object sender, EventArgs e)
+        {
+            guna2HtmlLabel1.Text = "Welcome "+SessionManager.StudentNameSurname;
+        }
     }
 }
