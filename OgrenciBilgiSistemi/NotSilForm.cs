@@ -136,6 +136,76 @@ namespace OgrenciBilgiSistemi
             {
                 return;
             }
+
+        }
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+               if (dataGridView1.SelectedRows.Count == 0)
+               {
+                    new Guna2MessageDialog
+                    {
+                        Caption = "Error!",
+                        Text = "You Need To Select A Grade First",
+                        Buttons = MessageDialogButtons.OK,
+                        Icon = MessageDialogIcon.Error,
+                    }.Show();
+                    return;
+               }
+            var msg = new Guna2MessageDialog
+            {
+                Caption = "Information",
+                Text = "Please enter a grade",
+                Buttons = MessageDialogButtons.OK,
+                Icon = MessageDialogIcon.Information,
+                Style = MessageDialogStyle.Dark
+            };
+
+            var result = msg.Show();
+
+            if (result == DialogResult.OK)
+            {
+                TextBox textBox = new TextBox();
+                textBox.Show();
+            }
+
+
+                int notId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Id"].Value);
+                var not = db.Notlar.FirstOrDefault(n => n.Id == notId);
+
+                if (not == null)
+                {
+                    new Guna2MessageDialog
+                    {
+                        Caption = "Error!",
+                        Text = "No Grades Found!",
+                        Buttons = MessageDialogButtons.OK,
+                        Icon = MessageDialogIcon.Error,
+                    }.Show();
+                    return;
+                }
+
+                db.Notlar.Update(not);
+                db.SaveChanges();
+
+                new Guna2MessageDialog
+                {
+                    Caption = "Success!",
+                    Text = "Grade Successfully Updated",
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Information,
+                }.Show();
+
+                // Tabloyu yenile
+                NotSilForm_Load(null, null);
+            
+            
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = $"An error occurred:",
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Error,
+                }.Show();
             
         }
 
@@ -148,7 +218,8 @@ namespace OgrenciBilgiSistemi
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
+
     }
 }
