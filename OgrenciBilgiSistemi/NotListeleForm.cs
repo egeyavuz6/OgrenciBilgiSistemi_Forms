@@ -45,9 +45,7 @@ namespace OgrenciBilgiSistemi
                         Text = "Please fill the student number!",
                         Buttons = MessageDialogButtons.OK,
                         Icon = MessageDialogIcon.Error,
-                        Style = BackColor == Color.FromArgb(44, 47, 51)
-                            ? MessageDialogStyle.Dark
-                            : MessageDialogStyle.Light
+                        
                     }.Show();
                     return;
                 }
@@ -76,9 +74,7 @@ namespace OgrenciBilgiSistemi
                             Text = "This Student Doesn't Have Any Grade!",
                             Buttons = MessageDialogButtons.OK,
                             Icon = MessageDialogIcon.Error,
-                            Style = BackColor == Color.FromArgb(44, 47, 51)
-                                ? MessageDialogStyle.Dark
-                                : MessageDialogStyle.Light
+                            
                         }.Show();
                         return;
                     }

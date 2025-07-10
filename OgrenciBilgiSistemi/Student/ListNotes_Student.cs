@@ -60,7 +60,8 @@ namespace OgrenciBilgiSistemi.Student
                         Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
 
                     }.Show();
-                    return;
+                    StudentMenu menu = new StudentMenu();
+                    menu.Show();
                 }
                 dataGridView1.Visible = true;
                 dataGridView1.BackgroundColor = Color.FromArgb(44, 47, 51);

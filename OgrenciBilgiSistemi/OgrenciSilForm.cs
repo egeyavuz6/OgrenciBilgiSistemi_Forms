@@ -22,52 +22,71 @@ namespace OgrenciBilgiSistemi
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            try
+            var msg = new Guna2MessageDialog
             {
-                if (studentTableView.SelectedRows.Count == 0)
+                Caption = "Are you sure?",
+                Text = "Do you want to delete this Student?",
+                Buttons = MessageDialogButtons.YesNo,
+                Icon = MessageDialogIcon.Question,
+                Style = MessageDialogStyle.Dark
+            };
+
+            var result = msg.Show();
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    if (studentTableView.SelectedRows.Count == 0)
+                    {
+                        new Guna2MessageDialog
+                        {
+                            Caption = "Error!",
+                            Text = "You Need To Select A Student First",
+                            Buttons = MessageDialogButtons.OK,
+                            Icon = MessageDialogIcon.Error,
+                        }.Show();
+                        return;
+                    }
+
+                    string ogrenciNo = Convert.ToString(studentTableView.SelectedRows[0].Cells["OgrenciNo"].Value);
+                    var ogrenci = db.Ogrenciler.FirstOrDefault(n => n.OgrenciNo == ogrenciNo);
+
+                    db.Ogrenciler.Remove(ogrenci);
+                    db.SaveChanges();
+
+                    new Guna2MessageDialog
+                    {
+                        Caption = "Success!",
+                        Text = "Student Successfully Deleted",
+                        Buttons = MessageDialogButtons.OK,
+                        Icon = MessageDialogIcon.Information,
+                    }.Show();
+                    //listeyi yenile
+                    studentTableView.DataSource = db.Ogrenciler.Select(o => new
+                    {
+                        o.Isim,
+                        o.Soyisim,
+                        o.OgrenciNo,
+                    }).ToList();
+
+                }
+                catch (Exception ex)
                 {
                     new Guna2MessageDialog
                     {
                         Caption = "Error!",
-                        Text = "You Need To Select A Student First",
+                        Text = $"An error occurred: {ex.Message}",
                         Buttons = MessageDialogButtons.OK,
                         Icon = MessageDialogIcon.Error,
                     }.Show();
-                    return;
                 }
-
-                string ogrenciNo = Convert.ToString(studentTableView.SelectedRows[0].Cells["OgrenciNo"].Value);
-                var ogrenci = db.Ogrenciler.FirstOrDefault(n => n.OgrenciNo == ogrenciNo);
-
-                db.Ogrenciler.Remove(ogrenci);
-                db.SaveChanges();
-
-                new Guna2MessageDialog
-                {
-                    Caption = "Success!",
-                    Text = "Student Successfully Deleted",
-                    Buttons = MessageDialogButtons.OK,
-                    Icon = MessageDialogIcon.Information,
-                }.Show();
-                //listeyi yenile
-                studentTableView.DataSource = db.Ogrenciler.Select(o => new
-                {
-                    o.Isim,
-                    o.Soyisim,
-                    o.OgrenciNo,
-                }).ToList();
-
             }
-            catch (Exception ex)
-            {
-                new Guna2MessageDialog
+                else
                 {
-                    Caption = "Error!",
-                    Text = $"An error occurred: {ex.Message}",
-                    Buttons = MessageDialogButtons.OK,
-                    Icon = MessageDialogIcon.Error,
-                }.Show();
-            }
+                return;
+                }
+                
         }
 
 

@@ -65,59 +65,78 @@ namespace OgrenciBilgiSistemi
 
         private void btnSil_Click_2(object sender, EventArgs e)
         {
-            try
+            var msg = new Guna2MessageDialog
             {
-                if (dataGridView1.SelectedRows.Count == 0)
+                Caption = "Are You Sure",
+                Text = "Do you want delete Grade?",
+                Buttons = MessageDialogButtons.YesNo,
+                Icon = MessageDialogIcon.Question,
+                Style = MessageDialogStyle.Dark
+            };
+
+            var result = msg.Show();
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    if (dataGridView1.SelectedRows.Count == 0)
+                    {
+                        new Guna2MessageDialog
+                        {
+                            Caption = "Error!",
+                            Text = "You Need To Select A Grade First",
+                            Buttons = MessageDialogButtons.OK,
+                            Icon = MessageDialogIcon.Error,
+                        }.Show();
+                        return;
+                    }
+
+                    int notId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Id"].Value);
+                    var not = db.Notlar.FirstOrDefault(n => n.Id == notId);
+
+                    if (not == null)
+                    {
+                        new Guna2MessageDialog
+                        {
+                            Caption = "Error!",
+                            Text = "No Grades Found!",
+                            Buttons = MessageDialogButtons.OK,
+                            Icon = MessageDialogIcon.Error,
+                        }.Show();
+                        return;
+                    }
+
+                    db.Notlar.Remove(not);
+                    db.SaveChanges();
+
+                    new Guna2MessageDialog
+                    {
+                        Caption = "Success!",
+                        Text = "Grade Successfully Deleted",
+                        Buttons = MessageDialogButtons.OK,
+                        Icon = MessageDialogIcon.Information,
+                    }.Show();
+
+                    // Tabloyu yenile
+                    NotSilForm_Load(null, null);
+                }
+                catch (Exception ex)
                 {
                     new Guna2MessageDialog
                     {
                         Caption = "Error!",
-                        Text = "You Need To Select A Grade First",
+                        Text = $"An error occurred: {ex.Message}",
                         Buttons = MessageDialogButtons.OK,
                         Icon = MessageDialogIcon.Error,
                     }.Show();
-                    return;
                 }
-
-                int notId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Id"].Value);
-                var not = db.Notlar.FirstOrDefault(n => n.Id == notId);
-
-                if (not == null)
-                {
-                    new Guna2MessageDialog
-                    {
-                        Caption = "Error!",
-                        Text = "No Grades Found!",
-                        Buttons = MessageDialogButtons.OK,
-                        Icon = MessageDialogIcon.Error,
-                    }.Show();
-                    return;
-                }
-
-                db.Notlar.Remove(not);
-                db.SaveChanges();
-
-                new Guna2MessageDialog
-                {
-                    Caption = "Success!",
-                    Text = "Grade Successfully Deleted",
-                    Buttons = MessageDialogButtons.OK,
-                    Icon = MessageDialogIcon.Information,
-                }.Show();
-
-                // Tabloyu yenile
-                NotSilForm_Load(null, null);
             }
-            catch (Exception ex)
+            else
             {
-                new Guna2MessageDialog
-                {
-                    Caption = "Error!",
-                    Text = $"An error occurred: {ex.Message}",
-                    Buttons = MessageDialogButtons.OK,
-                    Icon = MessageDialogIcon.Error,
-                }.Show();
+                return;
             }
+            
         }
 
         private void exitBtn_Click(object sender, EventArgs e)

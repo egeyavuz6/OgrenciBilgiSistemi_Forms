@@ -41,6 +41,7 @@ namespace OgrenciBilgiSistemi.Student
 
                     dataGridView1.DataSource = courses;
                 }
+                
             }
             catch (Exception ex)
             {

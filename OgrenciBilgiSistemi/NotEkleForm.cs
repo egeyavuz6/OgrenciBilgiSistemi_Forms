@@ -126,7 +126,7 @@ namespace OgrenciBilgiSistemi
                             Text = "Please Enter an Integer between 0 and 100",
                             Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                             Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                            Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+                            
 
                         }.Show();
                         return;
@@ -139,7 +139,7 @@ namespace OgrenciBilgiSistemi
                             Text = "This Student Already Has a Grade for This Course",
                             Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                             Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                            Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+                            
                         }.Show();
                         return;
                     }
@@ -151,8 +151,7 @@ namespace OgrenciBilgiSistemi
                             Text = "Grade must be an Integer in a range between 0 and 100",
                             Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                             Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                            Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
-
+                            
                         }.Show();
                         return;
                     }
@@ -174,13 +173,15 @@ namespace OgrenciBilgiSistemi
                         Caption = "Success!",
                         Text = "Grade Successfully Added",
                         Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Information,
                         Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+                        
 
                     }.Show();
                     txtNot.Clear();
                 }
                 guna2ComboBox1.SelectedIndex = -1;
+                
             }
             catch
             {

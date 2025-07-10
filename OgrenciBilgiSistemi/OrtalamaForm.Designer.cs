@@ -75,7 +75,7 @@
             comboBox.Location = new Point(379, 315);
             comboBox.Name = "comboBox";
             comboBox.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            comboBox.Size = new Size(204, 36);
+            comboBox.Size = new Size(268, 36);
             comboBox.TabIndex = 10;
             comboBox.SelectedIndexChanged += comboBox_SelectedIndexChanged;
             // 

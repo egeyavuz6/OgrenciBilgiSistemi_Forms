@@ -132,7 +132,7 @@ namespace OgrenciBilgiSistemi
                         Caption = "Success",
                         Text = "Student Added Successfully!",
                         Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Information,
                         Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
                     }.Show();
 

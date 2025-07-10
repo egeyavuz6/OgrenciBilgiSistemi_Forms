@@ -48,7 +48,6 @@ namespace OgrenciBilgiSistemi.Student
                         Text = "This Student Doesn't Have Any Grade!",
                         Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                         Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
 
                     }.Show();
                     return;

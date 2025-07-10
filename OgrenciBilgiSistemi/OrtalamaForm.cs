@@ -59,8 +59,7 @@ namespace OgrenciBilgiSistemi
                         Text = "Please fill the student number!",
                         Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                         Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
-
+                        
                     }.Show();
                     return;
                 }
@@ -75,8 +74,7 @@ namespace OgrenciBilgiSistemi
                         Text = "Student Not Found!",
                         Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                         Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
-
+                        
                     }.Show();
                     return;
                 }
@@ -89,8 +87,7 @@ namespace OgrenciBilgiSistemi
                         Text = "This Student Doesn't Have Any Grade!",
                         Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                         Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
-
+                       
                     }.Show();
                     return;
                 }

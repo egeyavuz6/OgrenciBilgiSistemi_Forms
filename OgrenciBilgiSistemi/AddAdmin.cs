@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace OgrenciBilgiSistemi
 {
@@ -27,17 +28,43 @@ namespace OgrenciBilgiSistemi
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Regex nameRegex = new Regex("^[a-zA-ZçÇğĞıİöÖşŞüÜ\\s]{2,50}$");
-            Regex intRegex = new Regex("^[0-9]{1,10}$");
+            Regex nameRegex = new Regex("^[a-zA-Z0-9çÇğĞıİöÖşŞüÜ_\\s]{2,20}$");
+            Regex intRegex = new Regex("^[0-9]{1,20}$");
             string kullaniciAdi = textBox1.Text.Trim();
             string sifre = textBox2.Text.Trim();
 
-            if (!nameRegex.IsMatch(kullaniciAdi))
+            if (kullaniciAdi.Length > 20)
             {
                 new Guna2MessageDialog
                 {
                     Caption = "Error",
-                    Text = $"Username can only contain letters and must be between 2 and 50 characters long.",
+                    Text = $"Username must be shorter than 20 characters.",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error
+                }.Show();
+                return;
+            }
+            if (sifre.Length > 20)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error",
+                    Text = $"Password must be shorter than 20 characters.",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error
+                }.Show();
+                return;
+            }
+
+
+                if (!nameRegex.IsMatch(kullaniciAdi))
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error",
+                    Text = $"Username can only contain letters (a-z, A-Z), numbers (0-9), and _ only.",
                     Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                     Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light,
                     Icon = Guna.UI2.WinForms.MessageDialogIcon.Error
@@ -49,7 +76,7 @@ namespace OgrenciBilgiSistemi
                 new Guna2MessageDialog
                 {
                     Caption = "Error",
-                    Text = $"Password can only contain numbers and must be between 1 and 10 characters long.",
+                    Text = $"Password can only contain numbers and must be between 1 and 20 characters long.",
                     Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                     Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light,
                     Icon = Guna.UI2.WinForms.MessageDialogIcon.Error
@@ -84,7 +111,7 @@ namespace OgrenciBilgiSistemi
                         Text = $"Added New Admin",
                         Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                         Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light,
-                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Error
+                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Information
 
                     }.Show();
                 }
