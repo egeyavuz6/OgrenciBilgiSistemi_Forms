@@ -34,7 +34,7 @@ namespace OgrenciBilgiSistemi.Student
                     var courses = context.Notlar.Where(o => o.OgrenciId == SessionManager.ogrenciId)
                         .Select(o => new
                         {
-                            o.CourseId,
+                            CourseName = o.Course.Name,
                             o.Course.Credit
                         })
                         .ToList();

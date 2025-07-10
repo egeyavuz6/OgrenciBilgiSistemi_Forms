@@ -47,7 +47,7 @@ namespace OgrenciBilgiSistemi
             try
             {
                 string grade = txtNot.Text.Trim();
-                string courseId = guna2ComboBox1.SelectedItem.ToString();
+                int courseId = Convert.ToInt32(guna2ComboBox1.SelectedItem);
 
 
                 string selectedStudent = studentNumberNameCombo.SelectedItem.ToString();

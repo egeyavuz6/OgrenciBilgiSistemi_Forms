@@ -55,13 +55,14 @@ namespace OgrenciBilgiSistemi.Student
 
                 double toplamAğırlıklıNot = 0.0;
                 double toplamKredi = 0;
+                var dersler = db.Courses.ToDictionary(d => d.Id, d => d.Credit);
+
                 foreach (var not in ogrenci.Notlar)
                 {
-                    var ders = db.Courses.FirstOrDefault(d => d.Id == not.CourseId);
-                    if (ders != null)
+                    if (dersler.TryGetValue(not.CourseId, out double kredi))
                     {
-                        toplamAğırlıklıNot += not.WeightedGrade * ders.Credit;
-                        toplamKredi += ders.Credit;
+                        toplamAğırlıklıNot += not.WeightedGrade * kredi;
+                        toplamKredi += kredi;
                     }
                 }
 

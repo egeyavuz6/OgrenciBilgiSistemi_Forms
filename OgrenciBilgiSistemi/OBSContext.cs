@@ -8,9 +8,22 @@ namespace OgrenciBilgiSistemi
         public DbSet<Admin> Adminler { get; set; }
         public DbSet<Grade> Notlar { get; set; }
         public DbSet<Course> Courses { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Ogrenci>().HasIndex(o => o.OgrenciNo).IsUnique();
+
+            modelBuilder.Entity<Grade>()
+                .HasOne(g => g.Ogrenci)
+                .WithMany(o => o.Notlar)
+                .HasForeignKey(g => g.OgrenciId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Grade>()
+                .HasOne(g => g.Course)
+                .WithMany()
+                .HasForeignKey(g => g.CourseId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             base.OnModelCreating(modelBuilder);
         }
@@ -20,9 +33,8 @@ namespace OgrenciBilgiSistemi
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Server=DESKTOP-IBCCD9T\SQLEXPRESS;Database=OgrenciBilgiSistemi;Trusted_Connection=True;TrustServerCertificate=True;");
+                optionsBuilder.UseSqlServer(@"Server=EGE\SQLEXPRESS;Database=OgrenciBilgiSistemi;Trusted_Connection=True;TrustServerCertificate=True;");
             }
         }
-
     }
 }

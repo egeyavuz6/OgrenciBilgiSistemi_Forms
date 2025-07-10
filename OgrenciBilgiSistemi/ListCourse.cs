@@ -5,8 +5,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OgrenciBilgiSistemi
@@ -23,7 +21,6 @@ namespace OgrenciBilgiSistemi
         {
             try
             {
-
                 using (var context = new OBSContext())
                 {
                     dataGridView1.AutoGenerateColumns = true;
@@ -31,11 +28,10 @@ namespace OgrenciBilgiSistemi
                     dataGridView1.BackgroundColor = Color.FromArgb(44, 47, 51);
 
                     var courses = context.Courses
-                        .Select(o => new
+                        .Select(c => new
                         {
-                            o.Id,
-                            o.Credit,
-                            
+                            CourseCode = c.Name,
+                            Credit = c.Credit
                         })
                         .ToList();
 
@@ -48,10 +44,9 @@ namespace OgrenciBilgiSistemi
                 {
                     Caption = "Error!",
                     Text = $"An error occurred: {ex.Message}",
-                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Error
                 }.Show();
-
             }
         }
 

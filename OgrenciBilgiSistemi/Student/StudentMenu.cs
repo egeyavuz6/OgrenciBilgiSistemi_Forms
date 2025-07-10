@@ -107,8 +107,8 @@ namespace OgrenciBilgiSistemi.Student
             else
             {
                 this.Hide();
-                SeeGPA seeGPA = new SeeGPA();
-                seeGPA.Show();
+                ListCourses_Student listcourses = new ListCourses_Student();
+                listcourses.Show();
             }
         }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

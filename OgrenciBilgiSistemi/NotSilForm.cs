@@ -34,7 +34,7 @@ namespace OgrenciBilgiSistemi
                         o.Soyisim,
                         n.Id,
                         n.Grades,
-                        CourseName = n.Course.Id,
+                        CourseName = n.Course.Name,
                         n.Course.Credit
                     }))
                     .ToList();
@@ -60,9 +60,9 @@ namespace OgrenciBilgiSistemi
                     Buttons = MessageDialogButtons.OK,
                     Icon = MessageDialogIcon.Error,
                 }.Show();
-
             }
         }
+
 
         private void btnSil_Click_2(object sender, EventArgs e)
         {

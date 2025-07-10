@@ -11,8 +11,8 @@ using OgrenciBilgiSistemi;
 namespace OgrenciBilgiSistemi.Migrations
 {
     [DbContext(typeof(OBSContext))]
-    [Migration("20250708222849_V2_UpdateAfterGithub")]
-    partial class V2_UpdateAfterGithub
+    [Migration("20250710205448_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,35 @@ namespace OgrenciBilgiSistemi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Grade", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Grades")
+                        .HasColumnType("float");
+
+                    b.Property<int>("OgrenciId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("WeightedGrade")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourseId");
+
+                    b.HasIndex("OgrenciId");
+
+                    b.ToTable("Notlar");
+                });
 
             modelBuilder.Entity("OgrenciBilgiSistemi.Admin", b =>
                 {
@@ -47,42 +76,22 @@ namespace OgrenciBilgiSistemi.Migrations
 
             modelBuilder.Entity("OgrenciBilgiSistemi.Course", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("Credit")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Courses");
-                });
-
-            modelBuilder.Entity("OgrenciBilgiSistemi.Grade", b =>
-                {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("CourseId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<double>("Grades")
+                    b.Property<double>("Credit")
                         .HasColumnType("float");
 
-                    b.Property<int>("OgrenciId")
-                        .HasColumnType("int");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CourseId");
-
-                    b.HasIndex("OgrenciId");
-
-                    b.ToTable("Notlar");
+                    b.ToTable("Courses");
                 });
 
             modelBuilder.Entity("OgrenciBilgiSistemi.Ogrenci", b =>
@@ -117,7 +126,7 @@ namespace OgrenciBilgiSistemi.Migrations
                     b.ToTable("Ogrenciler");
                 });
 
-            modelBuilder.Entity("OgrenciBilgiSistemi.Grade", b =>
+            modelBuilder.Entity("Grade", b =>
                 {
                     b.HasOne("OgrenciBilgiSistemi.Course", "Course")
                         .WithMany()

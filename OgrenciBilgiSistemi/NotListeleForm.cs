@@ -60,11 +60,12 @@ namespace OgrenciBilgiSistemi
                         {
                             n.Ogrenci.Isim,
                             n.Ogrenci.Soyisim,
-                            n.Course.Id,
+                            CourseName = n.Course.Name,
                             n.Course.Credit,
                             n.Grades
                         })
                         .ToList();
+
 
                     if (notlar.Count == 0)
                     {

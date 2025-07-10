@@ -40,6 +40,7 @@ namespace OgrenciBilgiSistemi
                 dataGridView1.DataSource = courses.Select(c => new
                 {
                     c.Id,
+                    c.Name,
                     c.Credit
                 }).ToList();
 
@@ -112,7 +113,8 @@ namespace OgrenciBilgiSistemi
                         return;
                     }
 
-                    string courseId = dataGridView1.SelectedRows[0].Cells["Id"].Value.ToString();
+                    int courseId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Id"].Value);
+
 
                     //Silmeden önce bağlı not var mı kontrolü
                     //bool kullaniliyor = db.Notlar.Any(n => n.CourseId == courseId);
@@ -129,6 +131,9 @@ namespace OgrenciBilgiSistemi
                     //}
 
                     var course = db.Courses.FirstOrDefault(c => c.Id == courseId);
+
+                    
+
                     if (course == null)
                     {
                         new Guna2MessageDialog
@@ -142,7 +147,7 @@ namespace OgrenciBilgiSistemi
                     }
 
                     db.Courses.Remove(course);
-                    db.Notlar.RemoveRange(db.Notlar.Where(n => n.CourseId == courseId)); // İlgili notları da sil
+                    db.Notlar.RemoveRange(db.Notlar.Where(n => n.CourseId == courseId));
                     db.SaveChanges();
 
                     new Guna2MessageDialog
@@ -153,7 +158,7 @@ namespace OgrenciBilgiSistemi
                         Icon = MessageDialogIcon.Information,
                     }.Show();
 
-                    // Listeyi yenile
+
                     btnListele_Click(null, null);
 
                 }
