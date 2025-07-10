@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             dataGridView1 = new DataGridView();
             btnSil = new Guna.UI2.WinForms.Guna2Button();
             exitBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -55,7 +55,7 @@
             // 
             // btnSil
             // 
-            btnSil.CustomizableEdges = customizableEdges1;
+            btnSil.CustomizableEdges = customizableEdges5;
             btnSil.DisabledState.BorderColor = Color.DarkGray;
             btnSil.DisabledState.CustomBorderColor = Color.DarkGray;
             btnSil.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -64,7 +64,7 @@
             btnSil.ForeColor = Color.White;
             btnSil.Location = new Point(112, 480);
             btnSil.Name = "btnSil";
-            btnSil.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnSil.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnSil.Size = new Size(160, 90);
             btnSil.TabIndex = 10;
             btnSil.Text = "Delete Grade";
@@ -72,7 +72,7 @@
             // 
             // exitBtn
             // 
-            exitBtn.CustomizableEdges = customizableEdges3;
+            exitBtn.CustomizableEdges = customizableEdges7;
             exitBtn.DisabledState.BorderColor = Color.DarkGray;
             exitBtn.DisabledState.CustomBorderColor = Color.DarkGray;
             exitBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -81,7 +81,7 @@
             exitBtn.ForeColor = SystemColors.Window;
             exitBtn.Location = new Point(710, 480);
             exitBtn.Name = "exitBtn";
-            exitBtn.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            exitBtn.ShadowDecoration.CustomizableEdges = customizableEdges8;
             exitBtn.Size = new Size(160, 90);
             exitBtn.TabIndex = 11;
             exitBtn.Text = "Exit to Main Menu";
@@ -92,6 +92,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 47, 51);
+            BackgroundImage = Properties.Resources.ChatGPT_Image_10_Tem_2025_14_42_46__1_;
             ClientSize = new Size(900, 600);
             Controls.Add(exitBtn);
             Controls.Add(btnSil);

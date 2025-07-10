@@ -46,7 +46,7 @@ namespace OgrenciBilgiSistemi
                     {
                         SessionManager.ogrenciId = ogrenci.Id;
                         SessionManager.StudentID = ogrenci.OgrenciNo;
-                        SessionManager.StudentNameSurname = ogrenci.Isim +" " +ogrenci.Soyisim;
+                        SessionManager.StudentNameSurname = ogrenci.Isim + " " + ogrenci.Soyisim;
                         // Hide the current form and show the menu
                         this.Hide();
                         StudentMenu menu = new StudentMenu();
@@ -102,6 +102,30 @@ namespace OgrenciBilgiSistemi
         private void hideSwitch_CheckedChanged(object sender, EventArgs e)
         {
             passwordBox.PasswordChar = hideSwitch.Checked ? '\0' : '*';
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+            var msg = new Guna2MessageDialog
+            {
+                Caption = "Are You Sure",
+                Text = "Do you want to Exit?",
+                Buttons = MessageDialogButtons.YesNo,
+                Icon = MessageDialogIcon.Question,
+                Style = MessageDialogStyle.Dark
+            };
+
+            var result = msg.Show();
+
+            if (result == DialogResult.Yes)
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

@@ -93,8 +93,32 @@ namespace OgrenciBilgiSistemi
         private void guna2CircleButton1_Click(object sender, EventArgs e)
         {
             this.Close();
-            StudentLogin studentLogin= new StudentLogin();
+            StudentLogin studentLogin = new StudentLogin();
             studentLogin.Show();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+            var msg = new Guna2MessageDialog
+            {
+                Caption = "Are You Sure",
+                Text = "Do you want to Exit?",
+                Buttons = MessageDialogButtons.YesNo,
+                Icon = MessageDialogIcon.Question,
+                Style = MessageDialogStyle.Dark
+            };
+
+            var result = msg.Show();
+
+            if (result == DialogResult.Yes)
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }
