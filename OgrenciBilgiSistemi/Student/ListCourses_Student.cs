@@ -34,8 +34,8 @@ namespace OgrenciBilgiSistemi.Student
                     var courses = context.Notlar.Where(o => o.OgrenciId == SessionManager.ogrenciId)
                         .Select(o => new
                         {
-                           o.CourseId,
-                           o.Course.Credit
+                            o.CourseId,
+                            o.Course.Credit
                         })
                         .ToList();
 
@@ -60,6 +60,11 @@ namespace OgrenciBilgiSistemi.Student
             this.Close();
             StudentMenu studentMenu = new StudentMenu();
             studentMenu.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

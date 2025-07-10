@@ -183,6 +183,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 47, 51);
+            BackgroundImage = Properties.Resources.ChatGPT_Image_10_Tem_2025_09_33_12__1___1_;
             BackgroundImageLayout = ImageLayout.None;
             ClientSize = new Size(900, 600);
             Controls.Add(menuStrip1);

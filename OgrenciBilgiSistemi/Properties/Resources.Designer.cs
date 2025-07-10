@@ -69,5 +69,25 @@ namespace OgrenciBilgiSistemi.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_10_Tem_2025_09_33_12__1___1_ {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image 10 Tem 2025 09_33_12 (1) (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap studentMenu {
+            get {
+                object obj = ResourceManager.GetObject("studentMenu", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -30,6 +31,7 @@ namespace OgrenciBilgiSistemi
         private void button1_Click(object sender, EventArgs e)
         {
             try {
+                Regex regex = new Regex("^[a-zA-Z0-9çÇğĞıİöÖşŞüÜ_\\s]{2,50}$");
                 string courseId = nameBox.Text.Trim();
                 int credit = int.Parse(creditBox.Text.Trim());
                 if (string.IsNullOrEmpty(courseId) || string.IsNullOrEmpty(courseId))
@@ -55,7 +57,16 @@ namespace OgrenciBilgiSistemi
                     }.Show();
                     return;
                 }
-
+                if (!regex.IsMatch(courseId)){
+                    new Guna2MessageDialog
+                    {
+                        Caption = "Error!",
+                        Text = "Course Name Can Contain Numbers and Letters Only!",
+                        Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                    }.Show();
+                    return;
+                }
 
 
                 using (var db = new OBSContext())

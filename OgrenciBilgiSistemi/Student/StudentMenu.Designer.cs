@@ -96,6 +96,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 47, 51);
+            BackgroundImage = Properties.Resources.studentMenu;
             ClientSize = new Size(900, 600);
             Controls.Add(menuStrip1);
             FormBorderStyle = FormBorderStyle.None;
