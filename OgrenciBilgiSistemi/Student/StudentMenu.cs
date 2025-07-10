@@ -27,21 +27,89 @@ namespace OgrenciBilgiSistemi.Student
         }
         private void seeYourGradesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            ListNotes_Student listNotes = new ListNotes_Student(ogrenciListesi, dbContext);
-            listNotes.Show();
+            var studentNum = SessionManager.StudentID;
+            var student = dbContext.Ogrenciler.FirstOrDefault(o => o.OgrenciNo == studentNum);
+            var notlar = dbContext.Notlar
+                .Where(n => n.OgrenciId == student.Id)
+                .ToList();
+
+            if (notlar == null || notlar.Count == 0)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = "You Don't Have Any Grade!",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                }.Show();
+                return;
+            }
+            else
+            {
+                this.Hide();
+                ListNotes_Student listNotes = new ListNotes_Student(ogrenciListesi, dbContext);
+                listNotes.Show();
+            }
+                
         }
         private void seeYourGPAToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            SeeGPA seeGPA = new SeeGPA();
-            seeGPA.Show();
+            var studentNum = SessionManager.StudentID;
+            var student = dbContext.Ogrenciler.FirstOrDefault(o => o.OgrenciNo == studentNum);
+            var notlar = dbContext.Notlar
+                .Where(n => n.OgrenciId == student.Id)
+                .ToList();
+
+            if (notlar == null || notlar.Count == 0)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = "You Don't Have Any Grade!",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                }.Show();
+                return;
+            }
+            else
+            {
+                this.Hide();
+                SeeGPA seeGPA = new SeeGPA();
+                seeGPA.Show();
+            }
+            
         }
         private void lecturesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            ListCourses_Student listCourses = new ListCourses_Student();
-            listCourses.Show();
+            var studentNum = SessionManager.StudentID;
+            var student = dbContext.Ogrenciler.FirstOrDefault(o => o.OgrenciNo == studentNum);
+            var notlar = dbContext.Notlar
+                .Where(n => n.OgrenciId == student.Id)
+                .ToList();
+
+            if (notlar == null || notlar.Count == 0)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error!",
+                    Text = "You Are Not Taking Any Course!",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+
+                }.Show();
+                return;
+            }
+            else
+            {
+                this.Hide();
+                SeeGPA seeGPA = new SeeGPA();
+                seeGPA.Show();
+            }
         }
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {

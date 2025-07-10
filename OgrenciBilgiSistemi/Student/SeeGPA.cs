@@ -45,7 +45,7 @@ namespace OgrenciBilgiSistemi.Student
                     new Guna2MessageDialog
                     {
                         Caption = "Error!",
-                        Text = "This Student Doesn't Have Any Grade!",
+                        Text = "You Don't Have Any Grade!",
                         Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                         Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
 
