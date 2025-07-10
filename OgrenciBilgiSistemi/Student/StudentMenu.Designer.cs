@@ -45,7 +45,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { gradesToolStripMenuItem, lecturesToolStripMenuItem, exitToolStripMenuItem, toolStripMenuItem1 });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(884, 49);
+            menuStrip1.Size = new Size(900, 49);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             menuStrip1.ItemClicked += menuStrip1_ItemClicked;
@@ -96,7 +96,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 47, 51);
-            ClientSize = new Size(884, 561);
+            ClientSize = new Size(900, 600);
             Controls.Add(menuStrip1);
             FormBorderStyle = FormBorderStyle.None;
             MainMenuStrip = menuStrip1;

@@ -44,7 +44,6 @@
             txtNot = new Guna.UI2.WinForms.Guna2TextBox();
             btnNotEkle = new Guna.UI2.WinForms.Guna2Button();
             exitBtn = new Guna.UI2.WinForms.Guna2Button();
-            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             label3 = new Label();
             guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             courseBindingSource = new BindingSource(components);
@@ -92,7 +91,7 @@
             txtNot.PlaceholderText = "";
             txtNot.SelectedText = "";
             txtNot.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtNot.Size = new Size(190, 36);
+            txtNot.Size = new Size(220, 36);
             txtNot.TabIndex = 6;
             // 
             // btnNotEkle
@@ -129,17 +128,6 @@
             exitBtn.Text = "Exit to Main Menu";
             exitBtn.Click += exitBtn_Click;
             // 
-            // guna2HtmlLabel1
-            // 
-            guna2HtmlLabel1.AutoSize = false;
-            guna2HtmlLabel1.BackColor = Color.Transparent;
-            guna2HtmlLabel1.ForeColor = Color.White;
-            guna2HtmlLabel1.Location = new Point(646, 217);
-            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(190, 17);
-            guna2HtmlLabel1.TabIndex = 10;
-            guna2HtmlLabel1.Text = "(Number Between 0 and 100)";
-            // 
             // label3
             // 
             label3.Font = new Font("Calibri", 15F, FontStyle.Bold);
@@ -166,7 +154,7 @@
             guna2ComboBox1.Location = new Point(446, 268);
             guna2ComboBox1.Name = "guna2ComboBox1";
             guna2ComboBox1.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2ComboBox1.Size = new Size(190, 36);
+            guna2ComboBox1.Size = new Size(220, 36);
             guna2ComboBox1.TabIndex = 13;
             guna2ComboBox1.TextAlign = HorizontalAlignment.Center;
             // 
@@ -189,8 +177,9 @@
             studentNumberNameCombo.Location = new Point(446, 152);
             studentNumberNameCombo.Name = "studentNumberNameCombo";
             studentNumberNameCombo.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            studentNumberNameCombo.Size = new Size(190, 36);
+            studentNumberNameCombo.Size = new Size(220, 36);
             studentNumberNameCombo.TabIndex = 14;
+            studentNumberNameCombo.TextAlign = HorizontalAlignment.Center;
             studentNumberNameCombo.SelectedIndexChanged += studentNumberNameCombo_SelectedIndexChanged;
             // 
             // ogrenciBindingSource
@@ -206,7 +195,6 @@
             Controls.Add(studentNumberNameCombo);
             Controls.Add(guna2ComboBox1);
             Controls.Add(label3);
-            Controls.Add(guna2HtmlLabel1);
             Controls.Add(exitBtn);
             Controls.Add(btnNotEkle);
             Controls.Add(txtNot);
@@ -228,7 +216,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtNot;
         private Guna.UI2.WinForms.Guna2Button btnNotEkle;
         private Guna.UI2.WinForms.Guna2Button exitBtn;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Label label3;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private BindingSource courseBindingSource;

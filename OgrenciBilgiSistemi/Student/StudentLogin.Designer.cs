@@ -145,7 +145,7 @@
             guna2CircleButton1.HoverState.BorderColor = Color.Black;
             guna2CircleButton1.HoverState.CustomBorderColor = Color.Black;
             guna2CircleButton1.HoverState.FillColor = Color.FromArgb(114, 137, 218);
-            guna2CircleButton1.Location = new Point(724, 401);
+            guna2CircleButton1.Location = new Point(725, 427);
             guna2CircleButton1.Name = "guna2CircleButton1";
             guna2CircleButton1.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -187,7 +187,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 47, 51);
-            ClientSize = new Size(884, 561);
+            ClientSize = new Size(900, 600);
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(hideSwitch);
             Controls.Add(guna2CircleButton1);
