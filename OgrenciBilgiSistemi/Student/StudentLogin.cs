@@ -22,6 +22,59 @@ namespace OgrenciBilgiSistemi
         }
         private void loginButton_Click(object sender, EventArgs e)
         {
+           
+        }
+
+
+
+
+        private void guna2CircleButton1_Click(object sender, EventArgs e)
+        {
+           
+        }
+        private void studentIDbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hideSwitch_CheckedChanged(object sender, EventArgs e)
+        {
+            passwordBox.PasswordChar = hideSwitch.Checked ? '\0' : '*';
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+            var msg = new Guna2MessageDialog
+            {
+                Caption = "Are You Sure",
+                Text = "Do you want to Exit?",
+                Buttons = MessageDialogButtons.YesNo,
+                Icon = MessageDialogIcon.Question,
+                Style = MessageDialogStyle.Dark
+            };
+
+            var result = msg.Show();
+
+            if (result == DialogResult.Yes)
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login login = new Login();
+            login.Show();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
             try
             {
                 using (var db = new OBSContext())
@@ -82,49 +135,6 @@ namespace OgrenciBilgiSistemi
                     Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
                     Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
                 }.Show();
-            }
-        }
-
-
-
-
-        private void guna2CircleButton1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Login login = new Login();
-            login.Show();
-        }
-        private void studentIDbox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void hideSwitch_CheckedChanged(object sender, EventArgs e)
-        {
-            passwordBox.PasswordChar = hideSwitch.Checked ? '\0' : '*';
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-
-            var msg = new Guna2MessageDialog
-            {
-                Caption = "Are You Sure",
-                Text = "Do you want to Exit?",
-                Buttons = MessageDialogButtons.YesNo,
-                Icon = MessageDialogIcon.Question,
-                Style = MessageDialogStyle.Dark
-            };
-
-            var result = msg.Show();
-
-            if (result == DialogResult.Yes)
-            {
-                Environment.Exit(0);
-            }
-            else
-            {
-                return;
             }
         }
     }

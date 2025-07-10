@@ -41,14 +41,10 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label1 = new Label();
             label2 = new Label();
-            label3 = new Label();
             txtAd = new Guna.UI2.WinForms.Guna2TextBox();
             txtSoyad = new Guna.UI2.WinForms.Guna2TextBox();
-            txtNo = new Guna.UI2.WinForms.Guna2TextBox();
             button1 = new Guna.UI2.WinForms.Guna2Button();
             button2 = new Guna.UI2.WinForms.Guna2Button();
             guna2NotificationPaint1 = new Guna.UI2.WinForms.Guna2NotificationPaint(components);
@@ -63,7 +59,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Calibri", 15F, FontStyle.Bold);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(283, 122);
+            label1.Location = new Point(283, 172);
             label1.Name = "label1";
             label1.Size = new Size(65, 24);
             label1.TabIndex = 1;
@@ -74,23 +70,12 @@
             label2.AutoSize = true;
             label2.Font = new Font("Calibri", 15F, FontStyle.Bold);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(283, 172);
+            label2.Location = new Point(283, 222);
             label2.Name = "label2";
             label2.Size = new Size(90, 24);
             label2.TabIndex = 2;
             label2.Text = "Surname:";
             label2.Click += label2_Click;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Calibri", 15F, FontStyle.Bold);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(283, 219);
-            label3.Name = "label3";
-            label3.Size = new Size(155, 24);
-            label3.TabIndex = 3;
-            label3.Text = "Student Number:";
             // 
             // txtAd
             // 
@@ -104,7 +89,7 @@
             txtAd.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
             txtAd.ForeColor = Color.FromArgb(35, 39, 42);
             txtAd.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtAd.Location = new Point(461, 114);
+            txtAd.Location = new Point(461, 172);
             txtAd.Margin = new Padding(7, 9, 7, 9);
             txtAd.Name = "txtAd";
             txtAd.PlaceholderText = "";
@@ -125,7 +110,7 @@
             txtSoyad.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
             txtSoyad.ForeColor = Color.FromArgb(35, 39, 42);
             txtSoyad.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtSoyad.Location = new Point(461, 168);
+            txtSoyad.Location = new Point(461, 222);
             txtSoyad.Margin = new Padding(7, 9, 7, 9);
             txtSoyad.Name = "txtSoyad";
             txtSoyad.PlaceholderText = "";
@@ -134,30 +119,9 @@
             txtSoyad.Size = new Size(190, 32);
             txtSoyad.TabIndex = 8;
             // 
-            // txtNo
-            // 
-            txtNo.CustomizableEdges = customizableEdges5;
-            txtNo.DefaultText = "";
-            txtNo.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtNo.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtNo.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtNo.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtNo.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtNo.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            txtNo.ForeColor = Color.FromArgb(35, 39, 42);
-            txtNo.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtNo.Location = new Point(461, 222);
-            txtNo.Margin = new Padding(7, 9, 7, 9);
-            txtNo.Name = "txtNo";
-            txtNo.PlaceholderText = "";
-            txtNo.SelectedText = "";
-            txtNo.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            txtNo.Size = new Size(190, 32);
-            txtNo.TabIndex = 9;
-            // 
             // button1
             // 
-            button1.CustomizableEdges = customizableEdges7;
+            button1.CustomizableEdges = customizableEdges5;
             button1.DisabledState.BorderColor = Color.DarkGray;
             button1.DisabledState.CustomBorderColor = Color.DarkGray;
             button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -166,7 +130,7 @@
             button1.ForeColor = Color.White;
             button1.Location = new Point(370, 350);
             button1.Name = "button1";
-            button1.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            button1.ShadowDecoration.CustomizableEdges = customizableEdges6;
             button1.Size = new Size(160, 90);
             button1.TabIndex = 10;
             button1.Text = "Add Student";
@@ -174,7 +138,7 @@
             // 
             // button2
             // 
-            button2.CustomizableEdges = customizableEdges9;
+            button2.CustomizableEdges = customizableEdges7;
             button2.DisabledState.BorderColor = Color.DarkGray;
             button2.DisabledState.CustomBorderColor = Color.DarkGray;
             button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -183,7 +147,7 @@
             button2.ForeColor = Color.White;
             button2.Location = new Point(690, 460);
             button2.Name = "button2";
-            button2.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            button2.ShadowDecoration.CustomizableEdges = customizableEdges8;
             button2.Size = new Size(160, 90);
             button2.TabIndex = 11;
             button2.Text = "Exit to Main Menu";
@@ -191,7 +155,7 @@
             // 
             // passwordBox
             // 
-            passwordBox.CustomizableEdges = customizableEdges11;
+            passwordBox.CustomizableEdges = customizableEdges9;
             passwordBox.DefaultText = "";
             passwordBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             passwordBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -207,7 +171,7 @@
             passwordBox.PasswordChar = '*';
             passwordBox.PlaceholderText = "";
             passwordBox.SelectedText = "";
-            passwordBox.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            passwordBox.ShadowDecoration.CustomizableEdges = customizableEdges10;
             passwordBox.Size = new Size(190, 32);
             passwordBox.TabIndex = 13;
             // 
@@ -216,7 +180,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Calibri", 15F, FontStyle.Bold);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(283, 269);
+            label4.Location = new Point(283, 272);
             label4.Name = "label4";
             label4.Size = new Size(168, 24);
             label4.TabIndex = 12;
@@ -238,10 +202,10 @@
             hideSwitch.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
             hideSwitch.CheckedState.InnerBorderColor = Color.White;
             hideSwitch.CheckedState.InnerColor = Color.White;
-            hideSwitch.CustomizableEdges = customizableEdges13;
+            hideSwitch.CustomizableEdges = customizableEdges11;
             hideSwitch.Location = new Point(666, 281);
             hideSwitch.Name = "hideSwitch";
-            hideSwitch.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            hideSwitch.ShadowDecoration.CustomizableEdges = customizableEdges12;
             hideSwitch.Size = new Size(35, 20);
             hideSwitch.TabIndex = 14;
             hideSwitch.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
@@ -263,10 +227,8 @@
             Controls.Add(label4);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(txtNo);
             Controls.Add(txtSoyad);
             Controls.Add(txtAd);
-            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
@@ -280,10 +242,8 @@
         #endregion
         private Label label1;
         private Label label2;
-        private Label label3;
         private Guna.UI2.WinForms.Guna2TextBox txtAd;
         private Guna.UI2.WinForms.Guna2TextBox txtSoyad;
-        private Guna.UI2.WinForms.Guna2TextBox txtNo;
         private Guna.UI2.WinForms.Guna2Button button1;
         private Guna.UI2.WinForms.Guna2Button button2;
         private Guna.UI2.WinForms.Guna2NotificationPaint guna2NotificationPaint1;

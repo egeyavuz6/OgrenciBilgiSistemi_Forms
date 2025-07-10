@@ -26,6 +26,7 @@ namespace OgrenciBilgiSistemi
 
         private void OrtalamaForm_Load(object sender, EventArgs e)
         {
+            try { 
             using (var db = new OBSContext())
             {
                 var ogrenciler = db.Ogrenciler
@@ -36,6 +37,18 @@ namespace OgrenciBilgiSistemi
                 comboBox.DataSource = ogrenciler;
             }
             comboBox.SelectedIndex = 0;
+            }
+            catch(Exception ex)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error",
+                    Text = $"Sistemde öğrenci yok!",
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
+
+                }.Show();
+            }
+            return;
            
 
 
@@ -93,7 +106,7 @@ namespace OgrenciBilgiSistemi
                 }
 
                 double toplamAğırlıklıNot = 0.0;
-                int toplamKredi = 0;
+                double toplamKredi = 0;
                 foreach (var not in ogrenci.Notlar)
                 {
                     var ders = db.Courses.FirstOrDefault(d => d.Id == not.CourseId);
@@ -105,7 +118,7 @@ namespace OgrenciBilgiSistemi
                 }
 
                 double GPA = toplamAğırlıklıNot / toplamKredi;
-                guna2HtmlLabel3.Text = $"{GPA}";
+                guna2HtmlLabel3.Text = $"{GPA:F2}";
                 guna2HtmlLabel4.Text = comboOgrenci[1];
 
                 

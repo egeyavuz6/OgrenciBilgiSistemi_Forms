@@ -56,41 +56,105 @@ namespace OgrenciBilgiSistemi
 
         private void ogrenciSilToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            OgrenciSilForm silForm = new OgrenciSilForm(ogrenciListesi);
-            silForm.Show();
+            var ogrenciler = dbContext.Ogrenciler.ToList();
+
+            if (ogrenciler.Count == 0)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error",
+                    Text = "No Students Found.",
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Error,
+                }.Show();
+                return;
+            }
+            else
+            {
+                this.Hide();
+                OgrenciSilForm silForm = new OgrenciSilForm(ogrenciListesi);
+                silForm.Show();
+            }
 
         }
 
         private void ogrencileriListeleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            OgrencileriListele listeleForm = new OgrencileriListele();
-            listeleForm.Show();
+            var ogrenciler = dbContext.Ogrenciler.ToList();
 
+            if (ogrenciler.Count == 0)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error",
+                    Text = "No Students Found.",
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Error,
+                }.Show();
+                return;
+            }
+            else
+            {
+                this.Hide();
+                OgrencileriListele listeleForm = new OgrencileriListele();
+                listeleForm.Show();
+            }
         }
 
         private void notEkleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            NotEkleForm notForm = new NotEkleForm(ogrenciListesi);
-            notForm.Show();
-
+            
+                this.Hide();
+                NotEkleForm notForm = new NotEkleForm(ogrenciListesi);
+                notForm.Show();
+            
         }
 
         private void notSilToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            var grades = dbContext.Notlar.ToList();
+
+            if (grades.Count == 0)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error",
+                    Text = "No Grades Found.",
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Error,
+                }.Show();
+                return;
+            }
+            else
+            {
             this.Hide();
             OrtalamaForm ortalamaForm = new OrtalamaForm(dbContext);
             ortalamaForm.Show();
+            }
         }
 
 
         private void notlarıListeleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            NotListeleForm listeleForm = new NotListeleForm(ogrenciListesi, dbContext);
-            listeleForm.Show();
+            var grades = dbContext.Notlar.ToList();
+
+            if (grades.Count == 0)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error",
+                    Text = "No Grades Found.",
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Error,
+                }.Show();
+                return;
+            }
+            else
+            {
+                this.Hide();
+                NotListeleForm listeleForm = new NotListeleForm(ogrenciListesi, dbContext);
+                listeleForm.Show();
+            }
         }
         private void Menu_Load(object sender, EventArgs e)
         {
@@ -106,10 +170,25 @@ namespace OgrenciBilgiSistemi
 
         private void notSilToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            NotSilForm notSilForm = new NotSilForm(ogrenciListesi, dbContext);
-            notSilForm.Show();
+            var grades = dbContext.Notlar.ToList();
 
+            if (grades.Count == 0)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error",
+                    Text = "No Grades Found.",
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Error,
+                }.Show();
+                return;
+            }
+            else
+            {
+                this.Hide();
+                NotSilForm notSilForm = new NotSilForm(ogrenciListesi, dbContext);
+                notSilForm.Show();
+            }
         }
 
         private void addCourseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -122,19 +201,50 @@ namespace OgrenciBilgiSistemi
 
         private void removeCourseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            var courses = dbContext.Courses.ToList();
+
+            if (courses.Count == 0)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error",
+                    Text = "No courses found.",
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Error,
+                }.Show();
+                return;
+            }
+            else
+            {
+                this.Hide();
             OBSContext context = new OBSContext(); 
             RemoveCourse form = new RemoveCourse(null, context);
             form.Show();
+            }
 
         }
 
         private void listCourseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            ListCourse listCourse = new ListCourse();
-            listCourse.Show();
+            var courses = dbContext.Courses.ToList();
 
+            if (courses.Count == 0)
+            {
+                new Guna2MessageDialog
+                {
+                    Caption = "Error",
+                    Text = "No courses found.",
+                    Buttons = MessageDialogButtons.OK,
+                    Icon = MessageDialogIcon.Error,
+                }.Show();
+                return;
+            }
+            else
+            {
+                this.Hide();
+                ListCourse listCourse = new ListCourse();
+                listCourse.Show();
+            }
         }
     }
 }

@@ -54,7 +54,7 @@ namespace OgrenciBilgiSistemi.Student
                 }
 
                 double toplamAğırlıklıNot = 0.0;
-                int toplamKredi = 0;
+                double toplamKredi = 0;
                 foreach (var not in ogrenci.Notlar)
                 {
                     var ders = db.Courses.FirstOrDefault(d => d.Id == not.CourseId);

@@ -33,7 +33,7 @@ namespace OgrenciBilgiSistemi
             try {
                 Regex regex = new Regex("^[a-zA-Z0-9çÇğĞıİöÖşŞüÜ_\\s]{2,50}$");
                 string courseId = nameBox.Text.Trim();
-                int credit = int.Parse(creditBox.Text.Trim());
+                double credit = double.Parse(creditBox.Text.Trim());
                 if (string.IsNullOrEmpty(courseId) || string.IsNullOrEmpty(courseId))
                 {
                     new Guna.UI2.WinForms.Guna2MessageDialog
@@ -46,7 +46,7 @@ namespace OgrenciBilgiSistemi
                     return;
                 }
                 //credit sadece rakamlardan oluşmalı
-                if (!int.TryParse(creditBox.Text, out _))
+                if (!double.TryParse(creditBox.Text, out _))
                 {
                     new Guna2MessageDialog
                     {

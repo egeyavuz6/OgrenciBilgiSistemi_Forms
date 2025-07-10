@@ -9,6 +9,6 @@ namespace OgrenciBilgiSistemi
     public class Course
     {
         public string Id { get; set; }
-        public int Credit { get; set; }
+        public double Credit { get; set; }
     }
 }

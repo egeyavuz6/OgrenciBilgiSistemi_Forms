@@ -35,49 +35,29 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            loginButton = new Guna.UI2.WinForms.Guna2CircleButton();
             label2 = new Label();
             label1 = new Label();
             passwordBox = new Guna.UI2.WinForms.Guna2TextBox();
             studentIDbox = new Guna.UI2.WinForms.Guna2TextBox();
-            guna2CircleButton1 = new Guna.UI2.WinForms.Guna2CircleButton();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             hideSwitch = new Guna.UI2.WinForms.Guna2ToggleSwitch();
             guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(components);
             guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             SuspendLayout();
-            // 
-            // loginButton
-            // 
-            loginButton.BackColor = Color.Transparent;
-            loginButton.DisabledState.BorderColor = Color.DarkGray;
-            loginButton.DisabledState.CustomBorderColor = Color.DarkGray;
-            loginButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            loginButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            loginButton.FillColor = Color.FromArgb(88, 101, 242);
-            loginButton.Font = new Font("Calibri", 16F);
-            loginButton.ForeColor = Color.White;
-            loginButton.HoverState.BorderColor = Color.Black;
-            loginButton.HoverState.CustomBorderColor = Color.Black;
-            loginButton.HoverState.FillColor = Color.FromArgb(114, 137, 218);
-            loginButton.Location = new Point(371, 292);
-            loginButton.Name = "loginButton";
-            loginButton.ShadowDecoration.CustomizableEdges = customizableEdges1;
-            loginButton.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            loginButton.Size = new Size(148, 148);
-            loginButton.TabIndex = 9;
-            loginButton.Text = "LOGIN";
-            loginButton.Click += loginButton_Click;
             // 
             // label2
             // 
             label2.Font = new Font("Calibri", 15F, FontStyle.Bold);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(283, 168);
+            label2.Location = new Point(219, 229);
             label2.Name = "label2";
             label2.Size = new Size(119, 32);
             label2.TabIndex = 8;
@@ -87,7 +67,7 @@
             // 
             label1.Font = new Font("Calibri", 15F, FontStyle.Bold);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(283, 120);
+            label1.Location = new Point(219, 181);
             label1.Name = "label1";
             label1.Size = new Size(119, 32);
             label1.TabIndex = 7;
@@ -95,7 +75,7 @@
             // 
             // passwordBox
             // 
-            passwordBox.CustomizableEdges = customizableEdges2;
+            passwordBox.CustomizableEdges = customizableEdges1;
             passwordBox.DefaultText = "";
             passwordBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             passwordBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -105,19 +85,19 @@
             passwordBox.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
             passwordBox.ForeColor = Color.FromArgb(35, 39, 42);
             passwordBox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            passwordBox.Location = new Point(412, 168);
+            passwordBox.Location = new Point(348, 231);
             passwordBox.Margin = new Padding(7, 9, 7, 9);
             passwordBox.Name = "passwordBox";
             passwordBox.PasswordChar = '*';
             passwordBox.PlaceholderText = "";
             passwordBox.SelectedText = "";
-            passwordBox.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            passwordBox.ShadowDecoration.CustomizableEdges = customizableEdges2;
             passwordBox.Size = new Size(190, 32);
             passwordBox.TabIndex = 6;
             // 
             // studentIDbox
             // 
-            studentIDbox.CustomizableEdges = customizableEdges4;
+            studentIDbox.CustomizableEdges = customizableEdges3;
             studentIDbox.DefaultText = "";
             studentIDbox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             studentIDbox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -127,43 +107,21 @@
             studentIDbox.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
             studentIDbox.ForeColor = Color.FromArgb(35, 39, 42);
             studentIDbox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            studentIDbox.Location = new Point(412, 120);
+            studentIDbox.Location = new Point(348, 181);
             studentIDbox.Margin = new Padding(7, 9, 7, 9);
             studentIDbox.Name = "studentIDbox";
             studentIDbox.PlaceholderText = "";
             studentIDbox.SelectedText = "";
-            studentIDbox.ShadowDecoration.CustomizableEdges = customizableEdges5;
+            studentIDbox.ShadowDecoration.CustomizableEdges = customizableEdges4;
             studentIDbox.Size = new Size(190, 32);
             studentIDbox.TabIndex = 5;
             studentIDbox.TextChanged += studentIDbox_TextChanged;
-            // 
-            // guna2CircleButton1
-            // 
-            guna2CircleButton1.BackColor = Color.Transparent;
-            guna2CircleButton1.DisabledState.BorderColor = Color.DarkGray;
-            guna2CircleButton1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2CircleButton1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2CircleButton1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2CircleButton1.FillColor = Color.FromArgb(88, 101, 242);
-            guna2CircleButton1.Font = new Font("Calibri", 16F);
-            guna2CircleButton1.ForeColor = Color.White;
-            guna2CircleButton1.HoverState.BorderColor = Color.Black;
-            guna2CircleButton1.HoverState.CustomBorderColor = Color.Black;
-            guna2CircleButton1.HoverState.FillColor = Color.FromArgb(114, 137, 218);
-            guna2CircleButton1.Location = new Point(725, 427);
-            guna2CircleButton1.Name = "guna2CircleButton1";
-            guna2CircleButton1.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            guna2CircleButton1.Size = new Size(148, 148);
-            guna2CircleButton1.TabIndex = 10;
-            guna2CircleButton1.Text = "ADMIN LOGIN";
-            guna2CircleButton1.Click += guna2CircleButton1_Click;
             // 
             // guna2HtmlLabel1
             // 
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.ForeColor = Color.White;
-            guna2HtmlLabel1.Location = new Point(671, 178);
+            guna2HtmlLabel1.Location = new Point(607, 239);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(93, 17);
             guna2HtmlLabel1.TabIndex = 13;
@@ -175,10 +133,10 @@
             hideSwitch.CheckedState.FillColor = Color.FromArgb(94, 148, 255);
             hideSwitch.CheckedState.InnerBorderColor = Color.White;
             hideSwitch.CheckedState.InnerColor = Color.White;
-            hideSwitch.CustomizableEdges = customizableEdges7;
-            hideSwitch.Location = new Point(622, 176);
+            hideSwitch.CustomizableEdges = customizableEdges5;
+            hideSwitch.Location = new Point(558, 237);
             hideSwitch.Name = "hideSwitch";
-            hideSwitch.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            hideSwitch.ShadowDecoration.CustomizableEdges = customizableEdges6;
             hideSwitch.Size = new Size(35, 20);
             hideSwitch.TabIndex = 12;
             hideSwitch.UncheckedState.BorderColor = Color.FromArgb(125, 137, 149);
@@ -193,7 +151,7 @@
             // 
             // guna2Button1
             // 
-            guna2Button1.CustomizableEdges = customizableEdges9;
+            guna2Button1.CustomizableEdges = customizableEdges11;
             guna2Button1.DisabledState.BorderColor = Color.DarkGray;
             guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -203,12 +161,46 @@
             guna2Button1.ForeColor = Color.WhiteSmoke;
             guna2Button1.Location = new Point(847, 12);
             guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2Button1.Size = new Size(36, 36);
             guna2Button1.TabIndex = 14;
             guna2Button1.Text = "X";
             guna2Button1.TextAlign = HorizontalAlignment.Right;
             guna2Button1.Click += guna2Button1_Click;
+            // 
+            // guna2Button3
+            // 
+            guna2Button3.CustomizableEdges = customizableEdges7;
+            guna2Button3.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button3.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button3.Font = new Font("Calibri", 14F, FontStyle.Bold);
+            guna2Button3.ForeColor = Color.White;
+            guna2Button3.Location = new Point(250, 370);
+            guna2Button3.Name = "guna2Button3";
+            guna2Button3.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            guna2Button3.Size = new Size(140, 90);
+            guna2Button3.TabIndex = 21;
+            guna2Button3.Text = "ADMIN LOGIN";
+            guna2Button3.Click += guna2Button3_Click;
+            // 
+            // guna2Button2
+            // 
+            guna2Button2.CustomizableEdges = customizableEdges9;
+            guna2Button2.DisabledState.BorderColor = Color.DarkGray;
+            guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray;
+            guna2Button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            guna2Button2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            guna2Button2.Font = new Font("Calibri", 14F, FontStyle.Bold);
+            guna2Button2.ForeColor = Color.White;
+            guna2Button2.Location = new Point(484, 370);
+            guna2Button2.Name = "guna2Button2";
+            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            guna2Button2.Size = new Size(140, 90);
+            guna2Button2.TabIndex = 20;
+            guna2Button2.Text = "LOGIN";
+            guna2Button2.Click += guna2Button2_Click;
             // 
             // StudentLogin
             // 
@@ -217,11 +209,11 @@
             BackColor = Color.FromArgb(44, 47, 51);
             BackgroundImage = Properties.Resources.ChatGPT_Image_10_Tem_2025_14_42_46__1_;
             ClientSize = new Size(900, 600);
+            Controls.Add(guna2Button3);
+            Controls.Add(guna2Button2);
             Controls.Add(guna2Button1);
             Controls.Add(guna2HtmlLabel1);
             Controls.Add(hideSwitch);
-            Controls.Add(guna2CircleButton1);
-            Controls.Add(loginButton);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(passwordBox);
@@ -235,16 +227,15 @@
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2CircleButton loginButton;
         private Label label2;
         private Label label1;
         private Guna.UI2.WinForms.Guna2TextBox passwordBox;
         private Guna.UI2.WinForms.Guna2TextBox studentIDbox;
-        private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButton1;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2ToggleSwitch hideSwitch;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
     }
 }

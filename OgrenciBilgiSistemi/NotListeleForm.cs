@@ -78,11 +78,16 @@ namespace OgrenciBilgiSistemi
                         }.Show();
                         return;
                     }
+                    dataGridView1.AutoGenerateColumns = true;
+                    dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dataGridView1.BackgroundColor = Color.FromArgb(44, 47, 51);
+                    dataGridView1.DataSource = notlar;
+                    dataGridView1.Columns[0].HeaderText = "Name";
+                    dataGridView1.Columns[1].HeaderText = "Surname";
+                    dataGridView1.Columns[2].HeaderText = "Course Name";
+                    dataGridView1.Columns[3].HeaderText = "Credit";
+                    dataGridView1.Columns[4].HeaderText = "Grades";
 
-                    guna2DataGridView1.AutoGenerateColumns = true;
-                    guna2DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                    guna2DataGridView1.BackgroundColor = Color.FromArgb(44, 47, 51);
-                    guna2DataGridView1.DataSource = notlar;
                 }
             }
             catch (Exception ex)
@@ -98,10 +103,6 @@ namespace OgrenciBilgiSistemi
         }
 
 
-        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void NotListeleForm_Load_1(object sender, EventArgs e)
         {

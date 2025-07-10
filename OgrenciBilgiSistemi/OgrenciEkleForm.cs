@@ -24,10 +24,23 @@ namespace OgrenciBilgiSistemi
             try
             {
                 Regex regex = new Regex("^[a-zA-ZçÇğĞıİöÖşŞüÜ\\s]{2,50}$");
-                string ogrenciNo = txtNo.Text.Trim();
                 string isim = txtAd.Text.Trim();
                 string soyisim = txtSoyad.Text.Trim();
                 string sifre = passwordBox.Text.Trim();
+
+                //ogrenciNo rastgele 5 haneli sayı oluşturulur
+                string ogrenciNo = "";
+                Random random = new Random();
+
+                using (var db = new OBSContext())
+                {
+                    do
+                    {
+                        ogrenciNo = random.Next(0, 100000).ToString();
+                    } while (db.Ogrenciler.Any(o => o.OgrenciNo == ogrenciNo));
+
+                }
+
 
                 if (string.IsNullOrEmpty(ogrenciNo) || string.IsNullOrEmpty(isim) || string.IsNullOrEmpty(soyisim))
                 {
@@ -101,43 +114,27 @@ namespace OgrenciBilgiSistemi
                     return;
                 }
 
-
-                using (var db = new OBSContext())
+                var yeniOgrenci = new Ogrenci
                 {
-                    if (db.Ogrenciler.Any(o => o.OgrenciNo == ogrenciNo))
-                    {
-                        new Guna2MessageDialog
-                        {
-                            Caption = "Error!",
-                            Text = "This Student Nubmer is Already in Use!",
-                            Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                            Icon = Guna.UI2.WinForms.MessageDialogIcon.Error,
-                        }.Show();
-                        return;
-                    }
+                    OgrenciNo = ogrenciNo,
+                    Isim = isim,
+                    Soyisim = soyisim,
+                    password = sifre
+                };
 
+                db.Ogrenciler.Add(yeniOgrenci);
+                db.SaveChanges();
+                new Guna2MessageDialog
+                {
+                    Caption = "Success",
+                    Text = "Student Added Successfully!",
+                    Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
+                    Icon = Guna.UI2.WinForms.MessageDialogIcon.Information,
+                    Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
+                }.Show();
 
-                    var yeniOgrenci = new Ogrenci
-                    {
-                        OgrenciNo = ogrenciNo,
-                        Isim = isim,
-                        Soyisim = soyisim,
-                        password = sifre
-                    };
-
-                    db.Ogrenciler.Add(yeniOgrenci);
-                    db.SaveChanges();
-                    new Guna2MessageDialog
-                    {
-                        Caption = "Success",
-                        Text = "Student Added Successfully!",
-                        Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK,
-                        Icon = Guna.UI2.WinForms.MessageDialogIcon.Information,
-                        Style = BackColor == Color.FromArgb(44, 47, 51) ? Guna.UI2.WinForms.MessageDialogStyle.Dark : Guna.UI2.WinForms.MessageDialogStyle.Light
-                    }.Show();
-
-                }
-            }
+            
+           }
             catch (Exception ex)
             {
                 new Guna2MessageDialog
