@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             dataGridView1 = new DataGridView();
             btnSil = new Guna.UI2.WinForms.Guna2Button();
             exitBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -65,7 +65,7 @@
             // 
             // btnSil
             // 
-            btnSil.CustomizableEdges = customizableEdges11;
+            btnSil.CustomizableEdges = customizableEdges1;
             btnSil.DisabledState.BorderColor = Color.DarkGray;
             btnSil.DisabledState.CustomBorderColor = Color.DarkGray;
             btnSil.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -74,7 +74,7 @@
             btnSil.ForeColor = Color.White;
             btnSil.Location = new Point(112, 480);
             btnSil.Name = "btnSil";
-            btnSil.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            btnSil.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnSil.Size = new Size(160, 90);
             btnSil.TabIndex = 10;
             btnSil.Text = "Delete Grade";
@@ -82,7 +82,7 @@
             // 
             // exitBtn
             // 
-            exitBtn.CustomizableEdges = customizableEdges13;
+            exitBtn.CustomizableEdges = customizableEdges3;
             exitBtn.DisabledState.BorderColor = Color.DarkGray;
             exitBtn.DisabledState.CustomBorderColor = Color.DarkGray;
             exitBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -91,7 +91,7 @@
             exitBtn.ForeColor = SystemColors.Window;
             exitBtn.Location = new Point(710, 480);
             exitBtn.Name = "exitBtn";
-            exitBtn.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            exitBtn.ShadowDecoration.CustomizableEdges = customizableEdges4;
             exitBtn.Size = new Size(160, 90);
             exitBtn.TabIndex = 11;
             exitBtn.Text = "Exit to Main Menu";
@@ -99,7 +99,7 @@
             // 
             // updateButton
             // 
-            updateButton.CustomizableEdges = customizableEdges15;
+            updateButton.CustomizableEdges = customizableEdges5;
             updateButton.DisabledState.BorderColor = Color.DarkGray;
             updateButton.DisabledState.CustomBorderColor = Color.DarkGray;
             updateButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -108,15 +108,16 @@
             updateButton.ForeColor = Color.White;
             updateButton.Location = new Point(414, 480);
             updateButton.Name = "updateButton";
-            updateButton.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            updateButton.ShadowDecoration.CustomizableEdges = customizableEdges6;
             updateButton.Size = new Size(160, 90);
             updateButton.TabIndex = 12;
             updateButton.Text = "Update Grade";
+            updateButton.Visible = false;
             updateButton.Click += updateButton_Click;
             // 
             // okButton
             // 
-            okButton.CustomizableEdges = customizableEdges17;
+            okButton.CustomizableEdges = customizableEdges7;
             okButton.DisabledState.BorderColor = Color.DarkGray;
             okButton.DisabledState.CustomBorderColor = Color.DarkGray;
             okButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -125,7 +126,7 @@
             okButton.ForeColor = Color.White;
             okButton.Location = new Point(463, 353);
             okButton.Name = "okButton";
-            okButton.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            okButton.ShadowDecoration.CustomizableEdges = customizableEdges8;
             okButton.Size = new Size(61, 48);
             okButton.TabIndex = 14;
             okButton.Text = "OK";
@@ -135,13 +136,14 @@
             // numericBox
             // 
             numericBox.BackColor = Color.Transparent;
-            numericBox.CustomizableEdges = customizableEdges19;
+            numericBox.CustomizableEdges = customizableEdges9;
             numericBox.Font = new Font("Segoe UI", 9F);
             numericBox.Location = new Point(414, 311);
             numericBox.Name = "numericBox";
-            numericBox.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            numericBox.ShadowDecoration.CustomizableEdges = customizableEdges10;
             numericBox.Size = new Size(160, 36);
             numericBox.TabIndex = 15;
+            numericBox.Visible = false;
             // 
             // NotSilForm
             // 

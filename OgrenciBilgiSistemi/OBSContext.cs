@@ -33,7 +33,7 @@ namespace OgrenciBilgiSistemi
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Server=EGE\SQLEXPRESS;Database=OgrenciBilgiSistemi;Trusted_Connection=True;TrustServerCertificate=True;");
+                optionsBuilder.UseSqlServer(@"Server=DESKTOP-IBCCD9T\SQLEXPRESS;Database=OgrenciBilgiSistemi;Trusted_Connection=True;TrustServerCertificate=True;");
             }
         }
     }

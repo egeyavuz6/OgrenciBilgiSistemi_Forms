@@ -25,8 +25,10 @@ namespace OgrenciBilgiSistemi
             guna2ComboBox1.DataSource = null;
             using (var db = new OBSContext())
             {
-                var courses = db.Courses.Select(c => c.Id).ToList();
+                var courses = db.Courses.ToList();
                 guna2ComboBox1.DataSource = courses;
+                guna2ComboBox1.DisplayMember = "Name";
+                guna2ComboBox1.ValueMember = "Id";
             }
             //student number and name combobox data source
             studentNumberNameCombo.DataSource = null;
@@ -47,7 +49,7 @@ namespace OgrenciBilgiSistemi
             try
             {
                 string grade = txtNot.Text.Trim();
-                int courseId = Convert.ToInt32(guna2ComboBox1.SelectedItem);
+                int courseId = Convert.ToInt32(guna2ComboBox1.SelectedValue);
 
 
                 string selectedStudent = studentNumberNameCombo.SelectedItem.ToString();

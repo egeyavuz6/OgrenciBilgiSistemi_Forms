@@ -10,7 +10,6 @@ namespace OgrenciBilgiSistemi
     {
         public int Id { get; set; }
         public double Credit { get; set; }
-
         public string Name { get; set; }
     }
 }

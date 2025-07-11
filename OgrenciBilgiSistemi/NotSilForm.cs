@@ -20,10 +20,10 @@ namespace OgrenciBilgiSistemi
 
         private void NotSilForm_Load(object sender, EventArgs e)
         {
+
             try
             {
                 dataGridView1.Visible = true;
-
                 var ogrenciNotlari = db.Ogrenciler
                     .Include(o => o.Notlar)
                     .ThenInclude(n => n.Course)
@@ -61,6 +61,7 @@ namespace OgrenciBilgiSistemi
                     Icon = MessageDialogIcon.Error,
                 }.Show();
             }
+            dataGridView1.Columns["Id"].Visible = false;
         }
 
 
@@ -107,7 +108,7 @@ namespace OgrenciBilgiSistemi
                         }.Show();
                         return;
                     }
-
+                    
                     db.Notlar.Remove(not);
                     db.SaveChanges();
 
@@ -169,9 +170,12 @@ namespace OgrenciBilgiSistemi
                 okButton.Visible = true;
             }
 
-
+            dataGridView1.Columns["Id"].Visible = true;
             int notId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["Id"].Value);
             var not = db.Notlar.FirstOrDefault(n => n.Id == notId);
+
+            double gradeValue = Convert.ToDouble(numericBox.Value);
+
 
             if (not == null)
             {
@@ -237,7 +241,7 @@ namespace OgrenciBilgiSistemi
                     Icon = MessageDialogIcon.Error,
                 }.Show();
             }
-            if (numericBox.Value >100 || numericBox.Value < 0)
+            if (Convert.ToDouble(numericBox.Value) > 100 || Convert.ToDouble(numericBox.Value) < 0)
             {
                 new Guna2MessageDialog
                 {

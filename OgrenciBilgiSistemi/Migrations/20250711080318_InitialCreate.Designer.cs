@@ -11,7 +11,7 @@ using OgrenciBilgiSistemi;
 namespace OgrenciBilgiSistemi.Migrations
 {
     [DbContext(typeof(OBSContext))]
-    [Migration("20250710205448_InitialCreate")]
+    [Migration("20250711080318_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

@@ -81,8 +81,10 @@ namespace OgrenciBilgiSistemi
             dataGridView1.DataSource = courses.Select(c => new
             {
                 c.Id,
+                c.Name,
                 c.Credit
             }).ToList();
+            dataGridView1.Columns["Id"].Visible = false;
         }
         private void btnSil_Click(object sender, EventArgs e)
         {
