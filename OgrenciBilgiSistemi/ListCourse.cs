@@ -36,6 +36,8 @@ namespace OgrenciBilgiSistemi
                         .ToList();
 
                     dataGridView1.DataSource = courses;
+                    dataGridView1.Columns[0].HeaderText = "Course Name";
+                    dataGridView1.Columns[1].HeaderText = "Credits";
                 }
             }
             catch (Exception ex)

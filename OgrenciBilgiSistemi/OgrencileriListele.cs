@@ -37,6 +37,9 @@ namespace OgrenciBilgiSistemi
 
                     dataGridView1.DataSource = ogrenciler;
                 }
+                dataGridView1.Columns[0].HeaderText = "Name";
+                dataGridView1.Columns[1].HeaderText = "Last Name";
+                dataGridView1.Columns[2].HeaderText = "Student Number";
             }
             catch (Exception ex)
             {

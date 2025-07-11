@@ -18,7 +18,7 @@ namespace OgrenciBilgiSistemi.Student
         private readonly OBSContext db;
         public SeeGPA()
         {
-       
+
             InitializeComponent();
             db = new OBSContext();
         }
@@ -68,7 +68,7 @@ namespace OgrenciBilgiSistemi.Student
 
                 double GPA = toplamAğırlıklıNot / toplamKredi;
 
-                gpaSonucBox.Text = $"Your GPA is : {GPA:F2}";
+                gpaSonucBox.Text = $"{GPA:F2}";
                 creditSonucBox.Text = $"Total Credits: {toplamKredi}";
             }
             catch (Exception ex)
@@ -85,6 +85,11 @@ namespace OgrenciBilgiSistemi.Student
         }
 
         private void gpaSonucBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
         {
 
         }

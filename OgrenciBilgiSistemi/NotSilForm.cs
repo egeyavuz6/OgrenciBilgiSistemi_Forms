@@ -40,6 +40,12 @@ namespace OgrenciBilgiSistemi
                     .ToList();
 
                 dataGridView1.DataSource = ogrenciNotlari;
+                dataGridView1.Columns[0].HeaderText = "Student Number";
+                dataGridView1.Columns[1].HeaderText = "Name";
+                dataGridView1.Columns[2].HeaderText = "Last Name";
+                dataGridView1.Columns[4].HeaderText = "Grades";
+                dataGridView1.Columns[5].HeaderText = "Course Name";
+                dataGridView1.Columns[6].HeaderText = "Credits";
             }
             catch (SqlException ex)
             {

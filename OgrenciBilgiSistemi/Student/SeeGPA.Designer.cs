@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             gpaSonucBox = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -43,11 +43,13 @@
             guna2HtmlLabel1.BackColor = Color.Transparent;
             guna2HtmlLabel1.Font = new Font("Calibri", 17F);
             guna2HtmlLabel1.ForeColor = Color.White;
-            guna2HtmlLabel1.Location = new Point(353, 202);
+            guna2HtmlLabel1.Location = new Point(398, 202);
             guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             guna2HtmlLabel1.Size = new Size(178, 56);
             guna2HtmlLabel1.TabIndex = 0;
             guna2HtmlLabel1.Text = "Current GPA:";
+            guna2HtmlLabel1.TextAlignment = ContentAlignment.TopRight;
+            guna2HtmlLabel1.Click += guna2HtmlLabel1_Click;
             // 
             // guna2HtmlLabel2
             // 
@@ -88,7 +90,7 @@
             // 
             // exitBtn
             // 
-            exitBtn.CustomizableEdges = customizableEdges3;
+            exitBtn.CustomizableEdges = customizableEdges5;
             exitBtn.DisabledState.BorderColor = Color.DarkGray;
             exitBtn.DisabledState.CustomBorderColor = Color.DarkGray;
             exitBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -97,7 +99,7 @@
             exitBtn.ForeColor = SystemColors.Window;
             exitBtn.Location = new Point(690, 460);
             exitBtn.Name = "exitBtn";
-            exitBtn.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            exitBtn.ShadowDecoration.CustomizableEdges = customizableEdges6;
             exitBtn.Size = new Size(160, 90);
             exitBtn.TabIndex = 12;
             exitBtn.Text = "Exit to Main Menu";

@@ -83,6 +83,12 @@ namespace OgrenciBilgiSistemi.Student
                     student.Isim,
                     student.Soyisim
                 }).ToList();
+                dataGridView1.Columns[0].HeaderText = "Grades";
+                dataGridView1.Columns[1].HeaderText = "Course Name";
+                dataGridView1.Columns[2].HeaderText = "Student Number";
+                dataGridView1.Columns[3].HeaderText = "First Name";
+                dataGridView1.Columns[4].HeaderText = "Last Name";
+
             }
             catch (Exception ex)
             {

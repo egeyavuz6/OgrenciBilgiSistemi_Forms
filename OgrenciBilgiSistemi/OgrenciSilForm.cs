@@ -110,6 +110,9 @@ namespace OgrenciBilgiSistemi
                     o.OgrenciNo,
                 }).ToList();
                 studentTableView.Visible = true;
+                studentTableView.Columns[0].HeaderText = "Name";
+                studentTableView.Columns[1].HeaderText = "Last Name";
+                studentTableView.Columns[2].HeaderText = "Student Number";
             }
             catch (SqlException sqlEx)
             {
